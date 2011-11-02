@@ -1,0 +1,253 @@
+%
+%  Allocating optional modules to University of York
+%  students using constrained optimisation
+%
+%  BSc Computer Science/Maths final-year dissertation
+%
+%  Created by Alex Muller on 2011-10-10.
+%  Copyright (c) 2011 Alex Muller. All rights reserved.
+%
+\documentclass[]{article}
+% report?
+%\documentclass[]{uoy_cs/UoYCSproject}
+
+\usepackage[utf8]{inputenc} % Use utf-8 encoding for foreign characters
+\usepackage{fullpage} % Setup for fullpage use
+
+% Running Headers and footers
+%\usepackage{fancyhdr}
+
+% Multipart figures
+%\usepackage{subfigure}
+
+% More symbols
+%\usepackage{amsmath,amssymb,latexsym}
+
+\usepackage{boxedminipage} % Surround parts of graphics with box
+\usepackage{listings} % Package for including code in the document
+\usepackage{lastpage} % Number of pages
+
+% This is now the recommended way for checking for PDFLaTeX:
+\usepackage{ifpdf}
+
+\ifpdf
+\usepackage[pdftex]{graphicx}
+\else
+\usepackage{graphicx}
+\fi
+
+\ifpdf
+\usepackage[pdftex]{hyperref}
+\else
+\usepackage{url}
+\fi
+
+% Title page stuff
+
+\title{Allocating optional modules to University of York students using constrained optimisation}
+\author{Alexander Muller}
+\date{16 March 2012}
+
+\begin{document}
+
+\ifpdf
+\DeclareGraphicsExtensions{.pdf, .jpg, .tif}
+\else
+\DeclareGraphicsExtensions{.eps, .jpg}
+\fi
+
+\maketitle
+
+This is the report for a Bachelor of Science final-year project in Computer Science and Mathematics at the University of York. The project was supervised by Dr James Cussens, Senior Lecturer in the Artifical Intelligence Group, Department of Computer Science.
+
+This report is 1,500ish words, as counted by running \verb+detex <report.tex> | wc -w+. It is \pageref{LastPage} pages long.
+
+\textit{(The limits are 35,000 words and 70 pages - neither limit may be exceeded.)}
+
+\textit{(Other projects I've seen have been 12,000/60, 11,000/60, etc)}
+
+\newpage
+
+\begin{abstract}
+  \textit{This is \emph{just} a couple of paragraphs which summarizes the report content. Must be comprehensible to someone who has not read the rest of the report.}
+  \textit{Not more than 200 words - this is 190.}
+  From their second year onwards, most students at the University of York can  choose between two or more optional modules to tailor their academic career, in the hope it will be more relevant and interesting. Optional module allocation in most departments is currently handled using a paper form which must be handed to departmental administrators. This project aims to design and implement a piece of web-based software that can be used by departments to allocate modules more fairly and with less administrative overhead.
+  The web application will be piloted by the Archaeology and History departments and, if successful, will be offered to all departments and maintained by the University.
+  This report discusses the choices made around the technology used, the development methodology and details relating to the allocation algorithm.
+  The software will be evaluated according to criteria set out by the project steering group, and the resulting evaluation is discussed here.
+\end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Statement of Ethics}
+
+\begin{enumerate}
+  \item Do no harm
+  \item Informed consent
+  \item Confidentiality of data
+\end{enumerate}
+
+No person volunteering to help with the project (primarily those interviewed during the research stage) will be put in a position of physical danger. Consent will be obtained from all volunteers prior to their interview, and volunteers' personal information will not be published or shared.
+
+As far as the project author is aware, there are no insurmountable ethical problems relating to the creation of the module allocation software.
+
+The project steering group has noted that as a student, the author must not be given access to any sensitive personal information. Development of the software will be carried out with fake data in a similar form to the real data held by the University. The University's Data Protection Officer was consulted during the project, and their input is discussed in more detail later in this report.
+
+\section{Introduction}
+
+\textit{The scope of the project, setting the scene for the remainder of the report.}
+
+This project is the result of requests by departments at the University of York for more flexibility in the way they offer modules to undergraduate students. The project is sponsored by University Teaching Committee and is overseen in that regard by Laura Crossley, Academic Support Office.
+
+As well as being marked as an undergraduate project, the software will be evaluated independently by Ms Crossley. If it is judged to provide sufficient advantages over the current methods of module allocation, it may be recommended that responbility for the software is handed to the University's IT Services department.
+
+A project steering group was formed consisting of representatives from each of the pilot departments (Archaeology and History), administrative staff responsible for IT and timetabling, and the project author and supervisor. At the initial meetings, this group set out the scope for the project…
+
+\subsection{The current state of module allocation}
+
+\begin{enumerate}
+  \item At the University of York
+  \item Elsewhere around the world
+\end{enumerate}
+
+\textit{Refer to documents provided by Laura}
+
+Universities worldwide want to give their students the most interesting and useful education possible, and one way this can be accomplished is by offering flexibility in modules students can take.
+
+At the University of York, module allocation is something dealt with at the departmental level. Some departments make use of centrally offered software (eVision and SITS, the university management information system), though several departments feel the software is not flexible enough and continue to use paper-based forms that must be filled out and returned to the departmental office. A smaller number of departments, such as Computer Science, have written their own module choice and allocation software.
+
+At other universities in the United Kingdom (for example, Warwick and Leeds), enrolement is completed online, on a first-come-first-served basis.
+
+\subsection{Web applications at the University of York}
+
+\begin{enumerate}
+  \item Student portal
+  \item Timetabling gateway
+  \item Google Apps for Education
+\end{enumerate}
+
+The university is constantly improving the quality of web applications available to students. In 2011, a new "student portal" was created, allowing students to view information relevant to them in one place. For the beginning of the 2011-12 academic year, new timetabling software is in use to give members of the university access to their complete timetable in one location---something which has not been possible before. And in 2012, the university will start to use Google Apps for Education for email and calendaring, which will hopefully improve the user experience dramatically over the current webmail offering.
+
+\section{Previous work}
+
+One or more review chapters, describing the research you did at the beginning of the project period.
+
+\subsection{Development methodology}
+
+Agile?
+
+Prototypes?
+
+Zhang and Chung note that prototyping can be used to reinforce client confidence as well as making better use of the time allocated to development and implementation \cite{MODFM_2003}.
+
+Prototyping is useful because… \cite{PrototypingWebApplications_2000}.
+
+\subsection{Database design}
+
+A database management system (DBMS) is a piece of software that manages the database, including providing the ability to add or edit records stored in the database. DBMS products are mature, many having been available since the early 1990s.
+
+Relational database models are a common feature of web applications. We note that the University of York already deploys MySQL and Oracle (both relational model) database systems for its web applications and MIS.
+
+How should the database be structured? Good question \cite{DatabaseModelsLanguagesDesign}.
+
+We start with a table of entities:
+
+\begin{tabular}{ l l }
+  Student    & Student ID (key), name, course \\
+  Module     & Module ID (key), name, class size \\
+  Allocation & Student ID (foreign key), module ID (foreign key) \\
+\end{tabular}
+
+We should draw an entity-relationship diagram.
+
+\section{Development, implementation and testing}
+
+\textit{Several chapters describing what you have done, focusing on the novel aspects of your own work.}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=160mm]{images/examplescreenshot.png}
+  \end{center}
+  \caption{A screenshot of the One Click Orgs software.}
+  \label{ocoscreenshot}
+\end{figure}
+
+Figure~\ref{ocoscreenshot} shows a screenshot of the One Click Orgs software.
+
+\subsection{User research}
+
+I met with lots of people.
+
+I spoke to students. We chatted about what annoys them with web apps, what they like, and how the system could work.
+
+I spoke to departmental administrators, who will be responsible for setting up the system.
+
+\subsection{Web application frameworks}
+
+A framework is a certain amount of reusable code that helps application developers by reducing the complexity of common web operations. For example, any moderately complex application will need to write user input to a data store, and protecting against malicious input is an obvious concern when executing code in a database.
+
+Many frameworks include functions that write to the database on behalf of the developer, and will automatically sanitise all input to prevent against attacks. As every application written should sanitise user input, it is this kind of repetitive action that frameworks help ease. A useful framework should increase the amount of time that a developer can spend building the unique parts of their application.
+
+While it is possible to build a web application without using a framework, there is no advantage to rewriting basic operations for this project. If the system needed to operate at a scale or speed far beyond what these frameworks were capable of, it is likely that the software would have to be built from scratch to meet those requirements.
+
+With the limited amount of time allocated to development and implementation, it is sensible to spend a small amount of time choosing a framework to allow more time to implement the system.
+
+I chose a framework. It could be based on ColdFusion, Ruby or Python. Or something else entirely. But at the moment I'm not sure.
+
+Rails guesses the model's attributes based on the database schema, whereas Django requires that the model's attributes be listed in the application, and the schema is then created.
+
+\begin{lstlisting}
+class Allocation < ActiveRecord::Base
+  belongs_to :student
+  belongs_to :module
+end
+\end{lstlisting}
+
+There's a good comparison of Django and Rails which is quite methodical. In it, the authors note that equivalent applications took $\frac{2}{3}$ the time to be implemented in Django than Rails \cite{RailsDjangoComparison_2007}.
+
+There's also a good comparison of the three big players that pretty much rules out CakePHP as being rubbish \cite{EvalWebDevFrameworks_2009}.
+
+\subsection{Allocation algorithm}
+
+Let's discuss the algorithm here.
+
+\subsection{Accessibility}
+
+Perhaps talking about Dave Swallow, CS PhD.
+
+\section{Further work}
+
+\textit{A chapter describing possible ways in which your work could be continued or developed. Be imaginative but realistic.}
+
+We should probably ask departments what they'd like to see in the future.
+
+If I didn't have time to implement a weighting system (rather than a simple, plain ranking system) I could talk about that here.
+
+\section{Conclusions}
+
+This is similar to the abstract. The difference is that you should assume here that the reader of the conclusions has read the rest of the report.
+
+It was a success. Well, hopefully.
+
+\section{Appendices}
+
+\textit{Screenshots? Code? Something else?}
+
+I would like to make the code of this software available online, at \url{https://github.com/alexmuller/york-allocation}.
+
+\subsection{External links}
+
+This section gives URLs to departments, offices or services mentioned throughout the document.
+
+\url{http://www.york.ac.uk/about/organisation/governance/sub-committees/teaching-committee/}
+
+\url{http://www.york.ac.uk/it-services/}
+
+
+\newpage
+\bibliographystyle{references/IEEEtran.bst} % not just plain
+\bibliography{references/references.bib}
+
+\end{document}

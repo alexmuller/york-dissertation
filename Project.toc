@@ -1,0 +1,16 @@
+\contentsline {section}{\numberline {1}Statement of Ethics}{4}{section.1}
+\contentsline {section}{\numberline {2}Introduction}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}The current state of module allocation}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Web applications at the University of York}{4}{subsection.2.2}
+\contentsline {section}{\numberline {3}Previous work}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Development methodology}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Database design}{5}{subsection.3.2}
+\contentsline {section}{\numberline {4}Development, implementation and testing}{5}{section.4}
+\contentsline {subsection}{\numberline {4.1}User research}{5}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Web application frameworks}{7}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Allocation algorithm}{7}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Accessibility}{7}{subsection.4.4}
+\contentsline {section}{\numberline {5}Further work}{7}{section.5}
+\contentsline {section}{\numberline {6}Conclusions}{7}{section.6}
+\contentsline {section}{\numberline {7}Appendices}{8}{section.7}
+\contentsline {subsection}{\numberline {7.1}External links}{8}{subsection.7.1}
