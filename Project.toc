@@ -8,9 +8,10 @@
 \contentsline {section}{\numberline {4}Development, implementation and testing}{5}{section.4}
 \contentsline {subsection}{\numberline {4.1}User research}{5}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Web application frameworks}{7}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Allocation algorithm}{7}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.3}Visual appearance}{7}{subsection.4.3}
 \contentsline {subsection}{\numberline {4.4}Accessibility}{7}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Allocation algorithm}{7}{subsection.4.5}
 \contentsline {section}{\numberline {5}Further work}{7}{section.5}
-\contentsline {section}{\numberline {6}Conclusions}{7}{section.6}
+\contentsline {section}{\numberline {6}Conclusions}{8}{section.6}
 \contentsline {section}{\numberline {7}Appendices}{8}{section.7}
 \contentsline {subsection}{\numberline {7.1}External links}{8}{subsection.7.1}
