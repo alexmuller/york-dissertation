@@ -59,7 +59,7 @@
 
 This is the report for a Bachelor of Science final-year project in Computer Science and Mathematics at the University of York. The project was supervised by Dr James Cussens, Senior Lecturer in the Artifical Intelligence Group, Department of Computer Science.
 
-This report is 1,600ish words, as counted by running \verb+detex <report.tex> | wc -w+. It is \pageref{LastPage} pages long.
+This report is 1,800ish words, as counted by running \verb+detex <report.tex> | wc -w+. It is \pageref{LastPage} pages long.
 
 \textit{(The limits are 35,000 words and 70 pages - neither limit may be exceeded.)}
 
@@ -163,7 +163,15 @@ We should draw an entity-relationship diagram.
 
 \subsection{Maintainability and the future of the software}
 
-Talk about how the software is going to have to be maintained by IT Services in the future, so we might want to code it nicely.
+As the software created for this project will have to be maintained by the University's IT Services if evaluated as successful, care must be taken to ensure that the application is implemented in the most maintainable way possible.
+
+There are several basic methods recommended by Green and Ledgard \cite{Green:2011:CGF:2063166.2063168} for writing readable and maintainable code:
+
+Use vertical alignment. Breaking lines when they're going to be long anyway. Use simple names for things. Less is more, use \texttt{i} for an iterator rather than \texttt{elementNumber}. The more often a variable is used, the shorter its name should be. Use white space to break up code. Using blank spaces around operators like the equals sign means the person reading has to do less work to understand the code. Indent \texttt{if} statements. Comment code when necessary, but do not write bad code that you intend to fix by commenting.
+
+Green and Ledgard argue that Unix code is unreadable, and "textbook code" is too deeply commented. We should strike a balance between the two.
+
+They note that for any system that may have a long lifespan, every effort should be taken to improve "readability and maintainability".
 
 \section{Development, implementation and testing}
 
@@ -245,7 +253,6 @@ If I didn't have time to implement a weighting system (rather than a simple, pla
 \textit{This is similar to the abstract. The difference is that you should assume here that the reader of the conclusions has read the rest of the report.}
 
 It was a success. Well, hopefully.
-
 
 \newpage
 \appendix
