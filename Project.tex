@@ -11,7 +11,10 @@
 % article, report, scrartcl, uoy_cs/UoYCSproject ?
 
 \usepackage[utf8]{inputenc} % Use utf-8 encoding for foreign characters
-\usepackage{fullpage} % Setup for fullpage use
+
+% Pages and margins
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4cm, left=2cm, right=2cm]{geometry}
 
 % Running Headers and footers
 %\usepackage{fancyhdr}
@@ -45,7 +48,7 @@
 
 \title{Allocating optional modules to University of York students using constrained optimisation}
 \author{Alexander Muller}
-\date{16 March 2012}
+\date{13 March 2012}
 
 \begin{document}
 
@@ -59,44 +62,43 @@
 
 This is the report for a Bachelor of Science final-year project in Computer Science and Mathematics at the University of York. The project was supervised by Dr James Cussens, Senior Lecturer in the Artifical Intelligence Group, Department of Computer Science.
 
-This report is 1,900ish words, as counted by running \verb+detex <report.tex> | wc -w+. It is \pageref{LastPage} pages long.
+This report is 1,900 words, as counted by running \verb+detex <report.tex> | wc -w+. It is \pageref{LastPage} pages long.
 
-\textit{(The limits are 35,000 words and 70 pages - neither limit may be exceeded.)}
-
-\textit{(Other projects I've seen have been 12,000/60, 11,000/60, etc)}
+% The limits are 35,000 words and 70 pages - neither limit may be exceeded.
+% Other projects I've seen have been 12,000/60, 11,000/60, etc
 
 \newpage
 
 \begin{abstract}
-  \textit{This is \emph{just} a couple of paragraphs which summarizes the report content. Must be comprehensible to someone who has not read the rest of the report.}
-  \textit{Not more than 200 words - this is 190.}
-  From their second year onwards, most students at the University of York can  choose between two or more optional modules to tailor their academic career, in the hope it will be more relevant and interesting. Optional module allocation in most departments is currently handled using a paper form which must be handed to departmental administrators. This project aims to design and implement a piece of web-based software that can be used by departments to allocate modules more fairly and with less administrative overhead.
-  The web application will be piloted by the Archaeology and History departments and, if successful, will be offered to all departments and maintained by the University.
+  % Just a couple of paragraphs summarising the report content. Must be comprehensible to someone who has not read the rest.
+  % Not more than 200 words - this is 160.
+  From their second year onwards, most students at the University of York can  choose between two or more optional modules to tailor their academic career, in the hope it will be more relevant, interesting and useful to them.
+  Optional module allocation in most departments is currently handled using a paper form which must be returned to departmental administrators. This project aims to design and implement a piece of web-based software that can be used by departments and students to allocate modules more fairly and with less administrative overhead.
+  The web application will be piloted by the Archaeology and History departments in March 2012 and, if successful, will be offered to all departments and maintained centrally by the University.
   This report discusses the choices made around the technology used, the development methodology and details relating to the allocation algorithm.
-  The software will be evaluated according to criteria set out by the project steering group, and the resulting evaluation is discussed here.
+  The software will be evaluated according to criteria set out by the project steering group, and the resulting evaluation is also discussed.
 \end{abstract}
 
 \newpage
+
 \tableofcontents
+
 \newpage
 
 \section{Statement of ethics}
 
 % Informed consent
-
 No person volunteering to help with the project (those interviewed during the research stage) will be put in a position of physical danger. Consent will be obtained from all volunteers prior to their interview, and volunteers' personal information will not be published or shared. A copy of the consent form signed by all volunteers is given in Appendix~\ref{sec:consent}.
 
 % Do no harm
-
 As far as the project author is aware, there are no immediate ethical problems relating to the creation of the module allocation software. While it is possible the software may be repurposed for some completely different task, such an action is impossible to foresee.
 
 % Confidentiality of data
-
 The project steering group has noted that as a student, the author must not be given access to any sensitive personal information. This includes, but is not limited to, student names, email addresses and degree course information. Development of the software will be carried out with fake data in a similar form to the real data held by the University. The University's Data Protection Officer was consulted during the project, and their input is discussed in more detail later in this report.
 
 \section{Introduction}
 
-\textit{The scope of the project, setting the scene for the remainder of the report.}
+% The scope of the project, setting the scene for the remainder of the report.
 
 This project is the result of requests by departments at the University of York for more flexibility in the way they offer optional modules to undergraduate students. The project is sponsored by University Teaching Committee and is overseen in that regard by Laura Crossley of the Academic Support Office.
 
@@ -181,21 +183,11 @@ As noted in the Statement of ethics, we should discuss Charles' input here.
 
 \textit{Several chapters describing what you have done, focusing on the novel aspects of your own work.}
 
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=160mm]{images/examplescreenshot.png}
-  \end{center}
-  \caption{A screenshot of the One Click Orgs software.}
-  \label{ocoscreenshot}
-\end{figure}
-
-Figure~\ref{ocoscreenshot} shows a screenshot of the One Click Orgs software.
-
 \subsection{User research}
 
 I met with lots of people.
 
-I spoke to students. We chatted about what annoys them with web apps, what they like, and how the system could work.
+I spoke to students. We chatted about what annoys them with web apps, what they like, and how the system could work. I gave them a prototype of the app to play with, and get their feedback.
 
 I spoke to departmental administrators, who will be responsible for setting up the system.
 
@@ -209,7 +201,7 @@ While it is possible to build a web application without using a framework, there
 
 With the limited amount of time allocated to development and implementation, it is sensible to spend a small amount of time choosing a framework to allow more time to implement the system.
 
-% Could reference the Gantt chart if it's included here.
+% Could reference the Gantt chart (if it's included) here.
 
 I chose a framework. It could be based on ColdFusion, Ruby or Python. Or something else entirely. But at the moment I'm not sure.
 
@@ -243,6 +235,14 @@ Perhaps talking about Dave Swallow, CS PhD.
 \subsection{Allocation algorithm}
 
 Let's discuss the algorithm here.
+
+\subsection{Testing}
+
+How will the software be tested?
+
+\subsection{Pilot by the Archaeology and History departments}
+
+How did the pilot go?
 
 \section{Further work}
 
@@ -279,11 +279,11 @@ I would like to make the code of this software available online, at \url{https:/
 
 All research participants (students and staff of the University of York) signed the consent form shown in Figure~\ref{participantconsent}. This consent form is adapted from one made available by Alistair Edwards for Computer Science students to use during their projects. As of 5 November 2011, the original is available at \url{http://www-users.cs.york.ac.uk/~alistair/projects/consent.html}.
 
-In each case, the top half of the form was retained by the project author and the second half was provided to the participant in case they had any further questions about the interview.
+In each case, the top half of the form was retained by the project author and the second half was given to the participant in case they had any further questions about the interview.
 
-\begin{figure}
+\begin{figure}[h]
   \begin{center}
-    \fbox{\includegraphics[width=100mm]{images/consent.pdf}}
+    \fbox{\includegraphics[width=140mm, trim=0 80mm 0 0]{images/consent.pdf}}
   \end{center}
   \caption{Participant consent form.}
   \label{participantconsent}
