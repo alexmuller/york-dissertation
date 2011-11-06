@@ -48,7 +48,7 @@
 
 \title{Allocating optional modules to University of York students using constrained optimisation}
 \author{Alexander Muller}
-\date{13 March 2012}
+\date{\today}
 
 \begin{document}
 
@@ -62,7 +62,7 @@
 
 This is the report for a Bachelor of Science final-year project in Computer Science and Mathematics at the University of York. The project was supervised by Dr James Cussens, Senior Lecturer in the Artifical Intelligence Group, Department of Computer Science.
 
-This report is 1,900 words, as counted by running \verb+detex <report.tex> | wc -w+. It is \pageref{LastPage} pages long.
+This report is 2,100 words, as counted by running \verb+detex <report.tex> | wc -w+. It is \pageref{LastPage} pages long.
 
 % The limits are 35,000 words and 70 pages - neither limit may be exceeded.
 % Other projects I've seen have been 12,000/60, 11,000/60, etc
@@ -88,10 +88,10 @@ This report is 1,900 words, as counted by running \verb+detex <report.tex> | wc 
 \section{Statement of ethics}
 
 % Informed consent
-No person volunteering to help with the project (those interviewed during the research stage) will be put in a position of physical danger. Consent will be obtained from all volunteers prior to their interview, and volunteers' personal information will not be published or shared. A copy of the consent form signed by all volunteers is given in Appendix~\ref{sec:consent}.
+No person volunteering to help with the project (those interviewed during the research stage) will be put in a position of danger. Consent will be obtained from all volunteers prior to their interview, and volunteers' personal information will not be published or shared. A copy of the consent form signed by all volunteers is given in Appendix~\ref{sec:consent}.
 
 % Do no harm
-As far as the project author is aware, there are no immediate ethical problems relating to the creation of the module allocation software. While it is possible the software may be repurposed for some completely different task, such an action is impossible to foresee.
+As far as the project author is aware, there are no immediate ethical issues relating to the creation of the module allocation software. While it is possible the software may be repurposed for some completely different task, such an action is impossible to foresee.
 
 % Confidentiality of data
 The project steering group has noted that as a student, the author must not be given access to any sensitive personal information. This includes, but is not limited to, student names, email addresses and degree course information. Development of the software will be carried out with fake data in a similar form to the real data held by the University. The University's Data Protection Officer was consulted during the project, and their input is discussed in more detail later in this report.
@@ -123,12 +123,9 @@ At other universities in the United Kingdom (for example, Warwick and Leeds), en
 
 \subsection{Web applications at the University of York}
 
-\begin{enumerate}
-  \item Student portal
-  \item Timetabling gateway
-  \item Google Apps for Education
-\end{enumerate}
-
+% Student portal
+% Timetabling gateway
+% Google Apps for Education
 The university is constantly improving the quality of web applications available to students. In 2011, a new "student portal" was created, allowing students to view information relevant to them in one place. For the beginning of the 2011-12 academic year, new timetabling software is in use to give members of the university access to their complete timetable in one location---something which has not been possible before. And in 2012, the university will start to use Google Apps for Education for email and calendaring, which will hopefully improve the user experience dramatically over the current webmail offering.
 
 \section{Research}
@@ -181,15 +178,38 @@ As noted in the Statement of ethics, we should discuss Charles' input here.
 
 \section{Development, implementation and testing}
 
-\textit{Several chapters describing what you have done, focusing on the novel aspects of your own work.}
+% Several chapters describing what you have done, focusing on the novel
+% aspects of your own work.
+
+After researching the areas noted in the previous section, the software was
+researched, written and tested. This section describes how users helped
+influence the design of the software during interviews, a discussion on web
+frameworks, the visual appearance and other important factors for web
+projects.
 
 \subsection{User research}
 
-I met with lots of people.
+In the weeks before implementation started, students are staff were
+interviewed to understand more about their relationship with module
+allocation.
 
-I spoke to students. We chatted about what annoys them with web apps, what they like, and how the system could work. I gave them a prototype of the app to play with, and get their feedback.
+In the meetings with students, the questions asked predominantly revolved
+around module allocation the University of York; it was important to
+understand how they feel about the current state of module allocation to
+ensure that the system improves the experience.
 
-I spoke to departmental administrators, who will be responsible for setting up the system.
+Students were asked to use an HTML (hypertext markup language) mockup of the
+application and the researcher observed to discover the main areas of
+difficulty around using web applications. Students were asked how and where
+they access to web, to get an understanding of the environments this
+application might be used in.
+
+% Discuss the results of the student interviews
+
+I also spoke to departmental administrators, who will be responsible for setting up
+the system.
+
+% Discuss the results of the staff interviews
 
 \subsection{Web application frameworks}
 
@@ -260,10 +280,10 @@ It was a success. Well, hopefully.
 
 \appendix
 
+% What should go in an appendix? Screenshots? Code? Something else?
+
 \newpage
 \section{External links}
-
-\textit{Screenshots? Code? Something else?}
 
 This appendix gives URLs to departments, offices or services mentioned throughout the document.
 
@@ -277,9 +297,16 @@ I would like to make the code of this software available online, at \url{https:/
 \section{Participant consent form}
 \label{sec:consent}
 
-All research participants (students and staff of the University of York) signed the consent form shown in Figure~\ref{participantconsent}. This consent form is adapted from one made available by Alistair Edwards for Computer Science students to use during their projects. As of 5 November 2011, the original is available at \url{http://www-users.cs.york.ac.uk/~alistair/projects/consent.html}.
+All research participants (students and staff of the University of York)
+signed the consent form shown in Figure~\ref{participantconsent} immediately
+before their interview took place. This consent form is adapted from one made
+available by Alistair Edwards for Computer Science students to use during
+their projects. As of 5 November 2011, the original is available at
+\url{http://www-users.cs.york.ac.uk/~alistair/projects/consent.html}.
 
-In each case, the top half of the form was retained by the project author and the second half was given to the participant in case they had any further questions about the interview.
+In each case, the top half of the form was retained by the project author and
+the second half was given to the participant in case they had any further
+questions about the interview.
 
 \begin{figure}[h]
   \begin{center}
