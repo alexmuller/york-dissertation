@@ -100,13 +100,28 @@ detex ~/proj/Project.tex | wc -w
 \section{Statement of ethics}
 
 % Informed consent
-No person volunteering to help with the project (those interviewed during the research stage) will be put in a position of danger. Consent will be obtained from all volunteers prior to their interview, and volunteers' personal information will not be published or shared. A copy of the consent form signed by all volunteers is given in Appendix~\ref{sec:consent}.
+
+Those people volunteering to help with the project (interviewed during the
+research stage) will at no point be put in a position of physical danger.
+Consent will be obtained from all volunteers prior to their interview, and
+volunteers' personal information will not be published or shared. A copy of
+the consent form signed by all volunteers is given in
+Appendix~\ref{sec:consent}.
 
 % Do no harm
-As far as the project author is aware, there are no immediate ethical issues relating to the creation of the module allocation software. While it is possible the software may be repurposed for some completely different task, such an action is impossible to foresee.
+
+As far as the project author is aware, there are no immediate ethical issues
+relating to the creation of the module allocation software.
 
 % Confidentiality of data
-The project steering group has noted that as a student, the author must not be given access to any sensitive personal information. This includes, but is not limited to, student names, email addresses and degree course information. Development of the software will be carried out with fake data in a similar form to the real data held by the University. The University's Data Protection Officer was consulted during the project, and their input is discussed in more detail later in this report.
+
+The project steering group has noted that as a student, the author must not be
+given access to any sensitive personal information. This includes, but is not
+limited to, student names, email addresses and degree course information.
+Development and testing of the software will be carried out with data that it
+is in a similar form to real data held by the University. The University's
+Data Protection Officer was consulted during the project, and their input is
+discussed in Section~\ref{sec:dataprotection}.
 
 \section{Introduction}
 
@@ -138,7 +153,27 @@ At other universities in the United Kingdom (for example, Warwick and Leeds), en
 % Student portal
 % Timetabling gateway
 % Google Apps for Education
-The university is constantly improving the quality of web applications available to students. In 2011, a new "student portal" was created, allowing students to view information relevant to them in one place. For the beginning of the 2011-12 academic year, new timetabling software is in use to give members of the university access to their complete timetable in one location---something which has not been possible before. And in 2012, the university will start to use Google Apps for Education for email and calendaring, which will hopefully improve the user experience dramatically over the current webmail offering.
+
+The University is constantly improving the quality of web software available
+to students and staff.
+
+For the last few years, a single sign-on (SSO) solution has been provided
+centrally, using Shibboleth. This improves both user experience and security,
+as users are encouraged to only ever enter their University username and
+password into one screen, where the web address will always begin
+\texttt{https://shib.york.ac.uk/}.
+
+In 2011, a new ``student portal'' was released, allowing students to view
+personalised information relevant to them in one place. The application was
+created by IT Services and was written in Java.
+
+For the beginning of the 2011--12 academic year, new timetabling software is in
+use to give members of the University access to their complete timetable in
+one location---something which has not been possible before.
+
+In June 2012, the University will move all students to Google's Apps for
+Education product for email and calendaring, one of the aims of which is to
+improve the user experience dramatically over the current webmail software.
 
 \section{Research}
 
@@ -200,6 +235,7 @@ Green and Ledgard argue that Unix code is unreadable, and "textbook code" is too
 They note that for any system that may have a long lifespan, every effort should be taken to improve "readability and maintainability".
 
 \subsection{Sensitive information and the Data Protection Act}
+\label{sec:dataprotection}
 
 As noted in the Statement of ethics, we should discuss Charles' input here.
 
