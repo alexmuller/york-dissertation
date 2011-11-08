@@ -60,12 +60,24 @@
 
 \maketitle
 
-This is the report for a Bachelor of Science final-year project in Computer Science and Mathematics at the University of York. The project was supervised by Dr James Cussens, Senior Lecturer in the Artifical Intelligence Group, Department of Computer Science.
+This is the report for a Bachelor of Science final-year project in Computer
+Science and Mathematics at the University of York. The project was supervised
+by Dr James Cussens, Senior Lecturer in the Artifical Intelligence Group,
+Department of Computer Science.
 
-This report is 2,100 words, as counted by running \verb+detex <report.tex> | wc -w+. It is \pageref{LastPage} pages long.
+This report is 2,260 words, as counted by running \texttt{detex <report.tex> |
+wc -w}. It is \pageref{LastPage} pages long.
 
 % The limits are 35,000 words and 70 pages - neither limit may be exceeded.
 % Other projects I've seen have been 12,000/60, 11,000/60, etc
+
+% Remove the following lines before submission:
+The following line can be run from within TextMate (using \texttt{ctrl-r}) to
+output the word count:
+
+\texttt{
+detex ~/proj/Project.tex | wc -w
+}
 
 \newpage
 
@@ -190,6 +202,22 @@ They note that for any system that may have a long lifespan, every effort should
 \subsection{Sensitive information and the Data Protection Act}
 
 As noted in the Statement of ethics, we should discuss Charles' input here.
+
+\subsection{Usability and user testing}
+
+Jakob Nielsen is a web usability expert who has been publishing articles on
+his website, \url{http://www.useit.com/}, since 1995. In "Why You Only Need to
+Test with 5 Users", Nielsen asserts that usability tests should be run for all
+web projects, no matter how short the project timescale or limited the budget.
+This is especially relevant for a project such as the module allocation
+system, where the entire application must be developed in under six months and
+there is no budget allocated. Nielsen's advice is to run a single usability
+test with no more than five volunteers, and to run different tests if more
+participants can be recruited. His reasoning is that iterative design with
+testing after each iteration will uncover any problems unwittingly created
+during the development process. Finally, Nielsen points out that distinct
+groups of users need to be treated separately during user testing
+\cite{nielsen2000fiveusers}.
 
 \section{Development, implementation and testing}
 
