@@ -44,6 +44,9 @@
 \usepackage{url}
 \fi
 
+% Entity-relationship diagrams
+\usepackage{libs/tikz-er2}
+
 % Title page stuff
 
 \title{Allocating optional modules to University of York students using constrained optimisation}
@@ -206,21 +209,36 @@ to interact as they might with the final system.
 
 \subsection{Database design}
 
-A database management system (DBMS) is a piece of software that manages the database, including providing the ability to add or edit records stored in the database. DBMS products are mature, many having been available since the early 1990s.
+A database management system (DBMS) is a piece of software that manages the
+database, including providing the ability to add or edit records stored in the
+database. The DBMS will be one of the more mature products used in the
+creation of this system, with many having been available since the 1990s.
 
-Relational database models are a common feature of web applications. We note that the University of York already deploys MySQL and Oracle (both relational model) database systems for its web applications and MIS.
+Relational databases are a common feature of web applications. We note
+that the University of York already deploys MySQL and Oracle (both relational
+model) database systems for its web applications and MIS.
 
-How should the database be structured? Good question \cite{DatabaseModelsLanguagesDesign}.
+When designing a database, Johnson \cite{DatabaseModelsLanguagesDesign} gives
+several questions that he believes must be answered before a database can be
+created:
 
-We start with a table of entities:
+\begin{itemize}
+  \item What are the entities that need to be stored by the database?
+  \item What are the relationships between these entities?
+  \item What constraints are there on the database?
+  \item What kind of queries will be written against this database?
+\end{itemize}
 
-\begin{tabular}{ l l }
-  Student    & Student ID (key), name, course \\
-  Module     & Module ID (key), name, class size \\
-  Allocation & Student ID (foreign key), module ID (foreign key) \\
-\end{tabular}
+All the questions above are relevant during the design of the database. While
+the first three questions relate to the structure of the database, the final
+question is especially important regarding database performance.
 
-We should draw an entity-relationship diagram.
+His method involves drawing an entity-relationship diagram (as the name
+implies, this answers the first two questions in the form of a graph) and then
+translating the E-R diagram into the database schema, which includes deciding
+which fields will become primary and foreign keys. Any constraints (such as
+minimum or maximum lengths of strings) can then be added depending on the DBMS
+product being used.
 
 \subsection{Maintainability and the future of the software}
 
@@ -299,6 +317,51 @@ influence the design of the software during interviews, a discussion on web
 frameworks, the visual appearance and other important factors for web
 projects.
 
+\subsection{Database structure}
+
+We start with a table of entities:
+
+\begin{tabular}{ l l }
+  Student    & Student ID (key), name, course \\
+  Allocation & Student ID (foreign key), module ID (foreign key) \\
+  Module     & Module ID (key), department ID (foreign key), name, class size \\
+  Department & Department ID (key), name \\
+  Staff      & Staff ID (key), department ID (foreign key) \\
+\end{tabular}
+
+As relational databases are so popular and are supported in many of the
+software frameworks we look at in Section~\ref{webframeworks}, there is no
+advantage to choosing a database model apart from relational.
+
+Web frameworks abstract away anything related to a specific database product,
+so the module allocation application can be written without regard for the
+final database product that IT Services will use to deploy the application.
+
+\subsubsection{Entity-relationship diagram}
+
+% E-R diagram
+% Student    ---  Allocation
+% Allocation ---  Module
+
+Figure~\ref{er_diagram} is an entity-relationship diagram of the module allocation
+system:
+
+\begin{figure}
+  \begin{tikzpicture}[node distance=8em]
+    \node[entity] (student) {Student};
+    \node[relationship] (given) [right of=student] {given} edge (student);
+    \node[entity] (allocation) [right of=given] {Allocation} edge (given);
+    \node[relationship] (of) [right of=allocation] {of} edge (allocation);
+    \node[entity] (module) [right of=of] {Module} edge (of);
+    \node[relationship] (offers) [below of=module] {offers} edge (module);
+    \node[entity] (department) [left of=offers] {Department} edge (offers);
+    \node[relationship] (staffmember) [left of=department] {member} edge (department);
+    \node[entity] (staff) [left of=staffmember] {Staff} edge (staffmember);
+  \end{tikzpicture}
+  \caption{Entity-relationship diagram for the module allocation system.}
+  \label{er_diagram}
+\end{figure}
+
 \subsection{User research}
 
 In the weeks before implementation started, students are staff were
@@ -334,6 +397,7 @@ the system.
 % Discuss the results of the staff interviews
 
 \subsection{Web application frameworks}
+\label{webframeworks}
 
 A framework is a certain amount of reusable code that helps application developers by reducing the complexity of common web operations. For example, any moderately complex application will need to write user input to a data store, and protecting against malicious input is an obvious concern when executing code in a database.
 
