@@ -68,7 +68,7 @@ Science and Mathematics at the University of York. The project was supervised
 by Dr James Cussens, Senior Lecturer in the Artifical Intelligence Group,
 Department of Computer Science.
 
-This report is 3,000 words, as counted by running \texttt{detex <report.tex> |
+This report is 2,900 words, as counted by running \texttt{detex <report.tex> |
 wc -w}. It is \pageref{LastPage} pages long.
 
 % The limits are 35,000 words and 70 pages - neither limit may be exceeded.
@@ -85,13 +85,24 @@ detex ~/proj/Project.tex | wc -w
 \newpage
 
 \begin{abstract}
-  % Just a couple of paragraphs summarising the report content. Must be comprehensible to someone who has not read the rest.
+  % Just a couple of paragraphs summarising the report content. Must be
+  % comprehensible to someone who has not read the rest.
   % Not more than 200 words - this is 160.
-  From their second year onwards, most students at the University of York can  choose between two or more optional modules to tailor their academic career, in the hope it will be more relevant, interesting and useful to them.
-  Optional module allocation in most departments is currently handled using a paper form which must be returned to departmental administrators. This project aims to design and implement a piece of web-based software that can be used by departments and students to allocate modules more fairly and with less administrative overhead.
-  The web application will be piloted by the Archaeology and History departments in March 2012 and, if successful, will be offered to all departments and maintained centrally by the University.
-  This report discusses the choices made around the technology used, the development methodology and details relating to the allocation algorithm.
-  The software will be evaluated according to criteria set out by the project steering group, and the resulting evaluation is also discussed.
+  From their second year onwards, most students at the University of York can
+  choose between two or more optional modules to tailor their academic career,
+  in the hope it will be more relevant, interesting and useful to them.
+  Optional module allocation in most departments is currently handled using a
+  paper form which must be returned to departmental administrators. This project
+  aims to design and implement a piece of web-based software that can be used by
+  departments and students to allocate modules more fairly and with less
+  administrative overhead.
+  The web application will be piloted by the Archaeology and History departments
+  in March 2012 and, if successful, will be offered to all departments and
+  maintained centrally by the University.
+  This report discusses the choices made around the technology used, the
+  development methodology and details relating to the allocation algorithm.
+  The software will be evaluated according to criteria set out by the project
+  steering group, and the resulting evaluation is also discussed.
 \end{abstract}
 
 \newpage
@@ -130,26 +141,44 @@ discussed in Section~\ref{sec:dataprotection}.
 
 % The scope of the project, setting the scene for the remainder of the report.
 
-This project is the result of requests by departments at the University of York for more flexibility in the way they offer optional modules to undergraduate students. The project is sponsored by University Teaching Committee and is overseen in that regard by Laura Crossley of the Academic Support Office.
+This project is the result of requests by departments at the University of
+York for more flexibility in the way they offer optional modules to
+undergraduate students. The project is sponsored by University Teaching
+Committee and is overseen in that regard by Laura Crossley of the Academic
+Support Office.
 
-As well as being marked as an undergraduate project, the software will be evaluated independently by Ms Crossley. If it is judged to provide sufficient advantages over the current methods of module allocation, it may be recommended that responbility for the software is handed to the University's IT Services department.
+As well as being marked as an undergraduate project, the software will be
+evaluated independently by Ms Crossley. If it is judged to provide sufficient
+advantages over the current methods of module allocation, it may be
+recommended that responbility for the software is handed to the University's
+IT Services department.
 
-A project steering group was formed consisting of representatives from each of the pilot departments (Archaeology and History), administrative staff responsible for IT and timetabling, and the project author and supervisor. At the initial meetings, this group set out the scope for the project…
+A project steering group was formed consisting of representatives from each of
+the pilot departments (Archaeology and History), administrative staff
+responsible for IT and timetabling, and the project author and supervisor. At
+the initial meetings, this group set out the scope for the project…
 
 \subsection{The current state of module allocation}
 
-\begin{enumerate}
-  \item At the University of York
-  \item Elsewhere around the world
-\end{enumerate}
+% Refer to documents provided by Laura
+% (1) At the University of York
 
-\textit{Refer to documents provided by Laura}
+Universities worldwide want to give their students the most interesting and
+useful education possible, and one way this can be accomplished is by offering
+flexibility in modules students can take.
 
-Universities worldwide want to give their students the most interesting and useful education possible, and one way this can be accomplished is by offering flexibility in modules students can take.
+At the University of York, module allocation is something dealt with at the
+departmental level. Some departments make use of centrally offered software
+(eVision and SITS, the university management information system), though
+several departments feel the software is not flexible enough and continue to
+use paper-based forms that must be filled out and returned to the departmental
+office. A smaller number of departments, such as Computer Science, have
+written their own module choice and allocation software.
 
-At the University of York, module allocation is something dealt with at the departmental level. Some departments make use of centrally offered software (eVision and SITS, the university management information system), though several departments feel the software is not flexible enough and continue to use paper-based forms that must be filled out and returned to the departmental office. A smaller number of departments, such as Computer Science, have written their own module choice and allocation software.
+At some universities in the United Kingdom (for example, Warwick and Leeds),
+enrolement is completed online, on a first-come, first-served basis.
 
-At other universities in the United Kingdom (for example, Warwick and Leeds), enrolement is completed online, on a first-come-first-served basis.
+% (2) Elsewhere around the world
 
 \subsection{Web applications at the University of York}
 
@@ -191,9 +220,9 @@ of the project was wide-ranging.
 
 % Agile?
 
-Zhang and Chung \cite{MODFM_2003} note that prototyping can be used to reinforce client
-confidence as well as making better use of the time allocated to development
-and implementation.
+Zhang and Chung \cite{MODFM_2003} note that prototyping can be used to
+reinforce client confidence as well as making better use of the time allocated
+to development and implementation.
 
 Bochicchio and Paiano \cite{PrototypingWebApplications_2000} note that
 creating prototypes of web applications has several advantages.
@@ -343,8 +372,8 @@ final database product that IT Services will use to deploy the application.
 % Student    ---  Allocation
 % Allocation ---  Module
 
-Figure~\ref{er_diagram} is an entity-relationship diagram of the module allocation
-system:
+Figure~\ref{er_diagram} is an entity-relationship diagram of the module
+allocation system:
 
 \begin{figure}
   \begin{tikzpicture}[node distance=8em]
@@ -500,15 +529,18 @@ How did the pilot go?
 
 \section{Further work}
 
-\textit{A chapter describing possible ways in which your work could be continued or developed. Be imaginative but realistic.}
+% A chapter describing possible ways in which your work could be continued or
+% developed. Be imaginative but realistic.
 
 We should probably ask departments what they'd like to see in the future.
 
-If I didn't have time to implement a weighting system (rather than a simple, plain ranking system) I could talk about that here.
+If I didn't have time to implement a weighting system (rather than a simple,
+plain ranking system) I could talk about that here.
 
 \section{Conclusions}
 
-\textit{This is similar to the abstract. The difference is that you should assume here that the reader of the conclusions has read the rest of the report.}
+% This is similar to the abstract. The difference is that you should assume
+% here that the reader of the conclusions has read the rest of the report.
 
 It was a success. Well, hopefully.
 
@@ -519,13 +551,15 @@ It was a success. Well, hopefully.
 \newpage
 \section{External links}
 
-This appendix gives URLs to departments, offices or services mentioned throughout the document.
+This appendix gives URLs to departments, offices or services mentioned
+throughout the document.
 
 \url{http://www.york.ac.uk/about/organisation/governance/sub-committees/teaching-committee/}
 
 \url{http://www.york.ac.uk/it-services/}
 
-I would like to make the code of this software available online, at \url{https://github.com/alexmuller/york-allocation}.
+I would like to make the code of this software available online, at
+\url{https://github.com/alexmuller/york-allocation}.
 
 \newpage
 \section{Participant consent form}
