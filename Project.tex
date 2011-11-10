@@ -47,6 +47,11 @@
 % Entity-relationship diagrams
 \usepackage{libs/tikz-er2}
 
+% Glossary
+\usepackage{glossaries}
+\makeglossaries
+\input{references/glossary.tex}
+
 % Title page stuff
 
 \title{Allocating optional modules to University of York students using constrained optimisation}
@@ -68,19 +73,11 @@ Science and Mathematics at the University of York. The project was supervised
 by Dr James Cussens, Senior Lecturer in the Artifical Intelligence Group,
 Department of Computer Science.
 
-This report is 2,900 words, as counted by running \texttt{detex <report.tex> |
+This report is 3,000 words, as counted by running \texttt{detex <report.tex> |
 wc -w}. It is \pageref{LastPage} pages long.
 
 % The limits are 35,000 words and 70 pages - neither limit may be exceeded.
 % Other projects I've seen have been 12,000/60, 11,000/60, etc
-
-% Remove the following lines before submission:
-The following line can be run from within TextMate (using \texttt{ctrl-r}) to
-output the word count:
-
-\texttt{
-detex ~/proj/Project.tex | wc -w
-}
 
 \newpage
 
@@ -150,8 +147,7 @@ Support Office.
 As well as being marked as an undergraduate project, the software will be
 evaluated independently by Ms Crossley. If it is judged to provide sufficient
 advantages over the current methods of module allocation, it may be
-recommended that responbility for the software is handed to the University's
-IT Services department.
+recommended that responsibility for the software is handed to \gls{itservices}.
 
 A project steering group was formed consisting of representatives from each of
 the pilot departments (Archaeology and History), administrative staff
@@ -238,9 +234,9 @@ to interact as they might with the final system.
 
 \subsection{Database design}
 
-A database management system (DBMS) is a piece of software that manages the
+A \gls{dbms} is a piece of software that manages the
 database, including providing the ability to add or edit records stored in the
-database. The DBMS will be one of the more mature products used in the
+database. The \gls{dbms} will be one of the more mature products used in the
 creation of this system, with many having been available since the 1990s.
 
 Relational databases are a common feature of web applications. We note
@@ -412,11 +408,10 @@ around module allocation the University of York; it was important to
 understand how they feel about the current state of module allocation to
 ensure that the system improves the experience.
 
-Students were asked to use an HTML (hypertext markup language) mockup of the
-application and the researcher observed to discover the main areas of
-difficulty around using web applications. Students were asked how and where
-they access to web, to get an understanding of the environments this
-application might be used in.
+Students were asked to use a mockup of the application written in \gls{html}
+and the researcher observed to discover the main areas of difficulty around
+using web applications. Students were asked how and where they access to web,
+to get an understanding of the environments this application might be used in.
 
 % Discuss the results of the student interviews
 
@@ -473,10 +468,9 @@ applications such as the ``People Directory'' search tool and account
 management facilities offered by IT Services. \emph{Java} was used in the
 creation of the new Student Portal.
 
-In a presentation at OSCON (The O'Reilly Open Source Convention) in 2007
-\cite{raible2007javawebframeworks}, Matt Raible compared several web
-frameworks written in Java; JavaServer Faces (JSF), Spring MVC, Stripes,
-Struts 2, Tapestry and Wicket.
+In a presentation at \gls{oscon} in 2007 \cite{raible2007javawebframeworks},
+Matt Raible compared several web frameworks written in Java; JavaServer Faces
+(JSF), Spring MVC, Stripes, Struts 2, Tapestry and Wicket.
 
 % JSF: Fast and easy
 % Stripes: Convention over config, good docs, 
@@ -594,6 +588,9 @@ questions about the interview.
   \caption{Participant consent form.}
   \label{participantconsent}
 \end{figure}
+
+\newpage
+\printglossaries
 
 \newpage
 \bibliographystyle{references/IEEEtran.bst} % not just plain
