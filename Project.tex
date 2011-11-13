@@ -77,7 +77,7 @@ Science and Mathematics at the University of York. The project was supervised
 by Dr James Cussens, Senior Lecturer in the Artifical Intelligence Group,
 Department of Computer Science.
 
-This report is 3,000 words, as counted by running \texttt{detex <report.tex> |
+This report is 3,500 words, as counted by running \texttt{detex <report.tex> |
 wc -w}. It is \pageref{LastPage} pages long.
 
 % The limits are 35,000 words and 70 pages - neither limit may be exceeded.
@@ -220,6 +220,8 @@ of the project was wide-ranging.
 
 % Agile?
 
+% Prototyping
+
 Zhang and Chung \cite{MODFM_2003} note that prototyping can be used to
 reinforce client confidence as well as making better use of the time allocated
 to development and implementation.
@@ -235,6 +237,25 @@ they are designed to resemble the final application. Low fidelity prototypes
 can be creating using a marker pen and sheets of blank paper, whereas higher
 fidelity prototypes may be coded to appear in a web browser and allow the user
 to interact as they might with the final system.
+
+% Iterative
+
+Iterative development (also sometimes referred to as ``rapid application
+development'') is a process by which the product is gradually improved through
+trial and error. This differs from processes such as the waterfall method,
+where testing follows implementation, which follows design, which follows
+gathering of requirements. The key advantage of following an iterative
+development process is that it allows far more flexibility than other
+methodologies; it is common in software development that the requirements may
+change or be refined over the duration of the project, and the development
+process should be able to adapt as necessary \cite{kuniavsky2003userexperience}.
+
+Kuniavsky points out that an iterative development process is especially
+suitable for web applications, as prototypes can be created quickly. A low
+fidelity prototype of a web application (which might consist of sketched
+wireframes) can be created in a matter of minutes, while slightly higher
+fidelity prototypes such as the application front-end can be running in a web
+browser within an hour or two.
 
 \subsection{Database design}
 
@@ -356,6 +377,37 @@ how users read the documents once they are in possession of them. In the case
 of the web, one could argue that user research focuses too much on the
 specific task of interest and not on how users browse the web from day-to-day
 or what they generally use the web for.
+
+User research (interviews with potential users or the distribution of
+questionnaires) should take place before the design phase in order to create a
+desirable product. Kuniavsky \cite{kuniavsky2003userexperience} describes a
+``family and friends usability test'' that he claims provides immediate
+feedback on a prototype with minimal preparation and time required from the
+research participant.
+
+His key points for conducting a usability study are:
+
+\begin{enumerate}
+  \item Define your application's audience and the goals they want to achieve
+  \item Create scenarios that will help them accomplish their goals
+  \item Find test participants
+  \item Observe them while they play out the scenarios defined
+\end{enumerate}
+
+Kuniavsky reinforces Molich's point that the most important consideration
+during a usability test is that the participant is comfortable; for example,
+that they understand it is not they who are being tested, but the application.
+He says that participants should be strongly encouraged to narrate their
+thought process as they use the application, as this provides useful insight
+to the researcher when they review the studies later.
+
+\subsubsection{Summary}
+
+Taken together, the above articles and books give the following advice:
+
+\begin{itemize}
+  \item Always conduct a usability test, even if it is with very few people
+\end{itemize}
 
 \section{Development, implementation and testing}
 
@@ -600,8 +652,11 @@ It was a success. Well, hopefully.
 This appendix gives URLs to departments, offices or services mentioned
 throughout the document.
 
+University Teaching Committee sponsored this project on behalf of the
+University of York:
 \url{http://www.york.ac.uk/about/organisation/governance/sub-committees/teaching-committee/}
 
+IT Services hosted and maintained the application once it had been created:
 \url{http://www.york.ac.uk/it-services/}
 
 I would like to make the code of this software available online, at
