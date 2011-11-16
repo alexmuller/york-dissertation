@@ -30,8 +30,11 @@
 %\usepackage{amsmath,amssymb,latexsym}
 
 \usepackage{boxedminipage} % Surround parts of graphics with box
-\usepackage{listings} % Package for including code in the document
 \usepackage{lastpage} % Number of pages
+
+% Listings package for including code
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily}
 
 % This is now the recommended way for checking for PDFLaTeX:
 \usepackage{ifpdf}
@@ -534,6 +537,8 @@ more time to implement the system.
 
 %   Could reference the Gantt chart (if it's included) here.
 
+\subsubsection{Framework language}
+
 % The programming language
 
 The most important consideration when choosing a framework is the language it
@@ -541,18 +546,28 @@ is written in, as this defines, among other things, how easy the software will
 be to maintain in the future.
 
 % ColdFusion ML
-%   http://www.york.ac.uk/communications/websites/content/programming/cms-integration/
+%   - http://www.york.ac.uk/communications/websites/content/programming/cms-integration/
 % Java
+% PHP
+%   - http://www.york.ac.uk/it-services/facilities/web/php/
 
-There are two languages used for most web development at the University of
-York, and one other which is supported by \gls{itservices}. \emph{ColdFusion
-Markup Language} is a programming language for web development, the most
-popular commercial implementation of which is Adobe ColdFusion. ColdFusion is
-used widely across the University, including applications such as the ``People
-Directory'' search tool and online account management facilities. \emph{Java}
-was used in the creation of the new Student Portal. A \emph{PHP} service is
-offered by the University for users to deploy their PHP applications, although
-no support or maintenance can be given.
+There are three languages used for most web development at the University of
+York. \emph{ColdFusion Markup Language} (CFML) is a language for creating web pages,
+the most popular commercial implementation of which is Adobe ColdFusion.
+ColdFusion is used widely across the University, including in applications
+such as the ``People Directory'' search tool (shown in
+Figure~\ref{yorkacuk_directory_search}) and online account management
+facilities. \emph{Java} was used in the creation of the new Student Portal. A
+\emph{PHP} service is offered by the University for users to deploy their PHP
+applications.
+
+\begin{lstlisting}
+<cfparam name="attributes.userid" type="string" default="unknown">
+<h1>Hello, world</h1>
+<cfoutput>
+  <p>Welcome, #HTMLEditFormat(attributes.userid)#.</p>
+</cfoutput>
+\end{lstlisting}
 
 In a presentation at \gls{oscon} in 2007 \cite{raible2007javawebframeworks},
 Matt Raible compared several web frameworks written in Java; JavaServer Faces
@@ -564,33 +579,36 @@ Matt Raible compared several web frameworks written in Java; JavaServer Faces
 % Tapestry: templates are HTML, steep learning curve
 % Wicket, great for Java developers, not web developers
 
+CFML is unsuitable for this project as it is primarily a markup language - the
+allocation logic behind the application would have to be implemented in a
+programming language such as Java or Python. Using two languages to create
+this application would needlessly increase the complexity of any maintenance.
+
 % Ruby
 % Python
-% PHP
 
-Outside of the University of York, popular web programming languages include
+Outside the University of York, popular web programming languages include
 \emph{Ruby} and \emph{Python}.
+
+% Rails guesses the model's attributes based on the database schema, whereas
+% Django requires that the model's attributes be listed in the application, and
+% the schema is then created.
+% 
+% There's a good comparison of Django and Rails which is quite methodical. In
+% it, the authors note that equivalent applications took $\frac{2}{3}$ the time
+% to be implemented in Django than Rails \cite{RailsDjangoComparison_2007}.
+% 
+% There's also a good comparison of the three big players that pretty much rules
+% out CakePHP as being rubbish \cite{EvalWebDevFrameworks_2009}.
+
+While Ruby or Python are both good languages for web application development,
+neither is suitable for this project as they cannot be maintained by
+\gls{itservices}.
+
+\subsubsection{Summary}
 
 I chose a framework. It could be based on ColdFusion, Ruby or Python. Or
 something else entirely, even PHP or Java. But at the moment I'm not sure.
-
-Rails guesses the model's attributes based on the database schema, whereas
-Django requires that the model's attributes be listed in the application, and
-the schema is then created.
-
-\begin{lstlisting}
-class Allocation < ActiveRecord::Base
-  belongs_to :student
-  belongs_to :module
-end
-\end{lstlisting}
-
-There's a good comparison of Django and Rails which is quite methodical. In
-it, the authors note that equivalent applications took $\frac{2}{3}$ the time
-to be implemented in Django than Rails \cite{RailsDjangoComparison_2007}.
-
-There's also a good comparison of the three big players that pretty much rules
-out CakePHP as being rubbish \cite{EvalWebDevFrameworks_2009}.
 
 \subsection{Visual appearance}
 
