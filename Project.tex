@@ -339,7 +339,7 @@ years and be maintained by several different programmers.
 
 As noted in the Statement of ethics, we should discuss Charles' input here.
 
-\subsection{Usability and user testing}
+\subsection{User testing}
 
 Jakob Nielsen is a web usability expert who has been publishing articles on
 his website, \url{http://www.useit.com/}, since 1995. In ``Why You Only Need to
@@ -416,13 +416,29 @@ He says that participants should be strongly encouraged to narrate their
 thought process as they use the application, as this provides useful insight
 to the researcher when they review the studies later.
 
-\subsubsection{Summary}
+\subsection{Usability}
 
-Taken together, the above articles and books give the following advice:
+% http://www.faqs.org/docs/artu/ch11s01.html
+% http://en.wikipedia.org/wiki/Principle_of_least_astonishment
 
-\begin{itemize}
-  \item Always conduct a usability test, even if it is with very few people
-\end{itemize}
+In the past, web applications would \gls{post} data to the web server when the
+user clicked a submit button. Modern web applications, such as Google's Gmail
+email service, make use of JavaScript and fast Internet connections to
+automatically save data to the server while the user is working. Sandlund
+\cite{sandlund2009websoftware} explains that by automatically saving data at
+regular intervals, there is far less chance of data loss. However, it is
+important to include an explicit ``Save'' button on an application that
+auto-saves - one can imagine the confusion and uncertainty caused if the user
+is unaware that their data is being saved in the background.
+
+\begin{lstlisting}
+<input type=submit>
+\end{lstlisting}
+
+During Sandlund's user testing, participants responded positively to the
+application automatically saving data. However, Sandlund decided not to
+include a submit button in his application, and he notes that some users found
+the lack of an explicit save button ``a bit disturbing''.
 
 \section{Development, implementation and testing}
 
@@ -632,7 +648,7 @@ neither is suitable for this project as they cannot be maintained by
 I chose a framework. It could be based on ColdFusion, Ruby or Python. Or
 something else entirely, even PHP or Java. But at the moment I'm not sure.
 
-\subsection{Visual appearance}
+\subsection{Design decisions and visual appearance}
 
 The application should be visually consistent with other University web
 software to instill trust in the user.
@@ -656,6 +672,18 @@ software to instill trust in the user.
 % Include screenshots of University software:
 %   https://www.york.ac.uk/it-services/facilities/account/accounts
 %   https://www.cs.york.ac.uk/submit/assessment/
+
+One area that usability gains can be made are in relation to how the
+application saves data. During one of the user research sessions, the
+participant explained that while choosing optional modules during her first
+year, she neglected to press that application's ``OK'' button and, unaware
+that she had not submitted choices, was unable to take her preferred modules.
+
+As an explicit ``Save'' button should be retained to reduce surprise and allow
+the user to feel in control, the most sensible decision is to automatically
+save user input periodically and notify users that their choices are being
+saved. The submit button would save data in case of failure of the automatic
+save mechanism.
 
 \subsection{Accessibility}
 
