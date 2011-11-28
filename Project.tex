@@ -688,7 +688,7 @@ entity --class ~.domain.Student
 field string --fieldName username
 \end{lstlisting}
 
-These four lines of code generates a Java class representing a student, 500
+These four lines of code generate a Java class representing a student, 500
 lines of XML configuration files and 20 lines of application property files.
 
 The major concern when considering a generation tool such as Roo is the
@@ -702,10 +702,86 @@ of this software require that it not include Roo, it will be easy to remove.
 The benefits that Roo provides in the short-term far outweigh the time that
 might need to be spent removing it.
 
-% \subsubsection{Views}
+\subsubsection{Templating engines}
 
-% JSP, Tiles, Freemarker, Velocity, iText PDF, JExcel, Jasper Reports, and
-% XSLT are all supported by Spring
+% Additionally: iText PDF, JExcel, Jasper Reports, and XSLT are all supported
+% by Spring
+
+There are many different templating engines that can be used as components of
+a Java (in this case, Spring) project. Examples of commonly-used Java
+templating software include \gls{jsp}, Tiles, Freemarker and Velocity.
+
+% Plain old JSP
+
+\gls{jsp} is a common language that is also used in Tiles. \gls{jsp} can be
+used at a basic level to include dynamic elements in \gls{html}. The following
+is an example of a \texttt{.jsp} file that outputs \gls{html} to the client:
+
+\begin{lstlisting}[language=HTML]
+<html>
+  <h1>Welcome to the module allocation system, ${student_name}!</h1>
+</html>
+\end{lstlisting}
+
+% Apache Tiles
+
+Apache Tiles builds on just using \gls{jsp} markup by itself, by providing
+other useful functions. Templates are written in the same language, but
+developers can define `fragments' which are assembled when the page is
+requested. The fragments (or tiles, which is where the software gets its name)
+can be used to build up a page from its constituent parts. For example, it is
+possible to define fragments for the page header and footer, to ensure they
+are identical across every page. A template file may resemble the following,
+where \texttt{header.jsp} and \texttt{footer.jsp} are files that contain the
+site header and footer respectively:
+
+\begin{lstlisting}[language=HTML]
+<html>
+  <tiles:insertTemplate path="/fragments/header.jsp" />
+  <div id="container">
+    <h1>This is the actual page content.</h1>
+  </div>
+  <tiles:insertTemplate path="/fragments/footer.jsp" />
+</html>
+\end{lstlisting}
+
+% Freemarker
+
+Freemarker is more complex than Tiles, offering functionality such as allowing
+the developer to iterate over an array in the template file itself. This is
+beneficial if the application requires functionality such as outputting lists
+of elements:
+
+\begin{lstlisting}[language=HTML]
+<html>
+  <#include "header.ftl" />
+  <h1>Welcome to the module allocation system, ${student_name}!</h1>
+  <p>These are the modules you have been allocated:</p>
+  <ul>
+  <#list modules as m>
+    <li <#if m.level == "hard">class="hard"</#if>>${m.name} (${m.code})</li>
+  </#list>
+  </ul>
+</html>
+\end{lstlisting}
+
+% Apache Velocity
+
+Apache Velocity is similar to Freemarker, though the syntax appears more clear
+and readable at a glance:
+
+\begin{lstlisting}[language=HTML]
+<html>
+  #include("header.vm")
+  <h1>Welcome to the module allocation system, $student_name!</h1>
+  <p>These are the $modules.size() modules you have been allocated:</p>
+  <ul>
+  #foreach($m in $modules)
+    <li>$m.name ($m.code)</li>
+  #end
+  </ul>
+</html>
+\end{lstlisting}
 
 % \subsubsection{Database thingys}
 
