@@ -32,9 +32,23 @@
 \usepackage{boxedminipage} % Surround parts of graphics with box
 \usepackage{lastpage} % Number of pages
 
+\usepackage{color} % Syntax highlighting etc
+\definecolor{light-gray}{gray}{0.5}
+
 % Listings package for including code
 \usepackage{listings}
-\lstset{basicstyle=\ttfamily}
+\lstset{
+  basicstyle = \ttfamily\footnotesize,
+  % keywordstyle = \color{blue},
+  % commentstyle = \color{red},
+  numbers = left,
+  numberstyle = \tiny,
+  stepnumber = 20,
+  numbersep = 12pt,
+  frame = single,
+  rulecolor = \color{light-gray},
+}
+\lstloadlanguages{HTML}
 
 % This is now the recommended way for checking for PDFLaTeX:
 \usepackage{ifpdf}
@@ -431,8 +445,8 @@ important to include an explicit ``Save'' button on an application that
 auto-saves -- one can imagine the confusion and uncertainty caused if the user
 is unaware that their data is being saved in the background.
 
-\begin{lstlisting}
-<input type=submit>
+\begin{lstlisting}[language=HTML]
+<input type="submit">
 \end{lstlisting}
 
 During Sandlund's user testing, participants responded positively to the
@@ -599,7 +613,7 @@ facilities. \emph{Java} was used in the creation of the new Student Portal. A
 \emph{PHP} service is offered by the University for users to deploy their PHP
 applications.
 
-\begin{lstlisting}
+\begin{lstlisting}[language=HTML]
 <cfparam name="attributes.userid" type="string" default="unknown">
 <h1>Hello, world</h1>
 <cfoutput>
@@ -668,10 +682,10 @@ programatically.
 For example, inside Roo it is possible to run:
 
 \begin{lstlisting}
-  project --topLevelPackage uk.ac.york.module_allocation
-  persistence setup --database MYSQL --provider HIBERNATE
-  entity --class ~.domain.Student
-  field string --fieldName username
+project --topLevelPackage uk.ac.york.module_allocation
+persistence setup --database MYSQL --provider HIBERNATE
+entity --class ~.domain.Student
+field string --fieldName username
 \end{lstlisting}
 
 These four lines of code generates a Java class representing a student, 500
