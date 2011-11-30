@@ -96,7 +96,7 @@ Science and Mathematics at the University of York. The project was supervised
 by Dr James Cussens, Senior Lecturer in the Artifical Intelligence Group,
 Department of Computer Science.
 
-This report is 4,000 words, as counted by running \texttt{detex <report.tex> |
+This report is 4,500 words, as counted by running \texttt{detex <report.tex> |
 wc -w}. It is \pageref{LastPage} pages long.
 
 % The limits are 35,000 words and 70 pages - neither limit may be exceeded.
@@ -362,6 +362,36 @@ will only be used for a short amount of time by the original author does not
 require as much attention to maintainability as one which will last several
 years and be maintained by several different programmers.
 
+\subsection{Web application frameworks}
+
+% Intro to (web) frameworks in general
+
+A framework is a certain amount of reusable code that helps application
+developers by reducing the complexity of common web operations. For example,
+any moderately complex application will need to write user input to a data
+store, and protecting against malicious input is an obvious concern when
+executing code in a database.
+
+Many frameworks include functions that write to the database on behalf of the
+developer, and will automatically sanitise all input to prevent against
+attacks. As every application written should sanitise user input, it is this
+kind of repetitive action that frameworks help ease. A useful framework should
+increase the amount of time that a developer can spend building the unique
+parts of their application.
+
+A key focus of \gls{mvc} frameworks is to separate the application logic from
+the interface that is presented to the user. The term MVC splits the
+application into three pieces; the model for structuring and imposing
+constraints on the data, the controller for manipulating the data into a
+usable format and the view for presenting the manipulated data to the end user
+in an understandable way.
+
+Parr \cite{Parr2004templateengines} makes the point that separating the model
+from the view is something developers strive for, but often fail to achieve.
+
+The way in which the web application framework for this project was chosen is
+discussed in Section~\ref{sec:webframeworks}.
+
 \subsection{Sensitive information and the Data Protection Act}
 \label{sec:dataprotection}
 
@@ -593,22 +623,9 @@ the system. We discussed:
 % Discuss the results of the staff interviews
 
 \subsection{Web application frameworks}
-
-% Intro to (web) frameworks in general
-
-A framework is a certain amount of reusable code that helps application
-developers by reducing the complexity of common web operations. For example,
-any moderately complex application will need to write user input to a data
-store, and protecting against malicious input is an obvious concern when
-executing code in a database.
 \label{sec:webframeworks}
 
-Many frameworks include functions that write to the database on behalf of the
-developer, and will automatically sanitise all input to prevent against
-attacks. As every application written should sanitise user input, it is this
-kind of repetitive action that frameworks help ease. A useful framework should
-increase the amount of time that a developer can spend building the unique
-parts of their application.
+% Justifying a framework for this project
 
 While it is possible to build a web application without using a framework,
 there is no advantage to rewriting basic operations for this project. If the
