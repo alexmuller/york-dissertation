@@ -500,9 +500,27 @@ final database product that IT Services will use to deploy the application.
 
 \subsubsection{Entity-relationship diagram}
 
-% E-R diagram
-% Student    ---  Allocation
-% Allocation ---  Module
+% Entities
+
+% Student
+%   username (primary key)
+%   route
+% DeptModule
+%   module_code (primary key)
+%   module_name
+% DeptModuleAvailability
+%   id (primary key)
+%   Module.module_code (foreign key)
+%   student_cap
+% Choice
+%   id (primary key)
+%   Student.username (foreign key)
+%   DeptModuleAvailability.id (foreign key)
+%   rank
+% Allocation
+%   id (primary key)
+%   Student.username (foreign key)
+%   DeptModuleAvailability.id (foreign key)
 
 Figure~\ref{er_diagram} is an entity-relationship diagram of the module
 allocation system:
