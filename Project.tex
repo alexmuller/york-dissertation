@@ -181,6 +181,17 @@ the pilot departments (Archaeology and History), administrative staff
 responsible for IT and timetabling, and the project author and supervisor. At
 the initial meetings, this group set out the scope for the project…
 
+\subsection{Report structure}
+
+This section gives background information about the University of York
+relevant to the project. Section~\ref{sec:research} covers the research that
+was undertaken at the start of the project. Section~\ref{sec:implementation}
+discusses the choices that were made during the implementation of the
+software, and how it was tested before delivery. Section~\ref{sec:furtherwork}
+describes ways in which the software could be extended in the future.
+Section~\ref{sec:conclusions} gives the conclusions drawn at the end of the
+project.
+
 \subsection{The current state of module allocation}
 
 % Refer to documents provided by Laura
@@ -231,6 +242,7 @@ Education product for email and calendaring, one of the aims of which is to
 improve the user experience dramatically over the current webmail software.
 
 \section{Research}
+\label{sec:research}
 
 % One or more review chapters, describing the research you did at the
 % beginning of the project period.
@@ -455,6 +467,7 @@ include a submit button in his application, and he notes that some users found
 the lack of an explicit save button ``a bit disturbing''.
 
 \section{Development, implementation and testing}
+\label{sec:implementation}
 
 % Several chapters describing what you have done, focusing on the novel
 % aspects of your own work.
@@ -478,7 +491,7 @@ We start with a table of entities:
 \end{tabular}
 
 As relational databases are so popular and are supported in many of the
-software frameworks we look at in Section~\ref{webframeworks}, there is no
+software frameworks we look at in Section~\ref{sec:webframeworks}, there is no
 advantage to choosing a database model apart from relational.
 
 Web frameworks abstract away anything related to a specific database product,
@@ -560,7 +573,6 @@ the system. We discussed:
 % Discuss the results of the staff interviews
 
 \subsection{Web application frameworks}
-\label{webframeworks}
 
 % Intro to (web) frameworks in general
 
@@ -569,6 +581,7 @@ developers by reducing the complexity of common web operations. For example,
 any moderately complex application will need to write user input to a data
 store, and protecting against malicious input is an obvious concern when
 executing code in a database.
+\label{sec:webframeworks}
 
 Many frameworks include functions that write to the database on behalf of the
 developer, and will automatically sanitise all input to prevent against
@@ -853,6 +866,7 @@ How will the software be tested?
 How did the pilot go?
 
 \section{Further work}
+\label{sec:furtherwork}
 
 % A chapter describing possible ways in which your work could be continued or
 % developed. Be imaginative but realistic.
@@ -863,6 +877,7 @@ If I didn't have time to implement a weighting system (rather than a simple,
 plain ranking system) I could talk about that here.
 
 \section{Conclusions}
+\label{sec:conclusions}
 
 % This is similar to the abstract. The difference is that you should assume
 % here that the reader of the conclusions has read the rest of the report.
