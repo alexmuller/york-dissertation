@@ -334,6 +334,7 @@ minimum or maximum lengths of strings) can then be added depending on the DBMS
 product being used.
 
 \subsection{Maintainability and the future of the software}
+\label{sec:maintainability}
 
 As the software created for this project will have to be maintained by the
 University's IT Services if it is evaluated as successful, care must be taken
@@ -388,6 +389,15 @@ in an understandable way.
 
 Parr \cite{Parr2004templateengines} makes the point that separating the model
 from the view is something developers strive for, but often fail to achieve.
+He provides some good examples of software development patterns that should
+never be seen, such as including \gls{sql} statements anywhere except the
+model -- and even then, the framework should provide a mapping between
+application objects and database structure.
+
+He cites maintainability as a reason to strictly separate the view from both
+the controller and the model, and as maintability is a key focus of this
+project (see Section~\ref{sec:maintability}) this is clearly important.
+
 
 The way in which the web application framework for this project was chosen is
 discussed in Section~\ref{sec:webframeworks}.
@@ -832,6 +842,19 @@ and readable at a glance:
   </ul>
 </html>
 \end{lstlisting}
+
+In his paper on enforcing separation between the model and the view, Parr
+\cite{Parr2004templateengines} ranks Freemarker very poorly and Velocity more
+favourably.
+
+% StringTemplate
+
+Parr has also created a templating engine, named StringTemplate, that enforces
+separation of the model and the view. His paper articulates clearly why
+enforcing the separation between model and view is a positive for a web
+application, and his argument is convincing. As would be expected, his
+templating engine is strict about applying the constraints he argues in favour
+of in his paper.
 
 % \subsubsection{Database thingys}
 
