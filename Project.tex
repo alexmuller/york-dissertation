@@ -1072,8 +1072,34 @@ second-year students.
 
 We should probably ask departments what they'd like to see in the future.
 
+There were many feature requests from the pilot departments that I had
+insufficient time to implement during the course of the project.
+
+\subsection{Maintaining a history}
+
+While considering the data protection implications mentioned in
+Section~\ref{sec:dataprotection}, a popular request from the pilot departments
+was that the application should retain its knowledge about a student for the
+duration of their time at university.
+
+One obvious benefit of this improvement is that the allocation could be made
+more fair over the course of a student's academic career. For example, if a
+student was given one of their lower ranked modules in their first year, the
+allocation could compensate them by giving them preference for a higher ranked
+module in their second year.
+
+The University's Data Protection Officer would have to be consulted in order
+to draft a suitable retention policy for this additional data. It seems that
+this is data a department might be expected to collect and reference, and as
+such could be held in line with the department's retention policies.
+
+\subsection{Different methods of obtaining information from students}
+
 If I didn't have time to implement a weighting system (rather than a simple,
 plain ranking system) I could talk about that here.
+
+% One mockup I created during the user testing showed allowed students to
+% weight modules rather than ranking them.
 
 \subsection{Automatic import and export}
 \label{sec:autoexport}
@@ -1085,6 +1111,11 @@ The application could automatically import and export data.
 The Chair of Board of Studies in Archaeology posed the question of whether
 this application could be used to allow visiting students to select their
 modules.
+
+\subsection{An interface to manipulate the algorithm}
+
+As departments have different requirements for the algorithm, it would be nice
+if they could manipulate (nuances) in the algorithm themselves.
 
 \section{Conclusions}
 \label{sec:conclusions}
