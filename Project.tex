@@ -112,7 +112,7 @@ Science and Mathematics at the University of York. The project was supervised
 by Dr James Cussens, Senior Lecturer in the Artifical Intelligence Group,
 Department of Computer Science.
 
-This report is 7,400 words, as counted by running \texttt{detex} and
+This report is 7,560 words, as counted by running \texttt{detex} and
 \texttt{wc -w}. It is \pageref{LastPage} pages long.
 
 % The limits are 35,000 words and 70 pages - neither limit may be exceeded.
@@ -1261,8 +1261,22 @@ such could be held in line with the department's retention policies.
 If I didn't have time to implement a weighting system (rather than a simple,
 plain ranking system) I could talk about that here.
 
-% One mockup I created during the user testing showed allowed students to
-% weight modules rather than ranking them.
+One mockup created during the user testing allowed students to weight modules
+rather than ranking them -- it was thought by the project steering group that
+this interface (Figure~\ref{prototype_student_weighting}) would allow students
+to express more clearly their preferences for certain modules (i.e. the
+student could use the bars to demonstrate that they have a strong desire for
+module X, and absolutely do not want to be allocated module Y).
+
+However, during user testing the students were confused about how the values
+shown on the bars would be used to allocate modules. There was strong feedback
+from the test groups that the application should in fact be kept as simple as
+possible -- the phrase \gls{kiss} is often used.
+
+It is possible that an interface similar to the one prototyped could be
+further refined such that students are comfortable using it -- the project
+group and implementer still believe it could provide a ``better'' allocation
+for students, though perhaps not in its current form.
 
 \subsection{Automatic import and export}
 \label{sec:autoexport}
@@ -1365,6 +1379,7 @@ system being in use.
     \includegraphics[width=0.85\linewidth]{images/prototypes/student_prototype_2.png}
   \end{center}
   \caption{Prototype of draggable bars for a weighting based system}
+  \label{prototype_student_weighting}
 \end{figure}
 
 \begin{figure}
