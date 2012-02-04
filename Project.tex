@@ -7,7 +7,7 @@
 %  Created by Alex Muller on 2011-10-10.
 %  Copyright (c) 2011 Alex Muller. All rights reserved.
 %
-\documentclass[]{scrartcl}
+\documentclass[draft]{scrartcl}
 % article, report, scrartcl, uoy_cs/UoYCSproject ?
 
 \usepackage[utf8]{inputenc} % Use utf-8 encoding for foreign characters
@@ -67,6 +67,8 @@
 \usepackage{url}
 \fi
 
+\usepackage{ifdraft}
+
 % Entity-relationship diagrams
 \usepackage{libs/tikz-er2}
 
@@ -117,6 +119,22 @@ This report is 7,560 words, as counted by running \texttt{detex} and
 
 % The limits are 35,000 words and 70 pages - neither limit may be exceeded.
 % Other projects I've seen have been 12,000/60, 11,000/60, 21,000/71 etc
+
+\ifoptiondraft{
+
+  This report is a work-in-progress (a draft) compiled on \today.
+
+  \medskip
+  \textbf{Notes during report writing:}
+
+  \begin{itemize}
+    \item Not sure how to refer to people e.g. Laura
+    \item Not sure how to refer to myself: ``project implementer'' or ``author''?
+    \item Does the structure look ok?
+    \item Should the title be changed? Something about a web application? 
+  \end{itemize}
+
+}
 
 \clearpage
 
