@@ -120,7 +120,7 @@ Science and Mathematics at the University of York. The project was supervised
 by Dr James Cussens, Senior Lecturer in the Artifical Intelligence Group,
 Department of Computer Science.
 
-This report is 8,100 words, as counted by running \texttt{detex} and
+This report is 8,300 words, as counted by running \texttt{detex} and
 \texttt{wc -w}. It is \pageref{LastPage} pages long.
 
 % The limits are 35,000 words and 70 pages - neither limit may be exceeded.
@@ -1073,13 +1073,44 @@ save mechanism.
 
 \subsection{Accessibility}
 
-% I could perhaps talk to Dave Swallow, CS.
-
 Educational institutions such as the University of York are required by law to
 ensure that web content is accessible to disabled users.
 
 % http://www.york.ac.uk/communications/websites/policies/accessibility/
 % http://www.york.ac.uk/communications/websites/content/accessibility/
+
+The two major accessibility issues surrounding a web application are users who
+are visually impaired and users who are unable to use a keyboard and/or mouse
+to browse the web.
+
+To mitigate the first accessibility issue, the application was tested to
+ensure that users can increase the page or font size to fit their needs. Users
+who use custom style sheets in their web browser (for example to enhance
+contrast) are able to do so.
+
+As to the second accessilibity issue, generally speaking users who are unable
+to use a keyboard or mouse do not use JavaScript in their web browser. The
+application is designed so that users with JavaScript disabled are instead
+presented a simple form layout that can be read out to them and filled in with
+the help of screen-reading software.
+
+Finally, this application made use of the \texttt{<noscript>} HTML tag to
+display the following to users who were attempting to choose their modules
+with JavaScript disabled. Note that this text will also be read out by
+screen-reading software.
+
+\begin{quote}
+  This page relies on JavaScript. If you're unable to use this application
+  because of its dependence on JavaScript (for example, for accessibility
+  reasons) please contact your departmental administrator for assistance.
+\end{quote}
+
+It is thought with these considerations, every student will be able to use the
+system to select their modules. However, even if the above fallbacks fail the
+student will still be able to obtain help from their department (which could
+complete the module selection on their behalf). The aim is that no student
+will be stranded with an application they cannot use and no instructions of
+how to gain assistance.
 
 \subsection{Interaction with other University software}
 
