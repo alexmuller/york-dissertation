@@ -1,0 +1,60 @@
+\usetikzlibrary{positioning}
+\tikzstyle{every relationship} = [draw=black, fill=black!10, text=black]
+\begin{landscape}
+\begin{figure}
+  \begin{tikzpicture}[node distance=8em]
+    
+    \node[entity] (student) {Student};
+      \node[attribute] (studentid) [above=1cm of student] {\key{Identifier}} edge (student);
+      \node[attribute] (routecode) [above left=1cm of student] {Route code} edge (student);
+    
+    \node[relationship] (makes) [below left of=student] {Makes} edge (student);
+    
+    \node[entity] (choice) [below of=makes] {Choice} edge (makes);
+      \node[attribute] (rank) [left=1cm of choice] {Rank} edge (choice);
+    
+    \node[relationship] (given) [below right of=student] {Given} edge (student);
+    
+    \node[entity] (allocation) [below of=given] {Allocation} edge (given);
+    
+    \node[relationship] (allocof) [below of=allocation] {Of} edge (allocation);
+    \node[relationship] (choiceof) [below of=choice] {Of} edge (choice);
+    
+    \node[entity] (moduleav) [below left of=allocof] {Module Availability};
+      \node[attribute] (studentmin) [below left=0cm and 1cm of moduleav] {Student min} edge (moduleav);
+      \node[attribute] (studentcap) [below left=1.2cm and 1cm of moduleav] {Student cap} edge (moduleav);
+
+    \draw[link] (choiceof) |- node [pos=0.05, auto, swap] {} (moduleav);
+    \draw[link] (allocof) |- node [pos=0.05, auto, swap] {} (moduleav);
+
+  \end{tikzpicture}
+  \caption{(Incomplete) Entity-relationship diagram for the module allocation system.}
+  \label{er_diagram}
+\end{figure}
+\end{landscape}
+
+% Helpful demo/test document
+
+% \begin{landscape}
+% \tikzstyle{every entity} = [top color=white, bottom color=blue!30, draw=blue!50!black!100]
+% \tikzstyle{every attribute} = [top color=white, bottom color=yellow!20, draw=yellow, node distance=1cm]
+% \begin{tikzpicture}[node distance=1.5cm, every edge/.style={link}]
+%   \node[entity] (emp) {Employee};
+%   \node[isa] (isa) [below=1cm of emp] {ISA} edge (emp);
+%   \node[entity] (mec) [below left=1cm of isa] {Mechanic} edge (isa);
+%   \node[entity] (sal) [below right=1cm of isa] {Salesman} edge (isa);      %%%%%%%%%%
+%   \node[relationship] (does) [left=of mec] {Does} edge (mec);
+%   \node[weak entity] (rep) [below=of does] {RepairJob} edge (does);
+%   \node[ident relationship] (reps) [below=of rep] {Repairs} edge [total] (rep);
+%   \node[entity] (car) [right=of reps] {Car} edge [<-] (reps);
+%   \node[relationship] (buy) [below=of sal] {Buys};                         %%%%%%%%%%
+%   \node[relationship] (sel) [right=of buy] {Sells};                        %%%%%%%%%%
+%   % \node[derived attribute] (sval) [right=of sel] {Value} edge (sel);
+%   \draw[link] (car.10) -| (buy) (buy) edge (sal);
+%   \draw[link] (car.-10) -| (sel) (sel) |- (sal);
+%   \node[entity] (cli) [below right=0.5cm and 3.7cm of car] {Client};
+%   % \node[multi attribute] (cphone) [below right=of cli] {Phone} edge (cli);
+%   \draw[link] (cli.70) |- node [pos=0.05, auto, swap] {buyer} (sel);
+%   \draw[link] (cli.110) |- node [pos=0.05, auto] {seller} (buy);
+% \end{tikzpicture}
+% \end{landscape}

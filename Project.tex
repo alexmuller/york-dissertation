@@ -67,6 +67,12 @@
 \usepackage{url}
 \fi
 
+\ifpdf
+\usepackage{pdflscape}
+\else
+\usepackage{lscape}
+\fi
+
 \usepackage{ifdraft}
 
 % Entity-relationship diagrams
@@ -700,46 +706,10 @@ final database product that IT Services will use to deploy the application.
 
 \subsubsection{Entity-relationship diagram}
 
-% Entities
-
-% Student
-%   username (primary key)
-%   route
-% DeptModule
-%   module_code (primary key)
-%   module_name
-% DeptModuleAvailability
-%   id (primary key)
-%   Module.module_code (foreign key)
-%   student_cap
-% Choice
-%   id (primary key)
-%   Student.username (foreign key)
-%   DeptModuleAvailability.id (foreign key)
-%   rank
-% Allocation
-%   id (primary key)
-%   Student.username (foreign key)
-%   DeptModuleAvailability.id (foreign key)
-
 Figure~\ref{er_diagram} is an entity-relationship diagram of the module
-allocation system:
+allocation system.
 
-\begin{figure}
-  \begin{tikzpicture}[node distance=8em]
-    \node[entity] (student) {Student};
-    \node[relationship] (given) [right of=student] {given} edge (student);
-    \node[entity] (allocation) [right of=given] {Allocation} edge (given);
-    \node[relationship] (of) [right of=allocation] {of} edge (allocation);
-    \node[entity] (module) [right of=of] {Module} edge (of);
-    \node[relationship] (offers) [below of=module] {offers} edge (module);
-    \node[entity] (department) [left of=offers] {Department} edge (offers);
-    \node[relationship] (staffmember) [left of=department] {member} edge (department);
-    \node[entity] (staff) [left of=staffmember] {Staff} edge (staffmember);
-  \end{tikzpicture}
-  \caption{Entity-relationship diagram for the module allocation system.}
-  \label{er_diagram}
-\end{figure}
+\input{inc/er_diagram.tex}
 
 \subsection{User research}
 
