@@ -52,6 +52,8 @@
 }
 \lstloadlanguages{HTML}
 
+\usepackage{algorithmic}
+
 % This is now the recommended way for checking for PDFLaTeX:
 \usepackage{ifpdf}
 
@@ -1150,62 +1152,7 @@ import will have to be developed (Section~\ref{sec:autoexport}).
 
 % Add notes from meeting with Matt
 
-\subsection{Allocation algorithm}
-
-During the research period, discussions with academic and administrative staff
-in both pilot departments revealed that the current method of module
-allocation is not particularly complex. With several hundred students in the
-History department, it is impossible for a human to do a uniformly ``fair''
-job of allocating modules to students. The staff simply try their best to
-allocate as many high choices as possible.
-
-With this information in hand, a score function was designed for the
-constrained optimisation problem that also kept the module allocation system
-as simple as possible.
-
-One could imagine an imaginary score function that a staff member might have
-in their head while allocating modules:
-
-\begin{itemize}
-  \item A first choice is perfect -- if every student received every one of
-        their first choices, they would be happy.
-  \item A second or third choice is alright -- a student would not be too
-        displeased to be taking their second or third choice.
-  \item A fourth or fifth choice should be avoided if possible, but is not a
-        show-stopper.
-  \item One would expect a student who was being made to take their sixth or
-        lower choice to be fairly unhappy.
-\end{itemize}
-
-Mathematically, one could sum a score for each student as follows:
-
-$$
-1(x_1) + 5(x_2) + 30(x_3) ...
-$$
-
-...where $x_i$ is the number of $i^{th}$ choices that that student was
-allocated. The constant applied to the $i^{th}$ choice indicates a penalty
-applied by the system -- this penalty increases depending on how negative that
-choice is deemed to be.
-
-While not particularly complex, one would expect that minimising this score
-function would maximise the number of highly ranked choices.
-
-The hard constraints on the optimisation problem are as follows:
-
-\begin{itemize}
-  \item The lower cap on a module (a module will not run if with less than the
-        required number of students)
-  \item The upper cap on a module (a staff member is not able to provide a
-        certain quality of teaching to more than the maximum number of
-        students)
-  \item The number of credits a student must take from a particular group of
-        modules (each student must have exactly the same workload as their
-        peers)
-\end{itemize}
-
-The following constraints will be loaded into a constrained optimisation
-solver and an allocation will be generated.
+\input{sections/development_algorithm.tex}
 
 \subsection{Implementation schedule}
 
