@@ -94,3 +94,22 @@ $$\displaystyle\sum_{Student, Module} rank'(Student, Module)x_{Student, Module}$
 ...where a rank of 1 might return a coefficient of, say, 4000.
 
 \subsubsection{Gurobi}
+
+% Generated using R:
+% points <- c(120, 65, 30, 5, 1, 0, 0, 0, 0, 0)
+% plot(points, xlab="Rank of module", ylab="Coefficient", main="Graph of coefficient against module ranks")
+% lines(points)
+% dev.copy(pdf, '/path/to/gurobi_coefficients.pdf')
+% dev.off()
+
+\begin{figure}
+  \begin{center}
+    \fbox{\includegraphics[width=0.6\linewidth]{images/gurobi_coefficients.pdf}}
+  \end{center}
+  \caption{Coefficients used with Gurobi}
+  \label{gurobi_coeff}
+\end{figure}
+
+Figure~\ref{gurobi_coeff} shows a graph of the coefficients that were used
+with Gurobi. It demonstrates that the information provided to the solver
+approximates the imaginary score function a staff member might use.
