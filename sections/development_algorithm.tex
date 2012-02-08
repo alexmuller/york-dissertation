@@ -113,3 +113,14 @@ $$\displaystyle\sum_{Student, Module} rank'(Student, Module)x_{Student, Module}$
 Figure~\ref{gurobi_coeff} shows a graph of the coefficients that were used
 with Gurobi. It demonstrates that the information provided to the solver
 approximates the imaginary score function a staff member might use.
+
+To begin with, the Gurobi Python interface was used to prototype the model.
+Once the Gurobi solver was working correctly on static data using the Python
+interface, it was transferred to the application and switched to using the
+Java interface.
+
+As the project implementer is more familiar with Python than with Java, it was
+faster to prototype using the Python interface. Additionally, there is less
+development overhead required with Python (i.e. no compilation necessary). A
+copy of the Python prototype is included in
+Appendix~\ref{sec:gurobipythonprototype}.
