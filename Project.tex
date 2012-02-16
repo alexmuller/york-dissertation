@@ -1201,17 +1201,25 @@ E.g. number of lines of code, type of code, time spent
 % Code committed using a DVCS (Git) to GitHub so can easily see which commits
 % came from which author
 
-% So far: 2.5 hours, 2.5 hours
+% So far: ~1 day
 
 \subsubsection{Security review}
 
-As the application is hosted by the University and will contain student data,
-the project implementer met with the University's Information Security Officer
-and one of the developers who assisted with the application code.
+On 15 February 2012, a review of the application architecture was conducted by
+the University's Information Security Officer and the developer who assisted
+with the application code.
 
-A review of the application architecture and code was conducted, and...
+% Software documentation was created by the project author, describing
+% possible security vulnerabilities and how they were mitigated. This
+% documentation is provided in Appendix X.
 
-[Todo: review will be conducted on 15 February]
+The hosting configuration and application security model was reviewed. Two
+recommendations were made about the code; primarily, that the application should
+use the OWASP ESAPI library for escaping special characters.
+
+The security expert considered that the data held by the system could be
+classed as between medium and low risk, as there was no highly sensitive
+personal information such as student telephone numbers or email addresses.
 
 \subsection{Issues arising during implementation}
 
