@@ -124,7 +124,7 @@ Science and Mathematics at the University of York. The project was supervised
 by Dr James Cussens, Senior Lecturer in the Artificial Intelligence Group,
 Department of Computer Science.
 
-This report is 9,000 words, as counted by running \texttt{detex} and
+This report is 9,200 words, as counted by running \texttt{detex} and
 \texttt{wc -w}. It is \pageref{LastPage} pages long. The word count does not
 include Appendix~\ref{sec:documentation}.
 
@@ -140,9 +140,9 @@ include Appendix~\ref{sec:documentation}.
 
   \begin{itemize}
     \item Not sure how to refer to people e.g. Laura
-    \item Not sure how to refer to myself: ``project implementer'' or ``author''?
+    \item Not sure how to refer to myself: ``project implementer'' or ``author'' or ``I''?
     \item Does the structure look ok?
-    \item Should the title be changed? Something about a web application? 
+    \item Should the title be changed? Something about a web application?
   \end{itemize}
 
 }
@@ -303,11 +303,12 @@ improve the user experience dramatically over the current webmail software.
 \section{Project management and requirements}
 \label{sec:requirements}
 
-The \gls{aso} identified pilot departments who would use the software to
-allocate optional modules. A project steering group was formed consisting of
-representatives from each of the departments (Archaeology and History),
-administrative staff responsible for IT and timetabling, and the project
-author and supervisor. The project steering group consists of:
+The \gls{aso} identified pilot departments who would most benefit from using
+the software to allocate optional modules. A project steering group was formed
+consisting of representatives from each of the departments (Archaeology and
+History), administrative staff responsible for IT and timetabling, and the
+project author and supervisor. The membership of the project steering group is
+as follows:
 
 \begin{itemize}
   \item Project implementer
@@ -334,8 +335,8 @@ project commenced, the requirements could be briefly summarised as:
   and departmental staff. The system should provide benefits over the current
   paper-based method of allocating modules, such as:
   \begin{itemize}
-    \item Reduce administrative overhead
-    \item Improve student experience
+    \item Reduced administrative overhead
+    \item Improved student experience
     \item Increased level of fairness in module allocation
   \end{itemize}
 \end{quote}
@@ -1079,6 +1080,14 @@ of in his paper.
 The application should be visually consistent with other University web
 software to instill trust in the user.
 
+The University's Web Office (part of the Communications Office) was contacted
+to enquire whether the application should be branded using the standard green
+banner, or as a part of the student portal.
+
+% Following the principle of least astonishment...
+
+% http://en.wikipedia.org/wiki/Principle_of_least_astonishment
+
 \begin{figure}
   \begin{center}
     \includegraphics[width=160mm]{images/2011_11_06_yorkacuk.png}
@@ -1113,11 +1122,21 @@ save mechanism.
 
 \subsection{Accessibility}
 
-Educational institutions such as the University of York are required by law to
-ensure that web content is accessible to disabled users.
-
 % http://www.york.ac.uk/communications/websites/policies/accessibility/
-% http://www.york.ac.uk/communications/websites/content/accessibility/
+
+Educational institutions such as the University of York are required by the
+\gls{senda} 2001 to ensure that web content is accessible to disabled users.
+The Web Office provides advice to those publishing web sites or applications
+on behalf of the University at
+\url{http://www.york.ac.uk/communications/websites/content/accessibility/}.
+While this advice is more applicable to content-heavy areas such as department
+websites for student recruitment, it still contains some things to consider
+while building a web application.
+
+% Perceivable
+% Operable
+% Understandable
+% Robust
 
 The two major accessibility issues surrounding a web application are users who
 are visually impaired and users who are unable to use a keyboard and/or mouse
@@ -1128,33 +1147,23 @@ ensure that users can increase the page or font size to fit their needs. Users
 who use custom style sheets in their web browser (for example to enhance
 contrast) are able to do so.
 
-All colours were tested to ensure compliance with WCAG AAA.
+All text and background colour combinations were tested to ensure compliance
+with WCAG AAA.
 
 % http://www.snook.ca/technical/colour_contrast/colour.html
 
 As to the second accessibility issue, generally speaking users who are unable
 to use a keyboard or mouse do not use JavaScript in their web browser. The
 application is designed so that users with JavaScript disabled are instead
-presented a simple form layout that can be read out to them and filled in with
-the help of screen-reading software.
-
-Finally, this application made use of the \texttt{<noscript>} HTML tag to
-display the following to users who were attempting to choose their modules
-with JavaScript disabled. Note that this text will also be read out by
-screen-reading software.
-
-\begin{quote}
-  This page relies on JavaScript. If you're unable to use this application
-  because of its dependence on JavaScript (for example, for accessibility
-  reasons) please contact your departmental administrator for assistance.
-\end{quote}
+presented a simple form layout that can be read out to them by screen-reading
+software and filled in solely with a keyboard (which can be voice controlled).
 
 It is thought with these considerations, every student will be able to use the
 system to select their modules. However, even if the above fallbacks fail the
 student will still be able to obtain help from their department (which could
 complete the module selection on their behalf). The aim is that no student
-will be stranded with an application they cannot use and no instructions of
-how to gain assistance.
+will be stranded with an application they cannot use and no instructions
+telling them how to gain assistance.
 
 % Finally, the student interface was tested by Mr David Swallow, a Research
 % Associate in the \gls{hci} research group at the University of York.
@@ -1163,8 +1172,8 @@ how to gain assistance.
 
 The system will be required to interact with \gls{sits}, as it is a centrally
 maintained database that must always contain a true and accurate
-representation of a student's data. Data stored in \gls{sits} is used in all
-matters related to a student, including timetabling and room allocation.
+representation of a student's data. Data stored in \gls{sits} is throughout
+the University, including for timetabling and room allocation.
 
 This system will interact with \gls{sits} at two points:
 
@@ -1223,15 +1232,16 @@ E.g. number of lines of code, type of code, time spent
 
 On 15 February 2012, a review of the application architecture was conducted by
 the University's Information Security Officer and the developer who assisted
-with the application code.
+with integrating the application's security configuration.
 
-% Software documentation was created by the project author, describing
-% possible security vulnerabilities and how they were mitigated. This
-% documentation is provided in Appendix X.
+As well as being targeted at departments, the software documentation created
+by the project author also describes possible security vulnerabilities and how
+they were mitigated. This documentation is provided in
+Appendix~\ref{sec:documentation}.
 
 The hosting configuration and application security model was reviewed. Two
 recommendations were made about the code; primarily, that the application should
-use the OWASP ESAPI library for escaping special characters.
+use the \gls{owasp} ESAPI library for escaping special characters.
 
 The security expert considered that the data held by the system could be
 classed as between medium and low risk, as there was no highly sensitive
@@ -1276,7 +1286,9 @@ set up the software.
 
 % The University explored whether the project implementer could sign a
 % non-disclosure agreement with regards to the student data involved in the
-% system.
+% system, but ultimately it was decided that there was no way in which it was
+% possible to give an undergraduate student access to other students' personal
+% information.
 
 \noindent{\textbf{Unfamiliarity with the language and framework}}
 
@@ -1326,13 +1338,10 @@ module in their second year.
 
 The University's Data Protection Officer would have to be consulted in order
 to draft a suitable retention policy for this additional data. It seems that
-this is data a department might be expected to collect and reference, and as
-such could be held in line with the department's retention policies.
+this is data that a department might be expected to collect and reference, and
+as such could be held in line with the department's retention policies.
 
 \subsection{Different methods of obtaining information from students}
-
-If I didn't have time to implement a weighting system (rather than a simple,
-plain ranking system) I could talk about that here.
 
 One mockup created during the user testing allowed students to weight modules
 rather than ranking them -- it was thought by the project steering group that
@@ -1341,15 +1350,23 @@ to express more clearly their preferences for certain modules (i.e. the
 student could use the bars to demonstrate that they have a strong desire for
 module X, and absolutely do not want to be allocated module Y).
 
-However, during user testing the students were confused about how the values
-shown on the bars would be used to allocate modules. There was strong feedback
-from the test groups that the application should in fact be kept as simple as
-possible -- the phrase \gls{kiss} is often used.
+However, user testing revealed that students were confused about how the
+values shown on the bars would be used to allocate modules. Furthermore, a
+concern raised at both the project steering group meetings and by students
+during testing was that this nuanced a selection process might evolve into a
+``bidding war'' between students, with a student adding one or two points to
+the values their peers had input in order to secure a module.
+
+In summary, there was strong feedback from the test groups that the
+application should in fact be kept as simple as possible -- the phrase
+\gls{kiss} is often used.
 
 It is possible that an interface similar to the one prototyped could be
 further refined such that students are comfortable using it -- the project
 group and implementer still believe it could provide a ``better'' allocation
-for students, though perhaps not in its current form.
+for students. A simple solution could perhaps be to not display the exact
+percentage figures to students so that they are choosing modules based on the
+approximate lengths of the bars rather than the exact values.
 
 \subsection{Automatic import and export}
 \label{sec:autoexport}
