@@ -1293,7 +1293,7 @@ The process surrounding bug fixing during the week the application was open
 was as follows:
 
 \begin{enumerate}
-  \item An error is reported from a student to their departmental administrator
+  \item An error is reported by a student to their departmental administrator
   \item The administrator contacts both \gls{itservices} and the project implementer
   \item They liase (in order to provide redacted log files, if necessary)
   \item The software is patched by the project implementer
@@ -1351,8 +1351,10 @@ use new techniques.
 
 % We should probably ask departments what they'd like to see in the future.
 
-There were many feature requests from the pilot departments that I had
-insufficient time to implement during the course of the project.
+There were many feature requests from the project steering group that I had
+insufficient time to implement during the course of the project. These
+requests (including their difficulty and potential implementation strategy)
+are discussed in this section.
 
 \subsection{Maintaining a history}
 
@@ -1361,11 +1363,12 @@ Section~\ref{sec:dataprotection}, a popular request from the pilot departments
 was that the application should retain its knowledge about a student for the
 duration of their time at university.
 
-One obvious benefit of this improvement is that the allocation could be made
-more fair over the course of a student's academic career. For example, if a
-student was given one of their lower ranked modules in their first year, the
-allocation could compensate them by giving them preference for a higher ranked
-module in their second year.
+One obvious benefit of this improvement is that the fairness of the allocation
+for a given student could be improved over the course of their academic
+career. For example, if a student was given one of their lower ranked modules
+in the first year, the allocation could compensate them by giving them
+preference over other students for a higher ranked module in the second
+year.
 
 The University's Data Protection Officer would have to be consulted in order
 to draft a suitable retention policy for this additional data. It seems that
@@ -1378,8 +1381,8 @@ One mockup created during the user testing allowed students to weight modules
 rather than ranking them -- it was thought by the project steering group that
 this interface (Figure~\ref{prototype_student_weighting}) would allow students
 to express more clearly their preferences for certain modules (i.e. the
-student could use the bars to demonstrate that they have a strong desire for
-module X, and absolutely do not want to be allocated module Y).
+student could use the bars to demonstrate that they have a very strong desire
+for module X, and absolutely do not want to be allocated module Y).
 
 However, user testing revealed that students were confused about how the
 values shown on the bars would be used to allocate modules. Furthermore, a
@@ -1402,7 +1405,17 @@ approximate lengths of the bars rather than the exact values.
 \subsection{Automatic import and export}
 \label{sec:autoexport}
 
-The application could automatically import and export data.
+The application could be extended so that it automatically accesses data
+stored in the University's Data Warehouse. This would be far easier for an
+experienced University developer to implement than it would be for the project
+author, who has no prior experience writing software to integrate with
+University of York infrastructure.
+
+This would remove the need for departments to set up the application by
+uploading files and, crucially, would remove the requirement that \gls{ssdt}
+must import the data into \gls{sits} when the allocation is complete. The
+result of this integration would be a further reduction in administrative time
+required.
 
 \subsection{Expanding the use of the application}
 
@@ -1410,29 +1423,34 @@ The Chair of Board of Studies in Archaeology posed the question of whether
 this application could be used to allow visiting students to select their
 modules.
 
+The application has been designed in such a way that any course, no matter
+what the structure, can be added. The only blocking factor for this use case
+is that the application requires a University of York login to authenticate
+with Shibboleth. A stand-alone version of the application could be created
+with its own authentication mechanism, which would avoid this requirement.
+
 \subsection{Interface improvements}
 
-As departments have different requirements for the algorithm, it would be nice
-if they could manipulate (nuances) in the algorithm themselves.
+As different departments have their own requirements for the algorithm, it
+would be nice if they could manipulate small parameters in the algorithm
+themselves.
 
-The student interface should be improved so that it functions properly on
-devices that accept different forms of user input. This was deemed unimportant
-for the pilot project as the application was only accessible from campus PCs
-or using the University's \gls{vpn}. However, if the application was available
-on the web, it is increasingly likely that students would attempt to use
-touchscreen devices to access the application. Further testing should be
-conducted using common examples of such devices and any outstanding issues
-should be fixed.
+The student interface should undergo further testing on less commonly used
+devices. It should also be tested using screen reading software to ensure that
+all accessibility requirements have been met, and improved in that regard if
+required.
 
 \subsection{Contacting students}
 
 During user testing, one benefit students noted compared to the paper system
-is that it is significantly easier to keep a record of the choices made.
+is that it is significantly easier for them to keep a record of the choices
+made.
 
 Currently, the system simply advises students to print or save the page that
 is displayed after they have made their choices. An obvious improvement to
-this process is that students could be emailed a copy of their choices to
-keep.
+this process is that students could be emailed a copy of their choices. This
+would confirm to the student that their input has definitely been saved, while
+also giving them a copy of their choices.
 
 \subsection{Support for more complex course structures}
 
