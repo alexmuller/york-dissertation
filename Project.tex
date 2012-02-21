@@ -124,7 +124,7 @@ Science and Mathematics at the University of York. The project was supervised
 by Dr James Cussens, Senior Lecturer in the Artificial Intelligence Group,
 Department of Computer Science.
 
-This report is 9,300 words, as counted by running \texttt{detex} and
+This report is 9,600 words, as counted by running \texttt{detex} and
 \texttt{wc -w}. It is \pageref{LastPage} pages long. The word count does not
 include Appendix~\ref{sec:documentation}.
 
@@ -1288,16 +1288,44 @@ set up the software.
 
 % Discuss how no technical people were involved early enough.
 
-% \noindent{\textbf{Inability to interact with the system while it contained sensitive data}}
+\noindent{\textbf{Inability to interact with the system while it contained sensitive data}}
 
-% I was unable to respond to bugs in a timely manner as I couldn't have access
-% to student data.
+The project implemeneter was unable to respond to bugs in a timely manner as
+it was not possible for \gls{itservices} to provide access to a database and
+platform containing live student data. This made bug fixing during the week
+the application was open to students nearly impossible.
 
-% The University explored whether the project implementer could sign a
-% non-disclosure agreement with regards to the student data involved in the
-% system, but ultimately it was decided that there was no way in which it was
-% possible to give an undergraduate student access to other students' personal
-% information.
+The process surrounding bug fixing during the week the application was open
+was as follows:
+
+\begin{enumerate}
+  \item An error is reported from a student to their departmental administrator
+  \item The administrator contacts both \gls{itservices} and the project implementer
+  \item They liase (in order to provide redacted log files, if necessary)
+  \item The software is patched by the project implementer
+  \item The patched software is deployed by \gls{itservices}
+\end{enumerate}
+
+Note that as soon as (1) had taken place, the department could perform the
+student's ranking for them using functionality built into the software - the
+student was not simply left unable to make their choices.
+
+Because of the dependency between the various different people involved in the
+project, fixing a bug was a process that took several hours. While releasing a
+patched application in a matter of hours is relatively uncommon in, for
+example, desktop software development, it is a long time for a web application
+that is only in use for a week.
+
+The web application was only available for a week, or about 120 waking hours.
+Under the assumption that the use of the application by the 800 students was
+distributed uniformly over time, a several hour period during which the
+software was not fully functional might inconvenience approximately forty
+students.
+
+The project implementer signed a non-disclosure agreement with regards to the
+student data involved in the system, but ultimately it was still felt by the
+University that an undergraduate student could not be given access to other
+students' personal data.
 
 \noindent{\textbf{Unfamiliarity with the language and framework}}
 
@@ -1411,6 +1439,12 @@ Currently, the system simply advises students to print or save the page that
 is displayed after they have made their choices. An obvious improvement to
 this process is that students could be emailed a copy of their choices to
 keep.
+
+\subsection{Support for more complex course structures}
+
+Several departments have complex course structures, for example where a module
+in one term influences the module that must be taken in the next term. The
+interface could be extended to reflect this.
 
 \section{Conclusions}
 \label{sec:conclusions}
