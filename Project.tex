@@ -363,8 +363,6 @@ of the project was wide-ranging.
 
 \subsection{Development methodology}
 
-% Agile?
-
 % Prototyping
 
 Zhang and Chung \cite{MODFM_2003} note that prototyping can be used to
@@ -588,12 +586,28 @@ the scope of this report. The research conducted here focuses solely on the
 technical methods that should be used to prevent unwanted disclosure of
 information.
 
-% Todo: a basic overview of the OWASP top 10 vulnerabilities here
-
 The \gls{owasp} Top 10 is a list of the ten most important security
 vulnerabilities, as identified by The \gls{owasp} Foundation
 \cite{OWASPTop10_2010}. These vulnerabilities range in impact, prevalence and
 how sophisticated an attacker must be to exploit them.
+
+Not all of the ten security vulnerabilities are relevant to this project --
+for example, some of them refer to the way in which the data is stored on
+disk, which is out of scope for this software. The most relevant
+vulnerabilities are discussed here.
+
+\noindent{\textbf{Injection (A1)}}
+
+\noindent{\textbf{Cross-Site Scripting (A2)}}
+
+\noindent{\textbf{Broken Authentication and Session Management (A3)}}
+
+\noindent{\textbf{Cross-Site Request Forgery (A5)}}
+
+\noindent{\textbf{Failure to Restrict URL Access (A8)}}
+
+\noindent{\textbf{Insufficient Transport Layer Protection (A9)}}
+
 
 \subsection{User testing}
 
@@ -698,7 +712,7 @@ the lack of an explicit save button ``a bit disturbing''.
 
 \subsection{Integer Linear Programming Solvers}
 
-% Gurobi? SCIP (sp?)?
+% Gurobi? SCIP? MiniZinc?
 
 Requirements:
 
@@ -993,7 +1007,7 @@ might need to be spent removing it.
 
 There are many different templating engines that can be used as components of
 a Java (in this case, Spring) project. Examples of commonly-used Java
-templating software include \gls{jsp}, Tiles, Freemarker and Velocity.
+templating software include \gls{jsp}, Tiles and Freemarker.
 
 % Plain old JSP
 
@@ -1031,10 +1045,8 @@ site header and footer respectively:
 
 % Freemarker
 
-Freemarker is more complex than Tiles, offering functionality such as allowing
-the developer to iterate over an array in the template file itself. This is
-beneficial if the application requires functionality such as outputting lists
-of elements:
+Freemarker is more complex than Tiles, but at the expense of not enforcing
+complete separation between model and view:
 
 \begin{lstlisting}[language=HTML]
 <html>
@@ -1049,27 +1061,8 @@ of elements:
 </html>
 \end{lstlisting}
 
-% Apache Velocity
-
-Apache Velocity is similar to Freemarker, though the syntax appears more clear
-and readable at a glance:
-
-\begin{lstlisting}[language=HTML]
-<html>
-  #include("header.vm")
-  <h1>Welcome to the module allocation system, $student_name!</h1>
-  <p>These are the $modules.size() modules you have been allocated:</p>
-  <ul>
-  #foreach($m in $modules)
-    <li>$m.name ($m.code)</li>
-  #end
-  </ul>
-</html>
-\end{lstlisting}
-
 In his paper on enforcing separation between the model and the view, Parr
-\cite{Parr2004templateengines} ranks Freemarker very poorly and Velocity more
-favourably.
+\cite{Parr2004templateengines} ranks Freemarker very poorly.
 
 % StringTemplate
 
@@ -1116,6 +1109,7 @@ banner, or as a part of the student portal.
 % Include screenshots of University software:
 %   https://www.york.ac.uk/it-services/facilities/account/accounts
 %   https://www.cs.york.ac.uk/submit/assessment/
+%   https://www.york.ac.uk/students/
 
 One area that usability gains can be made are in relation to how the
 application saves data. During one of the user research sessions, the
@@ -1226,7 +1220,7 @@ pilot. While it would clearly be preferable for staff to set up the system
 themselves unaided, it is more important that there is a working student
 interface and allocation algorithm.
 
-\subsection{Assistance provided with the application}
+\subsection{Assistance provided with the application by IT Services}
 
 \subsubsection{Development work}
 
