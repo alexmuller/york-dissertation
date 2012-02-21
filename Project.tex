@@ -131,6 +131,11 @@ include Appendix~\ref{sec:documentation}.
 % The limits are 35,000 words and 70 pages - neither limit may be exceeded.
 % Other projects I've seen have been 12,000/60, 11,000/60, 21,000/71 etc
 
+% The author is very grateful for the assistance provided by all the staff and
+% students at the University of York who were involved in the project, and
+% especially to James Cussens for his advice throughout and Laura Crossley for
+% her management of the project on behalf of the University.
+
 \ifoptiondraft{
 
   This report is a work-in-progress (a draft) compiled on \today.
@@ -152,15 +157,18 @@ include Appendix~\ref{sec:documentation}.
 \begin{abstract}
   % Couple of paras. Not more than 200 words - this is 194.
 
-  From their second year onwards, most students at the University of York can
+  From the second year onwards, most students at the University of York can
   choose between two or more optional modules to tailor their academic career,
   in the hope that it will be more relevant, interesting and useful to them.
   
-  Optional module allocation in some departments is handled using a paper form
+  There is currently no standard system for optional module allocation at the
+  University of York. In some departments it is handled using a paper form
   which must be returned to departmental administrators and processed
-  manually. This project aims to design and implement a piece of web-based
-  software that can be used by departments and students to allocate modules
-  more fairly and with less administrative overhead.
+  manually, which is a time-consuming process.
+  
+  This project aims to design and implement web-based software that can be
+  used by departments and students to allocate modules more fairly and with
+  less administrative overhead.
   
   Allocating modules ``fairly'' involves understanding how staff and students
   view fair allocation, and translating that into a constrained optimisation
@@ -207,10 +215,10 @@ relating to the creation of the module allocation software.
 The project steering group has noted that as a student, the author must not be
 given access to any sensitive personal information. This includes, but is not
 limited to, student names, email addresses and degree course information.
-Development and testing of the software will be carried out with data that it
-is in a similar form to real data held by the University. The University's
-Data Protection Officer was consulted during the project, and their input is
-discussed in Section~\ref{sec:dataprotection}.
+Development and testing of the software will be carried out with test data
+that it is in a similar form to genuine student data held by the University.
+The University's Data Protection Officer was consulted during the project, and
+his input is discussed in Section~\ref{sec:dataprotection}.
 
 \section{Introduction}
 
@@ -402,14 +410,15 @@ $\rightarrow$ interview'' cycle.
 
 \subsection{Database design}
 
-A \gls{dbms} is a piece of software that manages the
-database, including providing the ability to add or edit records stored in the
-database. The \gls{dbms} will be one of the more mature products used in the
-creation of this system, with many having been available since the 1990s.
+A \gls{dbms} is software that manages the database, including providing the
+ability to add or edit records stored in the database. The \gls{dbms} will be
+one of the more mature products used in the creation of this system, with many
+having been available since the 1990s.
 
-Relational databases are a common feature of web applications. We note
-that the University of York already deploys MySQL and Oracle (both relational
-model) database systems for its web applications and \gls{mis}.
+Relational databases are a common feature of web applications. In meetings
+with IT Services during the research stage, it was noted that the University
+of York already deploys MySQL and Oracle (both relational model) database
+systems for its web applications and \gls{mis}.
 
 When designing a database, Johnson \cite{DatabaseModelsLanguagesDesign} gives
 several questions that he believes must be answered before a database can be
@@ -1409,6 +1418,14 @@ keep.
 % This is similar to the abstract. The difference is that you should assume
 % here that the reader of the conclusions has read the rest of the report.
 
+% Talk about the methodology you adopted and why you chose. Make sure you
+% mention what worked and what did not - explain why you think things did not
+% work or could be improved - this shows learning from the experience.
+
+% This section should be a summary of everything you have done with your
+% personal comments and findings and perhaps some discussion on whether you
+% agree with the references you cited.
+
 % It became apparent during implementation that there were areas that should
 % have been researched more thoroughly, primarily database theory. This was
 % not helped by my unfamiliarity with the framework and associated tools,
@@ -1527,12 +1544,12 @@ project in advance of the trial period.
 
 \begin{tabular}{ | l | l | }
   \hline
-  \textbf{Issue summary}  & \textbf{Times raised}  \\
+  \textbf{Issue summary}                & \textbf{Times raised}  \\
   \hline
-  Elective credit validation       &    2          \\
-  Random ordering of confirmation screen &    2    \\
-  Students should not be required to rank every module & 1 \\
-  Parts of explanatory text unclear & 1 \\
+  Form validation improvements                         &    3    \\
+  Random ordering of confirmation screen               &    2    \\
+  Parts of explanatory text unclear                    &    2    \\
+  Students should not be required to rank every module &    1    \\
   \hline
 \end{tabular}
 
