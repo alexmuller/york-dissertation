@@ -83,7 +83,7 @@
 \usepackage{libs/tikz-er2}
 
 % Glossary
-\usepackage{glossaries}
+\usepackage[toc]{glossaries}
 \makeglossaries
 \input{references/glossary.tex}
 
@@ -126,7 +126,7 @@ Department of Computer Science.
 
 This report is 9,600 words, as counted by running \texttt{detex} and
 \texttt{wc -w}. It is \pageref{LastPage} pages long. The word count does not
-include Appendix~\ref{sec:documentation}.
+include any of the files or code listings included in the appendices.
 
 % The limits are 35,000 words and 70 pages - neither limit may be exceeded.
 % Other projects I've seen have been 12,000/60, 11,000/60, 21,000/71 etc
@@ -202,8 +202,8 @@ volunteers' personal information will not be published or shared. A copy of
 the consent form signed by all volunteers is given in
 Appendix~\ref{sec:consent}.
 
-Wherever a member of the University has been quoted by name, their explicit
-consent has been obtained beforehand.
+Whenever a member of the University has been quoted by name in this project,
+their explicit consent was obtained beforehand.
 
 % Do no harm
 
@@ -219,6 +219,10 @@ Development and testing of the software will be carried out with test data
 that it is in a similar form to genuine student data held by the University.
 The University's Data Protection Officer was consulted during the project, and
 his input is discussed in Section~\ref{sec:dataprotection}.
+
+The project author signed a \gls{nda} provided by \gls{itservices} in order to
+clarify the situation regarding access to student data. A copy of this
+\gls{nda} is provided in Appendix~\ref{sec:nda}.
 
 \section{Introduction}
 
@@ -1542,6 +1546,18 @@ questions about the interview.
 \end{figure}
 
 \clearpage
+\section{Non-disclosure agreement}
+\label{sec:nda}
+
+\begin{figure}[h]
+  \begin{center}
+    \fbox{\includegraphics[width=0.8\linewidth, trim=5mm 30mm 5mm 5mm]{inc/itservices_nda.pdf}}
+  \end{center}
+\end{figure}
+
+% \includepdf[pages=-, frame=true]{inc/itservices_nda.pdf}
+
+\clearpage
 \section{Prototypes of the student interface}
 \label{sec:prototypes}
 
@@ -1624,6 +1640,7 @@ project in advance of the trial period.
 \clearpage
 \bibliographystyle{references/IEEEtran.bst} % not just plain
 \bibliography{references/references.bib}
+\addcontentsline{toc}{section}{References}
 
 
 \end{document}
