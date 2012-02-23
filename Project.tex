@@ -124,7 +124,7 @@ Science and Mathematics at the University of York. The project was supervised
 by Dr James Cussens, Senior Lecturer in the Artificial Intelligence Group,
 Department of Computer Science.
 
-This report is 9,600 words, as counted by running \texttt{detex} and
+This report is 10,300 words, as counted by running \texttt{detex} and
 \texttt{wc -w}. It is \pageref{LastPage} pages long. The word count does not
 include any of the files or code listings included in the appendices.
 
@@ -148,6 +148,7 @@ include any of the files or code listings included in the appendices.
     \item Not sure how to refer to myself: ``project implementer'' or ``author'' or ``I''?
     \item Does the structure look ok?
     \item Should the title be changed? Something about a web application?
+    \item Gantt chart?
   \end{itemize}
   
 }
@@ -353,17 +354,7 @@ project commenced, the requirements could be briefly summarised as:
   \end{itemize}
 \end{quote}
 
-% \include{./sections/research}
-
-\section{Research}
-\label{sec:research}
-
-% One or more review chapters, describing the research you did at the
-% beginning of the project period.
-
-As web application development is an area that requires solving problems in
-many different areas of Computer Science, the research completed in this phase
-of the project was wide-ranging.
+\input{sections/research_main.tex}
 
 \subsection{Development methodology}
 
@@ -965,7 +956,7 @@ to support the creation of the application.
 
 \subsubsection{Spring Roo}
 
-Spring Roo is a tool created by SpringSource (the Spring development team) to
+Spring Roo is a \gls{rad} tool created by SpringSource (the Spring development team) to
 aid developers in creating Java web applications. It works by providing an
 executable, \texttt{roo}, which generates ``application scaffolding''
 programatically.
