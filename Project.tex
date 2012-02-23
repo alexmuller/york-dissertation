@@ -99,14 +99,11 @@ using Django and constrained optimisation}
 
 % Properties
 
-\hypersetup
-{
-    pdfauthor={\paperauthor},
-    pdfsubject={A final-year BSc Computer Science project to allocate
-      university modules},
-    pdftitle={\papertitle},
-    pdfkeywords={york, computer science, webapp, university, module,
-      allocation}
+\hypersetup{
+  pdftitle = {\papertitle},
+  pdfauthor = {\paperauthor},
+  pdfsubject = {A final-year BSc Computer Science project to allocate university modules},
+  pdfkeywords = {york, computer science, webapp, university, module, allocation}
 }
 
 \begin{document}
@@ -124,7 +121,7 @@ Science and Mathematics at the University of York. The project was supervised
 by Dr James Cussens, Senior Lecturer in the Artificial Intelligence Group,
 Department of Computer Science.
 
-This report is 10,300 words, as counted by running \texttt{detex} and
+This report is 10,500 words, as counted by running \texttt{detex} and
 \texttt{wc -w}. It is \pageref{LastPage} pages long. The word count does not
 include any of the files or code listings included in the appendices.
 
@@ -150,6 +147,8 @@ include any of the files or code listings included in the appendices.
     \item Should the title be changed? Something about a web application?
     \item Gantt chart?
   \end{itemize}
+  
+  % Git revision: 2ac757a362375cafd6b8d543e01d6810265f91ad
   
 }
 
@@ -705,20 +704,11 @@ application automatically saving data. However, Sandlund decided not to
 include a submit button in his application, and he notes that some users found
 the lack of an explicit save button ``a bit disturbing''.
 
-\subsection{Integer Linear Programming Solvers}
+\input{sections/research_ilp.tex}
 
-% Gurobi? SCIP? MiniZinc?
-
-Requirements:
-
-\begin{itemize}
-  \item Java interface
-  \item Easy to understand to modify in future
-\end{itemize}
-
-\subsection{Unit testing and performance testing}
-
-If there's time...
+% \subsection{Unit testing and performance testing}
+% 
+% If there's time...
 
 \section{Development, implementation and testing}
 \label{sec:implementation}
@@ -1193,7 +1183,7 @@ evaluated successfully and maintained centrally, it will not be feasible to
 import the data manually for each department and some kind of automatic import
 will have to be developed (Section~\ref{sec:autoexport}).
 
-The project implemeneter met with a member of \gls{ssdt} during the research
+The project implementer met with a member of \gls{ssdt} during the research
 stage of the project to ascertain the format in which the data would need to
 provided to make the import as easy as possible.
 
@@ -1296,7 +1286,7 @@ set up the software.
 
 \noindent{\textbf{Inability to interact with the system while it contained sensitive data}}
 
-The project implemeneter was unable to respond to bugs in a timely manner as
+The project implementer was unable to respond to bugs in a timely manner as
 it was not possible for \gls{itservices} to provide access to a database and
 platform containing live student data. This made bug fixing during the week
 the application was open to students nearly impossible.
@@ -1307,7 +1297,7 @@ was as follows:
 \begin{enumerate}
   \item An error is reported by a student to their departmental administrator
   \item The administrator contacts both \gls{itservices} and the project implementer
-  \item They liase (in order to provide redacted log files, if necessary)
+  \item They liaise (in order to provide redacted log files, if necessary)
   \item The software is patched by the project implementer
   \item The patched software is deployed by \gls{itservices}
 \end{enumerate}
