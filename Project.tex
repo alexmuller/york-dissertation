@@ -1518,42 +1518,45 @@ In each case, the top half of the form was retained by the project author and
 the second half was given to the participant in case they had any further
 questions about the interview.
 
-\begin{figure}[h]
+\begin{figure}
   \begin{center}
-    \fbox{\includegraphics[width=0.9\linewidth, trim=0 80mm 0 0]{images/consent.pdf}}
+    \fbox{\includegraphics[width=0.9\linewidth]{images/consent.pdf}}
   \end{center}
-  \caption{Participant consent form.}
+  \caption{Participant consent form}
   \label{participantconsent}
 \end{figure}
 
-\clearpage
-\section{Non-disclosure agreement}
+\section{Confidentiality and non-disclosure agreement}
 \label{sec:nda}
 
-\begin{figure}[h]
+The \gls{nda} shown in Figure~\ref{confidentialitynda} was signed by the
+project implementer and the Head of Web Services at the University of York.
+
+\begin{figure}
   \begin{center}
-    \fbox{\includegraphics[width=0.8\linewidth, trim=5mm 30mm 5mm 5mm]{inc/itservices_nda.pdf}}
+    \fbox{\includegraphics[width=0.9\linewidth]{inc/itservices_nda.pdf}}
   \end{center}
+  \caption{University of York confidentiality and non-disclosure agreement}
+  \label{confidentialitynda}
 \end{figure}
 
-% \includepdf[pages=-, frame=true]{inc/itservices_nda.pdf}
-
-\clearpage
 \section{Prototypes of the student interface}
 \label{sec:prototypes}
 
-This appendix gives screenshots of the prototypes created for the student
-interface for ranking modules.
+Figures~\ref{prototype_student_1col}, \ref{prototype_student_weighting} and
+\ref{prototype_student_2col} give screenshots of the prototypes created for
+the student interface for ranking modules.
 
 Note that the explanatory copy included in the screenshots below was drafted
 by the project implementer and was revised by the departments prior to the
 system being in use.
 
-\begin{figure}[h]
+\begin{figure}
   \begin{center}
     \includegraphics[width=0.85\linewidth]{images/prototypes/student_prototype_1.png}
   \end{center}
   \caption{Prototype of a drag-and-drop ranking based system}
+  \label{prototype_student_1col}
 \end{figure}
 
 \begin{figure}
@@ -1572,23 +1575,6 @@ system being in use.
   \label{prototype_student_2col}
 \end{figure}
 
-\clearpage
-\section{Gurobi Python prototype}
-\label{sec:gurobipythonprototype}
-
-\lstset{language=Python}
-\lstinputlisting{listings/gurobi_allocation_prototype.py}
-
-\clearpage
-\section{Application documentation}
-\label{sec:documentation}
-
-The following documentation was provided to every person involved with the
-project in advance of the trial period.
-
-\includepdf[pages=-, frame=true, nup=2, landscape=true]{inc/documentation.pdf}
-
-\clearpage
 \section{Feedback from test users}
 \label{sec:testingfeedback}
 
@@ -1613,6 +1599,22 @@ project in advance of the trial period.
   \hline
 \end{tabular}
 
+\clearpage
+\section{Application documentation}
+\label{sec:documentation}
+
+The following documentation was provided to every person involved with the
+project in advance of the trial period.
+
+\includepdf[pages=-, frame=true, nup=2, landscape=true]{inc/documentation.pdf}
+
+
+\clearpage
+\section{Gurobi Python prototype}
+\label{sec:gurobipythonprototype}
+
+\lstset{language=Python}
+\lstinputlisting{listings/gurobi_allocation_prototype.py}
 
 
 \clearpage
