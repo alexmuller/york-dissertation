@@ -3,23 +3,121 @@
 \subsection{Testing}
 
 % Unit tests?
-
 % Performance testing?
 
 % User testing
 
 Prior to the application being made available to students, members of staff
-and students were requested to test the application.
+and students were requested to test the application. A summary of the feedback
+is given in Appendix~\ref{sec:testingfeedback}.
 
-% A summary of the feedback is given in Appendix~\ref{sec:testingfeedback}.
+As a result of this feedback, several changes were made in advance of the
+application being made accessible to students:
 
-The departments provided their finalised course, module and student (making
-use of randomly generated ``fake'' usernames) data to the project implementer.
-He was then able to perform an allocation based on this data with no rankings
-present, to ensure that the allocation algorithm performed as expected.
+\begin{itemize}
+  \item The form validation was improved so that elective credit values were properly checked
+  \item Modules displayed on the confirmation screen were put in ascending order of rank
+  \item The explanatory text was clarified with the help of departments and the \gls{aso}
+\end{itemize}
 
-% The optimisation problem did not cause the solver to report that the model
-% was infeasible. If it had done so, an investigation would have had to have
-% been carried out to understand which of the constraints was causing the
-% solver to fail, and to engage the department to understand why this
-% constraint was in place and how it could be modified.
+% Algorithm testing
+
+The departments provided their finalised courses, modules and students (making
+use of randomly generated ``fake'' usernames) to the project implementer. He
+was then able to perform an allocation based on this data with random rankings
+created by the system, to ensure that the allocation algorithm performed as
+expected.
+
+The random rankings were generated during testing using the following
+pseudocode:
+
+\begin{verbatim}
+  For each student in the sytem:
+    Get the student's choices and clear them
+    Get the student's groups
+    For each of the student's groups:
+      Get the list of modules in that group
+      Randomise the list
+      Set rank = 1
+      For each module in the randomly-ordered list:
+        Assign it a value of `rank'
+        rank += 1
+        Create a choice entity for this (student, module, rank)
+    Save the student's choices
+\end{verbatim}
+
+Clearly students do not rank modules with absolute uniform randomness in
+practice. Some modules are more popular than others, and as such will receive
+more first choices. This will influence the objective function, but these
+random rankings were used to provide useful information on whether the hard
+constraints of the model could be met.
+
+Initially, the data provided by the History department caused the solver to
+report that finding any allocation, no matter what the value of the objective
+function, was an insolvable problem. In this case, Gurobi reported that the
+model was infeasible.
+
+The project implementer noted that the \gls{iis} computed by Gurobi revealed
+that modules with database ID from 1 to 8 were the problem modules -- the
+solver was unable to find a solution such that the maximum class size
+constraint could be met for these modules. These eight modules had these
+properties in the database:
+
+\begin{verbatim}
+  id   code   min   max   credits
+ ---------------------------------
+  1    02I    56    64    20
+  2    06I    56    64    20
+  3    13I    56    64    20
+  4    15I    56    64    20
+  5    58I    56    64    20
+  6    59I    56    64    20
+  7    64I    56    64    20
+  8    65I    56    64    20
+ ---------------------------------
+\end{verbatim}
+
+On further inspection, it was revealed these eight modules form the
+department's ``Histories and Contexts'' group. They are self-contained
+modules; they only appear with all eight together and never with any other
+modules. This means that it is possible to count exactly the number of
+allocations that will be required to be made by the system.
+
+The following table shows the seven groups that these modules appear in. For
+each of these seven groups, the departments have specified a number of credits
+that the system is required to allocate. As the modules are all worth 20
+credits either one or two allocations needs to be made, depending on the
+group.
+
+\begin{verbatim}
+  group_id  sheet_id  credits_to_alloc  mods_to_alloc  num_students  num_allocations
+ ------------------------------------------------------------------------------------
+  1         1         40                40 / 20 = 2             220    220 x 2 = 440
+  3         2         20                20 / 20 = 1               1      1 x 1 =   1
+  5         3         20                20 / 20 = 1               6      6 x 1 =   6
+  7         4         20                20 / 20 = 1              11     11 x 1 =  11
+  9         5         20                20 / 20 = 1              26     26 x 1 =  26
+  11        6         20                20 / 20 = 1               7      7 x 1 =   7
+  13        7         40                40 / 20 = 2              16     16 x 2 =  32
+ ------------------------------------------------------------------------------------
+  Total:                                                        287              523
+\end{verbatim}
+
+As each group has a fixed number of students associated with it, it is trivial
+to see that 523 allocations \textbf{must} be made by the system in order to
+meet the hard constraint that every student takes the correct number of
+credits. However, each of the eight modules was given a cap of just 64
+students, meaning the solver could only ever generate 512 allocations.
+
+The History department was consulted and it was revealed they had been overly
+cautious when setting the cap to allow sufficient places for visiting
+students. In fact, the cap had been set so low that there was not enough space
+for each student in the department to take their full quota of modules.
+Increasing the cap on these eight modules from 64 to 66 meant that 528
+allocations could be made. The allocation was tested with these new caps and,
+as expected, it completed without problems.
+
+The anonymised data provided by the Archaeology department did not cause the
+solver to report any problems. As discussed in
+Section~\ref{sec:algo_humanaspects}, Archaeology has far more available
+capacity in their modules than History so this is unsurprising.
