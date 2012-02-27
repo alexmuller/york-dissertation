@@ -1,0 +1,62 @@
+%!TEX root = ../Project.tex
+
+\subsection{Assistance provided with the application by IT Services}
+
+\subsubsection{Development work}
+
+An \gls{itservices} developer was provided to assist with the integration of
+the project into the University's infrastructure. As the framework was chosen
+so that it was familiar to the University's developers, a certain amount of
+code reuse could occur between this system and other already existing
+projects.
+
+The code reuse was facilitated by this system using the same authentication
+mechanism as the student portal (Section~\ref{sec:webapps_york}), another Java
+application. The code to authenticate students and staff (using Spring
+Security) was included into the module allocation application by the
+\gls{itservices} developer.
+
+Code for this application was committed using a \gls{dvcs} (Git) to \gls{github},
+which makes it easy to see which commits came from which author.
+
+\gls{github} provides an interface to show how much code came from each
+developer. On \gls{github}, this figure is given in terms of ``impact'' (the
+total number of lines of code modified, which is equivalent to lines added and
+deleted). \gls{github} reports that the \gls{itservices} developer modified
+336 lines of code. \mbox{``SLOCCount''} \cite{SLOCCount} (a tool for
+generating statistics on source code) reports that the entire project has
+2,042 Total Physical Source Lines of Code.
+
+\subsubsection{Infrastructure}
+
+\gls{itservices} provided a \gls{vm} for testing as well as another to host a
+production instance of the application. They also provided an Oracle database.
+The software was developed using a MySQL database, but as it used an
+\gls{orm}, this simply required a minor configuration change so that the
+application knew where to find the production database.
+
+Finally, once the software had been deployed to the production instance, they
+mapped a URL from under \texttt{www.york.ac.uk/students/} to connect students
+and staff to the application.
+
+\subsubsection{Security review}
+
+On 15 February 2012, a review of the application architecture was conducted by
+the University's Information Security Officer and the developer mentioned
+previously who assisted with integrating the application's security
+configuration.
+
+As well as being targeted at departments, the software documentation created
+by the project author also describes possible security vulnerabilities and how
+they were mitigated. This documentation is provided in
+Appendix~\ref{sec:documentation} and was given to those present at the
+security review meeting.
+
+The web hosting configuration and application security model was reviewed. Two
+recommendations were made about the code; primarily, that the application
+should use the \gls{owasp} ESAPI library for escaping special characters to
+prevent some attacks noted in Section~\ref{sec:research_security}.
+
+The security expert considered that the data held by the system could be
+classed as between medium and low risk, as there was no highly sensitive
+personal information such as student telephone numbers or email addresses.

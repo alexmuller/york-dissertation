@@ -121,7 +121,7 @@ Science and Mathematics at the University of York. The project was supervised
 by Dr James Cussens, Senior Lecturer in the Artificial Intelligence Group,
 Department of Computer Science.
 
-This report is 10,500 words, as counted by running \texttt{detex} and
+This report is 11,600 words, as counted by running \texttt{detex} and
 \texttt{wc -w}. It is \pageref{LastPage} pages long. The word count does not
 include any of the files or code listings included in the appendices.
 
@@ -282,6 +282,7 @@ first-come, first-served basis.
 % (2) Elsewhere around the world
 
 \subsection{Web applications at the University of York}
+\label{sec:webapps_york}
 
 % Student portal
 % Timetabling gateway
@@ -1222,35 +1223,7 @@ pilot. While it would clearly be preferable for staff to set up the system
 themselves unaided, it is more important that there is a working student
 interface and allocation algorithm.
 
-\subsection{Assistance provided with the application by IT Services}
-
-\subsubsection{Development work}
-
-E.g. number of lines of code, type of code, time spent
-
-% Code committed using a DVCS (Git) to GitHub so can easily see which commits
-% came from which author
-
-% So far: ~1 day
-
-\subsubsection{Security review}
-
-On 15 February 2012, a review of the application architecture was conducted by
-the University's Information Security Officer and the developer who assisted
-with integrating the application's security configuration.
-
-As well as being targeted at departments, the software documentation created
-by the project author also describes possible security vulnerabilities and how
-they were mitigated. This documentation is provided in
-Appendix~\ref{sec:documentation}.
-
-The hosting configuration and application security model was reviewed. Two
-recommendations were made about the code; primarily, that the application should
-use the \gls{owasp} ESAPI library for escaping special characters.
-
-The security expert considered that the data held by the system could be
-classed as between medium and low risk, as there was no highly sensitive
-personal information such as student telephone numbers or email addresses.
+\input{sections/development_assistance_its.tex}
 
 \subsection{Issues arising during implementation}
 
