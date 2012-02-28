@@ -1,0 +1,44 @@
+%!TEX root = ../Project.tex
+
+\subsection{Database structure}
+
+As relational databases are so popular and are supported in many of the
+software frameworks we look at in Section~\ref{sec:webframeworks}, there is no
+advantage to choosing a database model apart from relational.
+
+Web frameworks abstract away anything related to a specific database product
+using an \gls{orm}, so the module allocation application can be written
+without regard for the final database product that \gls{itservices} will use
+to deploy the application.
+
+Preliminary conversations with departments revealed additional requirements
+for the system which informed the database structure. There are several
+related entities stored by the University outside of this system, which have
+the following properties:
+
+\begin{tabular}{ l l }
+  Student    & Username (unique), \gls{routecode}, \gls{stage} \\
+  Module     & Module code (unique), module name, number of credits, maximum class size \\
+\end{tabular}
+
+Each module is given a number of credits representing the estimated workload
+for that module, and each student must take 120 credits every academic year.
+
+The two pilot departments currently use paper forms, copies of which are given
+in [@todo Appendix~ xx]. In order to create a scalable system that could be
+used across any number of departments, the project author first generalised
+the paper forms provided by the pilot departments.
+
+This generalisation involved the following observations:
+
+\begin{itemize}
+  \item Each degree type (single subject, joint honours, etc) receives a different form
+  \item Each form contains one or more groups, each of which contains one or more modules
+\end{itemize}
+
+\subsubsection{Entity-relationship diagram}
+
+Figure~\ref{er_diagram} is an entity-relationship diagram of the module
+allocation system.
+
+\input{inc/er_diagram.tex}
