@@ -16,7 +16,10 @@
 \usepackage{fullpage}
 \usepackage[top=2cm, bottom=4cm, left=2cm, right=2cm]{geometry}
 
-\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+% Inside and top margins should be a minimum of 2cm; other margins should be a
+% minimum of 1cm. You might find it simplest to leave 2cm all round.
+
+\setlength{\parskip}{0.15cm plus 0.1cm minus 0.05cm}
 % \addtolength{\parskip}{\baselineskip}
 % \usepackage{parskip}
 
@@ -36,6 +39,10 @@
 \definecolor{light-gray}{gray}{0.5}
 \definecolor{yorkblue}{RGB}{0,38,99}
 \definecolor{yorkgreen}{RGB}{24,69,59}
+
+% Each section should start on a new page
+\let\stdsection\section
+\renewcommand\section{\clearpage\stdsection}
 
 % Listings package for including code
 \usepackage{listings}
@@ -186,10 +193,11 @@ include any of the files or code listings included in the appendices.
 \end{abstract}
 
 \clearpage
-
 \tableofcontents
 
 \clearpage
+\listoffigures
+\listoftables
 
 \section{Statement of ethics}
 
