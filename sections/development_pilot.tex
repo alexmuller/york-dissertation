@@ -10,21 +10,29 @@ administrators about the setup of the application and limitations they should
 be aware of.
 
 A production instance of the application \gls{vm} was provided by
-\gls{itservices} from [xx] February. The application was set up by
-departmental administrators on [xx] February and the setup was confirmed
-during a project group meeting on [xx] February.
+\gls{itservices} from 22 February, and the application was promoted from
+\texttt{wwwtest.york.ac.uk} to \texttt{www.york.ac.uk} later that day after
+final sign-off from the University's Information Security Officer. The
+application was set up by departmental administrators on 23 February and the
+setup was confirmed after a project group meeting that day.
 
-The following table gives the amount of information added to the system by the
-pilot departments.
+Figure~\ref{development_pilot_department_numbers} gives the amount of
+information added to the system by the pilot departments.
 
-\begin{tabular}{ | l | l | l | l | }
-  \hline
-  \textbf{Department}  & \textbf{Types of student (by degree)} & \textbf{Modules} & \textbf{Students} \\
-  \hline
-  History     & 14                           & 57      & 591      \\
-  % Archaeology & xx                           & xx      & xxx      \\
-  \hline
-\end{tabular}
+\begin{figure}
+  \begin{center}
+    \begin{tabular}{ | l | l | l | l | }
+      \hline
+      \textbf{Department}  & \textbf{Types of student (by degree)} & \textbf{Modules} & \textbf{Students} \\
+      \hline
+      History     & 14                           & 57      & 591      \\
+      Archaeology & 8                            & 32      & 204      \\
+      \hline
+    \end{tabular}
+  \end{center}
+  \caption{Amount of data loaded into the application by the pilot departments}
+  \label{development_pilot_department_numbers}
+\end{figure}
 
 As the application was hosted by \gls{itservices} on the \texttt{york.ac.uk}
 domain, notification was given to the team that provides end-user support.
@@ -34,12 +42,38 @@ office. During the trial period issues relating to this application were
 forwarded to departmental administrators and the \gls{itservices} developer
 assisting with the application.
 
-The application was available to students from 9am on Monday 27 February until
-5pm on Monday 5 March.
+The application was available to students from 0900 on Monday 27 February
+until 1700 on Monday 5 March. % without interruption?
 
-% Todo: provide details of issues raised during the week
+% The selection process was praised by students in the Archaeology department.
+% A departmental administrator in Archaeology received the following comments:
 
-On [x] March, an allocation was performed by each of the departmental
-administrators.
+% @todo: comments from the week
 
-% Todo: include info on how the allocation goes
+% @todo: provide details of issues raised during the week
+
+Only one issue was raised by a user to their department during the week. The
+user reported they were unable to use the drag-and-drop functionality to make
+their choices. It was revealed that the user was using Internet Explorer 7, a
+web browser that was superseded by Internet Explorer 8 in March 2009. As of
+the writing of this report, computers provided on campus at the University of
+York run IE8, as well as alternate web browsers such as Firefox and Opera (all
+of which were tested for this application).
+
+The project implementer had intended to include some text for users of old
+browsers, indicating that the application had not been tested for them and
+they should use an alternate browser if possible. Sites such as
+\url{http://www.ie6nomore.com/} include snippets of code that demonstrate how
+to achieve this. Unfortunately, for some reason this code was not committed to
+the repository and did not make it into the release version of the software.
+
+The student... % had their choices made by an administrator acting on their behalf?
+
+Only one student raised an issue during the week, which is equivalent to
+approximately 0.13\% of all users.
+
+On [@todo 5ish] March the software was upgraded to include alterations made
+during the week, and on [@todo 6ish] March an allocation was performed by each
+of the departmental administrators.
+
+% @todo: include info on how the allocation goes
