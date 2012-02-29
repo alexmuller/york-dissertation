@@ -14,10 +14,9 @@
 
 % Pages and margins
 \usepackage{fullpage}
-\usepackage[top=2cm, bottom=4cm, left=2cm, right=2cm]{geometry}
-
 % Inside and top margins should be a minimum of 2cm; other margins should be a
 % minimum of 1cm. You might find it simplest to leave 2cm all round.
+\usepackage[top=2cm, bottom=4cm, left=2cm, right=2cm]{geometry}
 
 \setlength{\parskip}{0.15cm plus 0.1cm minus 0.05cm}
 % \addtolength{\parskip}{\baselineskip}
@@ -25,10 +24,8 @@
 
 % Running Headers and footers
 %\usepackage{fancyhdr}
-
 % Multipart figures
 %\usepackage{subfigure}
-
 % More symbols
 %\usepackage{amsmath,amssymb,latexsym}
 
@@ -104,7 +101,7 @@ using Django and constrained optimisation}
 \author{\paperauthor}
 \date{\today}
 
-% Properties
+% PDF Properties
 
 \hypersetup{
   pdftitle = {\papertitle},
@@ -112,6 +109,7 @@ using Django and constrained optimisation}
   pdfsubject = {A final-year BSc Computer Science project to allocate university modules},
   pdfkeywords = {york, computer science, webapp, university, module, allocation}
 }
+
 
 \begin{document}
 
@@ -142,7 +140,7 @@ include any of the files or code listings included in the appendices.
 
 \ifoptiondraft{
 
-  This report is a work-in-progress (a draft) compiled on \today.
+  This report is a work-in-progress compiled on \today.
 
   \medskip
   \textbf{Notes during report writing:}
@@ -154,8 +152,6 @@ include any of the files or code listings included in the appendices.
     \item Should the title be changed? Something about a web application?
     \item Gantt chart?
   \end{itemize}
-  
-  % Git revision: 2ac757a362375cafd6b8d543e01d6810265f91ad
   
 }
 
@@ -1547,16 +1543,19 @@ system being in use.
 
 \subsection{Final application on development server}
 
-\begin{tabular}{ | l | l | }
-  \hline
-  \textbf{Issue summary}                & \textbf{Times raised}  \\
-  \hline
-  Form validation improvements                         &    3    \\
-  Random ordering of confirmation screen               &    2    \\
-  Parts of explanatory text unclear                    &    2    \\
-  Students should not be required to rank every module &    1    \\
-  \hline
-\end{tabular}
+\begin{table}
+  \begin{tabular}{ | l | l | }
+    \hline
+    \textbf{Issue summary}                & \textbf{Times raised}  \\
+    \hline
+    Form validation improvements                         &    3    \\
+    Random ordering of confirmation screen               &    2    \\
+    Parts of explanatory text unclear                    &    2    \\
+    Students should not be required to rank every module &    1    \\
+    \hline
+  \end{tabular}
+  \caption{Issues raised with the final release of the application}
+\end{table}
 
 \clearpage
 \section{Application documentation}

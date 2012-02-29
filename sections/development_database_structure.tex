@@ -14,12 +14,20 @@ to deploy the application.
 Preliminary conversations with departments revealed additional requirements
 for the system which informed the database structure. There are several
 related entities stored by the University outside of this system, which have
-the following properties:
+the properties given in Table~\ref{development_database_uni_entities}.
 
-\begin{tabular}{ l l }
-  Student    & Username (unique), \gls{routecode}, \gls{stage} \\
-  Module     & Module code (unique), module name, number of credits, maximum class size \\
-\end{tabular}
+\begin{table}
+  \begin{tabular}{ | l | l | }
+    \hline
+    \textbf{Entity} & \textbf{Properties} \\
+    \hline
+    Student    & Username (unique), \gls{routecode}, \gls{stage} \\
+    Module     & Module code (unique), module name, number of credits, maximum class size \\
+    \hline
+  \end{tabular}
+  \caption{Entities and their properties as stored by the University of York}
+  \label{development_database_uni_entities}
+\end{table}
 
 Each module is given a number of credits representing the estimated workload
 for that module, and each student must take 120 credits every academic year.
