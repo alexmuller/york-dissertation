@@ -37,7 +37,7 @@ pseudocode:
     Get the student's groups
     For each of the student's groups:
       Get the list of modules in that group
-      Randomise the list
+      Randomise the order of the list
       Set rank = 1
       For each module in the randomly-ordered list:
         Assign it a value of `rank'
@@ -64,17 +64,17 @@ constraint could be met for these modules. These eight modules had these
 properties in the database:
 
 \begin{verbatim}
-  id   code   min   max   credits
- ---------------------------------
-  1    02I    56    64    20
-  2    06I    56    64    20
-  3    13I    56    64    20
-  4    15I    56    64    20
-  5    58I    56    64    20
-  6    59I    56    64    20
-  7    64I    56    64    20
-  8    65I    56    64    20
- ---------------------------------
+ id   code         min   max   credits
+---------------------------------------
+ 1    HIS00002I    56    64    20
+ 2    HIS00006I    56    64    20
+ 3    HIS00013I    56    64    20
+ 4    HIS00015I    56    64    20
+ 5    HIS00058I    56    64    20
+ 6    HIS00059I    56    64    20
+ 7    HIS00064I    56    64    20
+ 8    HIS00065I    56    64    20
+---------------------------------------
 \end{verbatim}
 
 On further inspection, it was revealed these eight modules form the
@@ -90,17 +90,17 @@ credits either one or two allocations needs to be made, depending on the
 group.
 
 \begin{verbatim}
-  group_id  sheet_id  credits_to_alloc  mods_to_alloc  num_students  num_allocations
- ------------------------------------------------------------------------------------
-  1         1         40                40 / 20 = 2             220    220 x 2 = 440
-  3         2         20                20 / 20 = 1               1      1 x 1 =   1
-  5         3         20                20 / 20 = 1               6      6 x 1 =   6
-  7         4         20                20 / 20 = 1              11     11 x 1 =  11
-  9         5         20                20 / 20 = 1              26     26 x 1 =  26
-  11        6         20                20 / 20 = 1               7      7 x 1 =   7
-  13        7         40                40 / 20 = 2              16     16 x 2 =  32
- ------------------------------------------------------------------------------------
-  Total:                                                        287              523
+ group_id  sheet_id  credits_to_alloc  mods_to_alloc  num_students  num_allocations
+------------------------------------------------------------------------------------
+ 1         1         40                40 / 20 = 2             220    220 x 2 = 440
+ 3         2         20                20 / 20 = 1               1      1 x 1 =   1
+ 5         3         20                20 / 20 = 1               6      6 x 1 =   6
+ 7         4         20                20 / 20 = 1              11     11 x 1 =  11
+ 9         5         20                20 / 20 = 1              26     26 x 1 =  26
+ 11        6         20                20 / 20 = 1               7      7 x 1 =   7
+ 13        7         40                40 / 20 = 2              16     16 x 2 =  32
+------------------------------------------------------------------------------------
+ Total:                                                        287              523
 \end{verbatim}
 
 As each group has a fixed number of students associated with it, it is trivial

@@ -4,7 +4,11 @@
 
 % Writeup from the meeting with JC
 
+% [@todo nice and modular]
+% [@todo list constraints mathematically]
+
 \subsubsection{Human aspects}
+\label{sec:algo_humanaspects}
 
 During the research period, discussions with academic and administrative staff
 in both pilot departments revealed that the current method of module
@@ -44,6 +48,28 @@ choice is deemed to be.
 
 While not particularly complex, one would expect that minimising this score
 function would maximise the number of highly ranked choices.
+
+Eliciting these ideas explicitly from the pilot departments was one of the
+harder parts of interacting with the project clients, and in fact the final
+coefficients used were not confirmed until a project group meeting on 23
+February, just two weeks before the allocation was due to be performed.
+
+The Archaeology department commented that they could not recall ever having to
+give a student their fourth choice or below, as they are a fairly small
+department (with less than 3\% \textbf{@todo CHECK this!} of all York
+undergraduates). This ensures that they normally have sufficient capacity to
+offer every student their first, second or rarely third choice.
+
+The History department is far larger than Archaeology, and additionally
+reserves a number of spaces on their modules for visiting students. This will
+place a strain on the allocation, as the department anticipates there will
+most likely not be enough space on the most popular modules for every student
+that wants to take them. History aim to give their students ``two from five''
+-- that is to say, for a student ranking a group of eight modules, the two
+that they will take were among their top five choices.
+
+The final coefficients used in the objective function are shown in
+Figure~\ref{gurobi_coeff}.
 
 The hard constraints on the optimisation problem are as follows:
 
@@ -95,8 +121,10 @@ $$\displaystyle\sum_{Student, Module} rank'(Student, Module)x_{Student, Module}$
 
 \subsubsection{Gurobi}
 
+[@todo update graph with new points]
+
 % Generated using R:
-% points <- c(120, 65, 30, 5, 1, 0, 0, 0, 0, 0)
+% points <- c(2048, 1000, 480, 235, 120, 60, 30, 15, 6, 2, 1, 1, 0, 0, 0)
 % plot(points, xlab="Rank of module", ylab="Coefficient", main="Graph of coefficient against module ranks")
 % lines(points)
 % dev.copy(pdf, '/path/to/gurobi_coefficients.pdf')

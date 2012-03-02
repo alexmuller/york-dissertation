@@ -1,0 +1,61 @@
+%!TEX root = ../Project.tex
+
+% Gantt required packages: fullpage, tikz, libs/gantt, pdflscape
+
+\begin{landscape}
+
+\begin{figure}
+
+\scalebox{1}{
+
+\begin{gantt}[xunitlength=0.8cm,fontsize=\small,titlefontsize=\footnotesize,drawledgerline=true]{21}{20}
+  
+    \begin{ganttitle}
+      \titleelement{Autumn}{7}
+      \titleelement{Christmas}{3}
+      \titleelement{Spring}{10}
+    \end{ganttitle}
+  
+    \begin{ganttitle}
+      \numtitle{4}{1}{10}{1}
+      \titleelement{}{2}
+      \titleelement{}{1}
+      \numtitle{1}{1}{10}{1}
+    \end{ganttitle}
+  
+    \ganttgroup{Alex Muller}{0.5}{19.5}
+
+    \ganttbar[color=yorkblue, pattern=crosshatch]{User interface prototyping}{0.5}{2}
+    \ganttbarcon[color=yorkblue, pattern=crosshatch]{User research}{3}{2}
+    \ganttbarcon[color=yorkblue, pattern=crosshatch]{Implementation}{6}{7}
+    \ganttbarcon[color=yorkblue, pattern=crosshatch]{Testing and delivery}{13.5}{2}
+  
+    \ganttgroup{Report}{1}{19}
+    \ganttbar[color=red]{Draft report written}{1}{12}
+    \ganttmilestonecon[color=red]{Draft report submitted}{13.2}
+    \ganttbarcon[color=red]{Draft report revised}{14}{5}
+    \ganttmilestonecon[color=red]{Project report deadline}{19.2}
+    
+    %\ganttbar[color=red, pattern=crosshatch]{In use by students}{16}{3}
+  
+    \ganttgroup{\gls{lc}}{5.5}{14.5}
+  
+    \ganttmilestone[color=black]{Project steering group meeting}{5.5}
+  
+    \ganttmilestone[color=yorkgreen]{Module availabilities confirmed}{8.9}  
+    \ganttbar[color=yorkgreen]{Department consultation}{11}{1}
+    \ganttbar[color=yorkgreen]{Final design and testing}{12}{2}
+    \ganttbar[color=yorkgreen]{User group testing}{14}{1}
+    \ganttbar[color=yorkgreen]{Key staff training}{15}{1}  
+    \ganttbar[color=yorkgreen]{Students choose modules}{17}{1}
+    \ganttmilestone[color=yorkgreen]{Allocations recorded in SITS}{19.8}
+
+  \end{gantt}  
+}
+
+\caption{Gantt chart for the module allocation project}
+\label{ganttchart}
+
+\end{figure}
+ 
+\end{landscape}

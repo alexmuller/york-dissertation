@@ -1,0 +1,55 @@
+%!TEX root = ../Project.tex
+
+\subsection{Online security}
+\label{sec:research_security}
+
+Recently there has been increased public awareness of online security because
+of exploits from groups such as ``LulzSec''. Groups such as this have
+exploited vulnerabilities and released sensitive information from
+organisations such as Sony, the FBI, etc [@todo reference required here].
+
+While some of their attacks have involved social engineering, those is outside
+the scope of this report. The research conducted here focuses solely on the
+technical methods that should be used to prevent unwanted disclosure of
+information.
+
+The \gls{owasp} Top 10 is a list of the ten most important security
+vulnerabilities, as identified by The \gls{owasp} Foundation
+\cite{OWASPTop10_2010}. These vulnerabilities range in impact, prevalence and
+how sophisticated an attacker must be to exploit them.
+
+Not all of the ten security vulnerabilities are relevant to this project --
+for example, some of them refer to the way in which the data is stored on
+disk, which is out of scope for this software. The most relevant
+vulnerabilities are discussed here.
+
+\noindent{\textbf{Injection (A1)}}
+
+Injection refers to a malicious user entering specially-crafted input in order
+to compromise an application. A specific example that would affect this
+application is SQL injection, where by input can be crafted so that it
+compromises or destroys the database like so:
+
+\texttt{http://example.com/modules/?id=' or '1'='1}
+
+In this example, the first single quote...
+
+\noindent{\textbf{Cross-Site Scripting (A2)}}
+
+xxx
+
+\noindent{\textbf{Broken Authentication and Session Management (A3)}}
+
+xxx
+
+\noindent{\textbf{Cross-Site Request Forgery (A5)}}
+
+xxx
+
+\noindent{\textbf{Failure to Restrict URL Access (A8)}}
+
+xxx
+
+\noindent{\textbf{Insufficient Transport Layer Protection (A9)}}
+
+xxx

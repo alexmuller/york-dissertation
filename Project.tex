@@ -1,6 +1,5 @@
 %
-%  Allocating optional modules to University of York
-%  students using constrained optimisation
+%  Allocating optional modules to University of York students
 %
 %  BSc Computer Science/Maths final-year dissertation
 %
@@ -22,12 +21,9 @@
 % \addtolength{\parskip}{\baselineskip}
 % \usepackage{parskip}
 
-% Running Headers and footers
-%\usepackage{fancyhdr}
-% Multipart figures
-%\usepackage{subfigure}
-% More symbols
-%\usepackage{amsmath,amssymb,latexsym}
+% \usepackage{fancyhdr} % Running Headers and footers
+% \usepackage{subfigure} % Multipart figures
+% \usepackage{amsmath,amssymb,latexsym} % More symbols
 
 \usepackage{boxedminipage} % Surround parts of graphics with box
 \usepackage{lastpage} % Number of pages
@@ -83,8 +79,9 @@
 
 \usepackage{ifdraft}
 
-% Entity-relationship diagrams
-\usepackage{libs/tikz-er2}
+\usepackage{libs/tikz-er2} % Entity-relationship diagrams
+\usepackage{libs/gantt} % Gantt chart
+
 
 % Glossary
 \usepackage[toc]{glossaries}
@@ -94,8 +91,8 @@
 % Title page stuff
 
 \def\paperauthor{Alexander Muller}
-\def\papertitle{Allocating optional modules to University of York students
-using Django and constrained optimisation}
+\def\papertitle{Allocating optional modules \\ to University of York students}
+\def\paperlength{12,040}
 
 \title{\papertitle}
 \author{\paperauthor}
@@ -126,17 +123,12 @@ Science and Mathematics at the University of York. The project was supervised
 by Dr James Cussens, Senior Lecturer in the Artificial Intelligence Group,
 Department of Computer Science.
 
-This report is 11,700 words, as counted by running \texttt{detex} and
+This report is \paperlength{} words, as counted by running \texttt{detex} and
 \texttt{wc -w}. It is \pageref{LastPage} pages long. The word count does not
 include any of the files or code listings included in the appendices.
 
 % The limits are 35,000 words and 70 pages - neither limit may be exceeded.
 % Other projects I've seen have been 12,000/60, 11,000/60, 21,000/71 etc
-
-% The author is very grateful for the assistance provided by all the staff and
-% students at the University of York who were involved in the project, and
-% especially to James Cussens for his advice throughout and Laura Crossley for
-% her management of the project on behalf of the University.
 
 \ifoptiondraft{
 
@@ -146,13 +138,17 @@ include any of the files or code listings included in the appendices.
   \textbf{Notes during report writing:}
 
   \begin{itemize}
-    \item Not sure how to refer to people e.g. Laura
-    \item Not sure how to refer to myself: ``project implementer'' or ``author'' or ``I''?
-    \item Does the structure look ok?
-    \item Should the title be changed? Something about a web application?
-    \item Gantt chart?
+    \item Not sure how to refer to myself: ``project implementer'' or ``author'' or ``I''? (I is fine)
+    \item Does the structure look ok? (yep, tweaks)
   \end{itemize}
   
+}{
+
+The author is very grateful for all the assistance provided by the staff and
+students at the University of York who were involved in the project, but
+especially to James Cussens for his advice throughout and to Laura Crossley
+for her management of the project on behalf of the University.
+
 }
 
 \clearpage
@@ -193,7 +189,7 @@ include any of the files or code listings included in the appendices.
 
 \clearpage
 \listoffigures
-\listoftables
+% \listoftables
 
 \section{Statement of ethics}
 
@@ -239,10 +235,10 @@ raised in this paper were supported by student comments in the \gls{nss}, and
 allocation process.
 
 This project is the result of that investigation. It is sponsored by \gls{utc}
-and is overseen in that regard by Laura Crossley of the \gls{aso}.
+and is overseen in that regard by \gls{lc} of the \gls{aso}.
 
 As well as being assessed as an undergraduate project, the software will be
-evaluated independently by Ms Crossley. If it is judged to provide sufficient
+evaluated independently by \gls{lc}. If it is judged to provide sufficient
 advantages over the current methods of module allocation, it may be
 recommended that responsibility for the software is handed to
 \gls{itservices} and it is offered as a service to all departments.
@@ -262,7 +258,7 @@ drawn at the end of the project.
 
 \subsection{The current state of module allocation}
 
-% Refer to documents provided by Laura
+% Refer to documents provided by LC
 % (1) At the University of York
 
 Universities worldwide want to give their students the most interesting and
@@ -305,8 +301,8 @@ password into one screen, where the web address will always begin
 
 In September 2011, a new ``student portal'' was released, allowing students to
 view personalised information relevant to them in one place. The application
-was created by IT Services and was written in Java. Information on the student
-portal is available at
+was created by \gls{itservices} and was written in Java. Information on the
+student portal is available at
 \texttt{\href{https://www.york.ac.uk/students/about/}{www.york.ac.uk/students/about/}}.
 
 For the beginning of the 2011--12 academic year, new timetabling software is in
@@ -330,9 +326,10 @@ as follows:
 \begin{itemize}
   \item Project implementer
   \item Project supervisor (Department of Computer Science)
-  \item Project manager (\gls{aso})
+  \item Project manager (\gls{lc}, \gls{aso})
   \item Head of Enterprise Systems (\gls{itservices})
   \item University Timetabling Officer (Campus Services)
+  \item Assistant Manager, Student Systems (\gls{ssdt}, Registry Services)
   \item Chair of Board of Studies (Department of Archaeology)
   \item Departmental administrator (Department of Archaeology)
   \item Student representative (Department of Archaeology)
@@ -357,6 +354,13 @@ project commenced, the requirements could be briefly summarised as:
     \item Increased level of fairness in module allocation
   \end{itemize}
 \end{quote}
+
+The project was also monitored by the \gls{sipig}, a group consisting of
+academic and administrative staff at the University of York who are
+responsible for overseeing the progress of projects related to central
+services such as the University Library \& Archives and \gls{itservices}.
+
+\input{sections/projmanagement_schedule.tex}
 
 \input{sections/research_main.tex}
 
@@ -413,7 +417,7 @@ one of the more mature products used in the creation of this system, with many
 having been available since the 1990s.
 
 Relational databases are a common feature of web applications. In meetings
-with IT Services during the research stage, it was noted that the University
+with \gls{itservices} during the research stage, it was noted that the University
 of York already deploys MySQL and Oracle (both relational model) database
 systems for its web applications and \gls{mis}.
 
@@ -573,40 +577,7 @@ that it can only be accessed by a person with a University of York username
 and password. While this does not completely remove any issue, it will reduce
 the impact of any security problems with the software.
 
-\subsection{Online security}
-
-Recently there has been increased public awareness of online security because
-of exploits from groups such as ``LulzSec''. Groups such as this have
-exploited vulnerabilities and released sensitive information from
-organisations such as Sony, the FBI, etc [reference required here].
-
-While some of their attacks have involved social engineering, those is outside
-the scope of this report. The research conducted here focuses solely on the
-technical methods that should be used to prevent unwanted disclosure of
-information.
-
-The \gls{owasp} Top 10 is a list of the ten most important security
-vulnerabilities, as identified by The \gls{owasp} Foundation
-\cite{OWASPTop10_2010}. These vulnerabilities range in impact, prevalence and
-how sophisticated an attacker must be to exploit them.
-
-Not all of the ten security vulnerabilities are relevant to this project --
-for example, some of them refer to the way in which the data is stored on
-disk, which is out of scope for this software. The most relevant
-vulnerabilities are discussed here.
-
-\noindent{\textbf{Injection (A1)}}
-
-\noindent{\textbf{Cross-Site Scripting (A2)}}
-
-\noindent{\textbf{Broken Authentication and Session Management (A3)}}
-
-\noindent{\textbf{Cross-Site Request Forgery (A5)}}
-
-\noindent{\textbf{Failure to Restrict URL Access (A8)}}
-
-\noindent{\textbf{Insufficient Transport Layer Protection (A9)}}
-
+\input{sections/research_security.tex}
 
 \subsection{User testing}
 
@@ -730,8 +701,6 @@ projects.
 Information from departments that informed the allocation problem is given,
 and the process surrounding the allocation is discussed.
 
-\input{sections/development_database_structure.tex}
-
 \subsection{User research}
 
 In the weeks before implementation started, students and staff were
@@ -753,7 +722,7 @@ are given in Appendix~\ref{sec:prototypes}.
     \fbox{\includegraphics[width=120mm]{images/bowles_dualpurpose_testing.png}}
   \end{center}
   \caption{User session focus chart originally published in
-    ``Undercover User Experience Design'', Bowles and Box \cite{bowles2011undercover}.}
+    ``Undercover User Experience Design'', Bowles and Box \cite{bowles2011undercover}}
   \label{bowles_dualpurpose_chart}
 \end{figure}
 
@@ -770,10 +739,10 @@ Students were asked how and where they access to web, to get an understanding
 of the environments this application might be used in.
 
 During the implementation phase of the project, focus groups organised by the
-\gls{aso} were conducted with students from each of the pilot departments. The
-project manager discussed with the students their current understanding of
-module allocation, and their feelings on where it worked well and how it could
-be improved. The project implementer tested several mockups of the student
+\gls{aso} were conducted with students from each of the pilot departments.
+\gls{lc} discussed with the students their current understanding of module
+allocation, and their feelings on where it worked well and how it could be
+improved. The project implementer tested several mockups of the student
 interface by asking the students to visit hyperlinks. After the students had
 the chance to use the mockups in a University computer classroom, they were
 provided refreshments and took part in a discussion to gather their feedback.
@@ -828,6 +797,8 @@ the system. We discussed:
 \end{itemize}
 
 % Discuss the results of the staff interviews
+
+\input{sections/development_database_structure.tex}
 
 \subsection{Web application frameworks}
 \label{sec:webframeworks}
@@ -1062,7 +1033,7 @@ banner, or as a part of the student portal.
   \begin{center}
     \includegraphics[width=160mm]{images/2011_11_06_yorkacuk.png}
   \end{center}
-  \caption{A general page on the University site, using University colours.}
+  \caption{A general page on the University site, using University colours}
   \label{yorkacuk_general_page}
 \end{figure}
 
@@ -1070,7 +1041,7 @@ banner, or as a part of the student portal.
   \begin{center}
     \includegraphics[width=160mm]{images/2011_11_06_yorkacuk_directory.png}
   \end{center}
-  \caption{The University of York People Directory search tool.}
+  \caption{The University of York People Directory search tool}
   \label{yorkacuk_directory_search}
 \end{figure}
 
@@ -1137,7 +1108,10 @@ will be stranded with an application they cannot use and no instructions
 telling them how to gain assistance.
 
 % Finally, the student interface was tested by Mr David Swallow, a Research
-% Associate in the \gls{hci} research group at the University of York.
+% Associate in the \gls{hci} research group at the University of York. Mr
+% Swallow commented that ``on the whole, the accessibility of the application
+% is excellent and passes many of the checkpoints where other applications
+% slip up''. He did, however, note several minor issues with the application.
 
 \subsection{Interaction with other University software}
 
@@ -1185,26 +1159,6 @@ consisted of simply static values and was purely for convenience.
 
 \input{sections/development_algorithm.tex}
 
-\subsection{Implementation schedule}
-
-As the time allotted for implementation of the software was limited to under
-eight weeks, it was necessary to prioritise certain aspects of the system in
-case I was unable to implement every requirement.
-
-Fortunately, the different elements of this project are naturally quite
-loosely coupled. I identified the following aspects (ordered by priority):
-
-\begin{enumerate}
-  \item Student interface to collect data (27 Feb 2012)
-  \item Performing the allocation (5 March 2012)
-  \item Staff interface (approx. 16 March 2012)
-\end{enumerate}
-
-The staff interface is given as the 16 March as it is not critical for this
-pilot. While it would clearly be preferable for staff to set up the system
-themselves unaided, it is more important that there is a working student
-interface and allocation algorithm.
-
 \input{sections/development_assistance_its.tex}
 
 \subsection{Issues arising during implementation}
@@ -1237,9 +1191,18 @@ set up the software.
 
 % \noindent{\textbf{Lack of technical contacts available during the project}}
 
-% Discuss how no technical people were involved early enough.
+% I first met the Head of Web Services and an \gls{itservices} developer on 16
+% January, several months after the project had begun. This meant that the
+% amount of time allocated to implementation was reduced. If a project of this
+% nature was to be carried out in future, the technical contact
+% (\gls{itservices} developers in the case of the University of York) should
+% be involved as early as possible. The author if of the opinion that earlier
+% involvement from a developer would have resulted in the developer actually
+% spending less time assisting with the project.
 
 \noindent{\textbf{Inability to interact with the system while it contained sensitive data}}
+
+% @todo were there bugs?
 
 The project implementer was unable to respond to bugs in a timely manner as
 it was not possible for \gls{itservices} to provide access to a database and
@@ -1297,6 +1260,13 @@ software, the developer is dependent on how fast they are able to learn and
 use new techniques.
 
 \input{sections/development_testing.tex}
+
+\subsection{Software overview}
+
+This section of the report gives an overview of the feature-complete software
+including a walkthrough of the entire selection and allocation process.
+
+[@todo include screenshots]
 
 \input{sections/development_pilot.tex}
 
@@ -1415,6 +1385,11 @@ Several departments have complex course structures, for example where a module
 in one term influences the module that must be taken in the next term. The
 interface could be extended to reflect this.
 
+% \subsection{Further testing}
+% 
+% There was not sufficient time during the period allocated to development to
+% write detailed unit tests or carry out performance testing.
+
 \section{Conclusions}
 \label{sec:conclusions}
 
@@ -1440,26 +1415,7 @@ be considered fully for this particular application.
 
 \appendix
 
-% What should go in an appendix? Screenshots? Code? Something else?
-
-% \clearpage
-% \section{External links}
-% 
-% This appendix gives URLs to departments, offices or services mentioned
-% throughout the document.
-% 
-% University Teaching Committee sponsored this project on behalf of the
-% University of York:
-% \url{http://www.york.ac.uk/about/organisation/governance/sub-committees/teaching-committee/}
-% 
-% IT Services hosted and maintained the application once it had been created:
-% \url{http://www.york.ac.uk/it-services/}
-% 
-% I would like to make the code of this software available online, at
-% \url{https://github.com/alexmuller/york-allocation}.
-
-\clearpage
-\section{Participant consent form}
+\stdsection{Participant consent form}
 \label{sec:consent}
 
 All research participants (students and staff of the University of York)
@@ -1481,7 +1437,7 @@ questions about the interview.
   \label{participantconsent}
 \end{figure}
 
-\section{Confidentiality and non-disclosure agreement}
+\stdsection{Confidentiality and non-disclosure agreement}
 \label{sec:nda}
 
 The \gls{nda} shown in Figure~\ref{confidentialitynda} was signed by the
@@ -1495,14 +1451,14 @@ project implementer and the Head of Web Services at the University of York.
   \label{confidentialitynda}
 \end{figure}
 
-\section{Prototypes of the student interface}
+\stdsection{Prototypes of the student interface}
 \label{sec:prototypes}
 
 Figures~\ref{prototype_student_1col}, \ref{prototype_student_weighting} and
 \ref{prototype_student_2col} give screenshots of the prototypes created for
 the student interface for ranking modules.
 
-Note that the explanatory copy included in the screenshots below was drafted
+Note that the explanatory copy included in the screenshots was drafted
 by the project implementer and was revised by the departments prior to the
 system being in use.
 
@@ -1530,7 +1486,7 @@ system being in use.
   \label{prototype_student_2col}
 \end{figure}
 
-\section{Feedback from test users}
+\stdsection{Feedback from test users}
 \label{sec:testingfeedback}
 
 \subsection{Focus groups with students}
@@ -1543,31 +1499,35 @@ system being in use.
 
 \subsection{Final application on development server}
 
+Table~\ref{table:finalissues} gives final issues in the application discovered
+while it was hosted on the development server.
+
 \begin{table}
-  \begin{tabular}{ | l | l | }
-    \hline
-    \textbf{Issue summary}                & \textbf{Times raised}  \\
-    \hline
-    Form validation improvements                         &    3    \\
-    Random ordering of confirmation screen               &    2    \\
-    Parts of explanatory text unclear                    &    2    \\
-    Students should not be required to rank every module &    1    \\
-    \hline
-  \end{tabular}
+  \begin{center}
+    \begin{tabular}{ | l | l | }
+      \hline
+      \textbf{Issue summary}                & \textbf{Times raised}  \\
+      \hline
+      Form validation improvements                         &    3    \\
+      Random ordering of confirmation screen               &    2    \\
+      Parts of explanatory text unclear                    &    2    \\
+      Students should not be required to rank every module &    1    \\
+      \hline
+    \end{tabular}
+  \end{center}
   \caption{Issues raised with the final release of the application}
+  \label{table:finalissues}
 \end{table}
 
-\clearpage
-\section{Application documentation}
+\stdsection{Application documentation}
 \label{sec:documentation}
 
-The following documentation was provided to every person involved with the
-project in advance of the trial period.
+The following documentation was provided to every departmental administrator
+in advance of the application being open to students (27 February).
 
 \includepdf[pages=-, frame=true, nup=2, landscape=true]{inc/documentation.pdf}
 
 
-\clearpage
 \section{Gurobi Python prototype}
 \label{sec:gurobipythonprototype}
 
