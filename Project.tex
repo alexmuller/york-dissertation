@@ -132,31 +132,15 @@ include any of the files or code listings included in the appendices.
 % The limits are 35,000 words and 70 pages - neither limit may be exceeded.
 % Other projects I've seen have been 12,000/60, 11,000/60, 21,000/71 etc
 
-\ifoptiondraft{
-
-  This report is a work-in-progress compiled on \today.
-
-  \medskip
-  \textbf{Notes during report writing:}
-
-  \begin{itemize}
-    \item Not sure how to refer to myself: ``project implementer'' or ``author'' or ``I''? (I is fine)
-    \item Does the structure look ok? (yep, tweaks)
-  \end{itemize}
-  
-}{
-
 The author is very grateful for all the assistance provided by the staff and
 students at the University of York who were involved in the project, but
 especially to James Cussens for his advice throughout and to Laura Crossley
 for her management of the project on behalf of the University.
 
-}
-
 \clearpage
 
 \begin{abstract}
-  % Couple of paras. Not more than 200 words - this is 194.
+  % Couple of paras. Not more than 200 words - this is 208.
 
   From the second year onwards, most students at the University of York can
   choose between two or more optional modules to tailor their academic career,
@@ -175,9 +159,9 @@ for her management of the project on behalf of the University.
   view fair allocation, and translating that into a constrained optimisation
   problem solvable by a computer.
   
-  The web application will be piloted by the Archaeology and History
-  departments in Spring 2012 and, if successful, will be offered to all
-  departments and maintained centrally by the University of York.
+  The web application is trialled by the Archaeology and History departments
+  in Spring 2012 and, if successful, will be offered to all departments and
+  maintained centrally by the University of York.
   
   This report discusses the choices made around the technology used, the
   development methodology and details relating to the allocation algorithm. It
@@ -210,7 +194,8 @@ their explicit consent was obtained beforehand.
 % Do no harm
 
 As far as the project author is aware, there are no immediate ethical issues
-relating to the creation of the module allocation software.
+relating to the creation of the module allocation software. However, there is
+always the potential for any software to be repurposed.
 
 % Confidentiality of data
 
@@ -224,7 +209,8 @@ his input is discussed in Section~\ref{sec:dataprotection}.
 
 The project author signed a \gls{nda} provided by \gls{itservices} in order to
 clarify the situation regarding access to student data. A copy of this
-\gls{nda} is provided in Appendix~\ref{sec:nda}.
+\gls{nda} is provided in Appendix~\ref{sec:nda}. It states that the author
+must not disclose confidential information he has obtained at any time.
 
 \section{Introduction}
 
@@ -315,52 +301,7 @@ In June 2012, the University will move all students to Google's Apps for
 Education product for email and calendaring, one of the aims of which is to
 improve the user experience dramatically over the current webmail software.
 
-\section{Project management and requirements}
-\label{sec:requirements}
-
-The \gls{aso} identified pilot departments who would most benefit from using
-the software to allocate optional modules. A project steering group was formed
-consisting of representatives from each of the departments (Archaeology and
-History), administrative staff responsible for IT and timetabling, and the
-project author and supervisor. The membership of the project steering group is
-as follows:
-
-\begin{itemize}
-  \item Project implementer
-  \item Project supervisor (Department of Computer Science)
-  \item Project manager (\gls{lc}, \gls{aso})
-  \item Head of Enterprise Systems (\gls{itservices})
-  \item University Timetabling Officer (Campus Services)
-  \item Assistant Manager, Student Systems (\gls{ssdt}, Registry Services)
-  \item Chair of Board of Studies (Department of Archaeology)
-  \item Departmental administrator (Department of Archaeology)
-  \item Student representative (Department of Archaeology)
-  \item Chair of Board of Studies (Department of History)
-  \item Departmental administrator (Department of History)
-  \item Student representative (Department of History)
-\end{itemize}
-
-Basic requirements for the project were given in the initial project
-specification. At the first steering group meeting in May 2011 and later that
-year this group reinforced and prioritised certain requirements. When the
-project commenced, the requirements could be briefly summarised as:
-
-\begin{quote}
-  A system to allocate optional modules to university students. The system
-  should be user-friendly and accessible via a web browser for both students
-  and departmental staff. The system should provide benefits over the current
-  paper-based method of allocating modules, such as:
-  \begin{itemize}
-    \item Reduced administrative overhead
-    \item Improved student experience
-    \item Increased level of fairness in module allocation
-  \end{itemize}
-\end{quote}
-
-The project was also monitored by the \gls{sipig}, a group consisting of
-academic and administrative staff at the University of York who are
-responsible for overseeing the progress of projects related to central
-services such as the University Library \& Archives and \gls{itservices}.
+\input{sections/projmanagement_main.tex}
 
 \input{sections/projmanagement_schedule.tex}
 
