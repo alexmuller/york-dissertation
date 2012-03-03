@@ -94,7 +94,7 @@
 
 \def\paperauthor{Alexander Muller}
 \def\papertitle{Allocating optional modules \\ to University of York students}
-\def\paperlength{13,300}
+\def\paperlength{14,039}
 
 \title{\papertitle}
 \author{\paperauthor}
@@ -991,6 +991,7 @@ will have to be developed (Section~\ref{sec:autoexport}).
 \input{sections/development_assistance_its.tex}
 
 \subsection{Issues arising during implementation}
+\label{sec:issuesarising}
 
 % Discuss some of the _real_ issues of a _real_ project
 
@@ -1095,7 +1096,9 @@ use new techniques.
 This section of the report gives an overview of the feature-complete software
 including a walkthrough of the entire selection and allocation process.
 
-[@todo include screenshots]
+\emph{[@todo Include screenshots and a brief walkthrough of the software]}
+
+% A video of the software in use on a touchscreen device is available at...?
 
 \input{sections/development_pilot.tex}
 
@@ -1182,7 +1185,7 @@ modules.
 The application has been designed in such a way that any course, no matter
 what the structure, can be added. The only blocking factor for this use case
 is that the application requires a University of York login to authenticate
-with Shibboleth. A stand-alone version of the application could be created
+with Shibboleth. A standalone version of the application could be created
 with its own authentication mechanism, which would avoid this requirement.
 
 \subsection{Interface improvements}
@@ -1228,28 +1231,7 @@ the departments to be able to see at what point during the allocation period
 the students are making their choices, so graphing this information may be
 useful.
 
-\section{Conclusions}
-\label{sec:conclusions}
-
-% This is similar to the abstract. The difference is that you should assume
-% here that the reader of the conclusions has read the rest of the report.
-
-% Talk about the methodology you adopted and why you chose. Make sure you
-% mention what worked and what did not - explain why you think things did not
-% work or could be improved - this shows learning from the experience.
-
-% This section should be a summary of everything you have done with your
-% personal comments and findings and perhaps some discussion on whether you
-% agree with the references you cited.
-
-% It became apparent during implementation that there were areas that should
-% have been researched more thoroughly, primarily database theory. This was
-% not helped by my unfamiliarity with the framework and associated tools,
-% which was creating the database structure from the entities defined.
-
-While the research carried out formed a strong basis for a web application,
-the lack of time to implement meant that some parts of the research could not
-be considered fully for this particular application.
+\input{sections/conclusion.tex}
 
 \clearpage
 \appendix
@@ -1301,7 +1283,7 @@ Note that the explanatory copy included in the screenshots was drafted
 by the project implementer and was revised by the departments prior to the
 system being in use.
 
-\begin{figure}[ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=0.85\linewidth]{images/prototypes/student_prototype_1.png}
   \end{center}
@@ -1309,7 +1291,7 @@ system being in use.
   \label{prototype_student_1col}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=0.85\linewidth]{images/prototypes/student_prototype_2.png}
   \end{center}
@@ -1317,7 +1299,7 @@ system being in use.
   \label{prototype_student_weighting}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}
   \begin{center}
     \includegraphics[width=0.85\linewidth]{images/prototypes/student_prototype_3.png}
   \end{center}
@@ -1362,7 +1344,9 @@ while it was hosted on the development server.
 \label{sec:documentation}
 
 The following documentation was provided to every departmental administrator
-in advance of the application being open to students (27 February).
+in advance of the application being open to students (27 February). It was
+also used as the basis for the \gls{itservices} security review that is
+discussed in Section~\ref{sec:securityreview} (15 February).
 
 \includepdf[pages=-, frame=true, nup=2, landscape=true]{inc/documentation.pdf}
 
