@@ -4,52 +4,114 @@
 \label{sec:research_security}
 
 Recently there has been increased public awareness of online security because
-of exploits from groups such as ``LulzSec''. Groups such as this have
-exploited vulnerabilities and released sensitive information from
-organisations such as Sony, the FBI, etc [@todo reference required here].
+of exploits orchestrated by groups such as ``LulzSec''. These groups have
+exploited vulnerabilities in software and systems as well as through social
+engineering, and have released sensitive information from large corporations
+and governments \cite{ASATrendsinDataBreaches_2012}.
 
-While some of their attacks have involved social engineering, those is outside
-the scope of this report. The research conducted here focuses solely on the
-technical methods that should be used to prevent unwanted disclosure of
-information.
+While some of their attacks have involved social engineering, those are
+outside the scope of this report. The research conducted here focuses solely
+on the technical methods that should be used to prevent unwanted disclosure or
+destruction of information.
 
 The \gls{owasp} Top 10 is a list of the ten most important security
 vulnerabilities, as identified by The \gls{owasp} Foundation
 \cite{OWASPTop10_2010}. These vulnerabilities range in impact, prevalence and
 how sophisticated an attacker must be to exploit them.
 
+The ten vulnerabilities provide a very solid grounding in security risks for
+web applications. The list is updated frequently by \gls{owasp} (every three
+years) in order to stay relevant. It is worth noting that as with all aspects
+of information security, no system can ever be deemed to be perfectly safe.
+The Top 10 simply aims to educate developers about the most prevelant risks
+for web applications.
+
 Not all of the ten security vulnerabilities are relevant to this project --
 for example, some of them refer to the way in which the data is stored on
-disk, which is out of scope for this software. The most relevant
-vulnerabilities are discussed here.
+disk. The most relevant vulnerabilities are discussed in detail here.
 
 \noindent{\textbf{Injection (A1)}}
 
-Injection refers to a malicious user entering specially-crafted input in order
+Injection involves a malicious user entering specially-crafted input in order
 to compromise an application. A specific example that would affect this
-application is SQL injection, where by input can be crafted so that it
-compromises or destroys the database like so:
+application is \gls{sql} injection, where by the input is crafted so that it
+compromises or destroys the database. A request could be made like so:
 
-\texttt{http://example.com/modules/?id=' or '1'='1}
+\begin{lstlisting}
+http://example.com/modules/?id=' OR '1'='1
+\end{lstlisting}
 
-In this example, the first single quote...
+In an insecure application, the string after \texttt{id=} would be entered
+directly into a \gls{sql} statement:
+
+\begin{lstlisting}
+SELECT * FROM table WHERE id='' OR '1'='1';
+\end{lstlisting}
+
+This statement would then select everything from the database (as 1 always
+equals 1), potentially returning data to the user that they should not be able
+see. Similarly, it would be trivial to execute a \texttt{DROP TABLE} command
+to destroy the database. The issue is mitigated by sanitising all user input
+so that it is not executed directly in the database.
 
 \noindent{\textbf{Cross-Site Scripting (A2)}}
 
-xxx
+Cross-site scripting (abbreviated XSS) is an attack involving a malicious user
+sending data to the application which is then displayed without first being
+sanitised. For example, in this application, a department could upload a
+module with the name:
+
+\begin{lstlisting}
+<script>document.location='http://www.malicioussite.example/exploit.html'</script>
+\end{lstlisting}
+
+If this module name was to be displayed to a student before being sanitised,
+they would be automatically redirected to the malicious website, which could
+be designed to steal their personal information.
 
 \noindent{\textbf{Broken Authentication and Session Management (A3)}}
 
-xxx
+This entry in the Top 10 is more broad than the others, and I believe it is
+designed to convey to developers the sheer number of ways in which
+authentication systems can be broken. The recommendation given is to only use
+authentication controls that are widely available - if a developer was to
+write their own authentication mechanism, it would not be subjected to as much
+testing as widely-known security packages and flaws would not be found as
+easily.
 
 \noindent{\textbf{Cross-Site Request Forgery (A5)}}
 
-xxx
+A cross-site request forgery (CSRF) attack occurs when a malicious user crafts
+an \gls{http} request on their site (for example through adding a
+\texttt{<form>} element) and then attempts to trick a legitimate user into
+making the request. This particular attack can be mitigated through the
+addition of an automatically-generated token to every input form or even every
+page on the vulnerable site. This token can be checked on submission to ensure
+that the user submitting the form came from the correct page, and therefore
+that the request is legitimate.
 
 \noindent{\textbf{Failure to Restrict URL Access (A8)}}
 
-xxx
+As \gls{http} is a stateless protocol, the user must be authenticated with
+every request. A simple way to ensure this is carried out correctly is to keep
+all requests relating to different access levels entirely separate. For
+example, all basic user functions could be under \texttt{/modules} while all
+departmental administrative actions could be under \texttt{/admin}. A global
+security configuration would then ensure that a user had the appropriate
+privileges for each request under those URLs.
 
 \noindent{\textbf{Insufficient Transport Layer Protection (A9)}}
 
-xxx
+Any web application should be served as securely as possible - this is
+especially important for authentication-related items such as cookies (a
+cookie is a small amount of text data stored in a web browser and transmitted
+to a web server). If a cookie is used with HTTP's stateless nature to
+authenticate the user on every request, this cookie can be intercepted simply
+by sniffing network traffic. Any user can then perform any action with the
+privilege granted by this cookie.
+
+The issue of cookie-sniffing over insecure connections has been known for many
+years, but was brought to light in 2010 through the release of a Firefox
+extension called ``Firesheep'', which provided a clear interface to allow any
+user to steal credentials for popular sites (such as Amazon or Facebook) on an
+insecure network \cite{FiresheepHow_2011}.
