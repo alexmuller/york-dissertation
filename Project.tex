@@ -94,7 +94,7 @@
 
 \def\paperauthor{Alexander Muller}
 \def\papertitle{Allocating optional modules \\ to University of York students}
-\def\paperlength{12,700}
+\def\paperlength{13,300}
 
 \title{\papertitle}
 \author{\paperauthor}
@@ -635,111 +635,14 @@ the lack of an explicit save button ``a bit disturbing''.
 % Several chapters describing what you have done, focusing on the novel
 % aspects of your own work.
 
-After reviewing the areas noted in the previous section, the software was
-researched, written and tested. This section describes how users helped
+After reviewing the information gathered in the previous section, the software
+was researched, written and tested. This section describes how users helped
 influence the design of the software during interviews, a discussion on web
 frameworks, the visual appearance and other important factors for web
-projects.
+projects. Information from departments that informed the allocation problem is
+given, and the process surrounding the allocation is discussed.
 
-Information from departments that informed the allocation problem is given,
-and the process surrounding the allocation is discussed.
-
-\subsection{User research}
-
-In the weeks before implementation started, students and staff were
-interviewed to understand more about their relationship with module
-allocation. The chart in Figure~\ref{bowles_dualpurpose_chart} was originally
-published by Bowles and Box and is incredibly relevant to this project.
-
-The first user interviews (discussed in more detail in the following
-subsections) consisted mostly of research; for example, discussing how module
-allocation has worked in previous years. With this knowledge, a prototype
-could be created. The later user sessions focused more on testing the
-prototype with users to refine it and improve the user experience.
-
-Screenshots of the three prototypes of the student interface used in testing
-are given in Appendix~\ref{sec:prototypes}.
-
-\begin{figure}
-  \begin{center}
-    \fbox{\includegraphics[width=120mm]{images/bowles_dualpurpose_testing.png}}
-  \end{center}
-  \caption{User session focus chart originally published in
-    ``Undercover User Experience Design'', Bowles and Box \cite{bowles2011undercover}}
-  \label{bowles_dualpurpose_chart}
-\end{figure}
-
-\subsubsection{With students}
-
-In the meetings with students, the questions asked predominantly revolved
-around module allocation at the University of York; it was important to
-understand how students feel about the current state of module allocation to
-ensure that this system improves their experience.
-
-Students were asked to use a mockup of the application written in \gls{html}
-and the researcher observed them to discover the main sources of difficulty.
-Students were asked how and where they access to web, to get an understanding
-of the environments this application might be used in.
-
-During the implementation phase of the project, focus groups organised by the
-\gls{aso} were conducted with students from each of the pilot departments.
-\gls{lc} discussed with the students their current understanding of module
-allocation, and their feelings on where it worked well and how it could be
-improved. The project implementer tested several mockups of the student
-interface by asking the students to visit hyperlinks. After the students had
-the chance to use the mockups in a University computer classroom, they were
-provided refreshments and took part in a discussion to gather their feedback.
-
-In the History student focus group (eight students from 1st to 3rd year), it
-was immediately clear that the two-column drag-and-drop layout
-(Figure~\ref{prototype_student_2col}) was the easiest to use and related to
-students' existing mental model most closely. As one student at the focus
-group commented, this interface closely resembles the way in which the
-\gls{yusu} website allows students to vote for sabbatical officers during
-their annual elections. As students will already have some (however minimal)
-experience with this kind of interface it makes sense to reuse ideas they are
-used to.
-
-Students were pleased with the simple drag-and-drop single column prototype,
-but preferred the more explicit action of dragging from one side of the page
-to the other. The weighting based system (dragging horizontal bars) was
-unpopular with the History students; they commented that it would be
-advantageous to have a simple system that all students can understand easily,
-rather than one which may cause confusion -- especially when students are
-preoccupied with making their module choices and do not want to think about
-the way in which the system works.
-
-In the Archaeology student focus group (six students from 1st to 3rd year),
-similar concerns were raised about the second mockup. The students wondered
-how the system would react if a student weighted only one or two modules
-incredibly heavily and the remaining modules equally lightly. This is a
-concern that would have to be discussed with the departments in depth and
-communicated clearly to students in order to come up with a fair allocation.
-
-The students again commented on the similarity between the \gls{yusu} website
-and the second mockup, reinforcing the previous group's feedback that this
-mockup was the best of the three.
-
-With this group of students, it was easy to observe a common issue with
-running focus groups. Two of the Archaeology students present were more
-quiet than the others in the group and it was harder to get their opinions.
-The solution in this case was to direct specific questions at those two
-students, though obviously this was not ideal. If running the session again,
-it would be advantageous to not include those students in the focus group
-and instead gather their opinions without the other students present.
-
-\subsubsection{With staff}
-
-I also spoke to departmental administrators, who will be responsible for setting up
-the system. We discussed:
-
-\begin{itemize}
-  \item The idea of ``fairness''
-  \item The user interface
-  \item Administration
-\end{itemize}
-
-% Discuss the results of the staff interviews
+\input{sections/development_user_research.tex}
 
 \input{sections/development_database_structure.tex}
 
@@ -1058,8 +961,8 @@ telling them how to gain assistance.
 
 \subsection{Interaction with other University software}
 
-The system will be required to interact with \gls{sits}, as it is a centrally
-maintained database that must always contain a true and accurate
+The system will be required to interact with \gls{sits}, as this is the
+centrally maintained database that must always contain a true and accurate
 representation of a student's data. Data stored in \gls{sits} is throughout
 the University, including for timetabling and room allocation.
 
@@ -1076,29 +979,12 @@ especially as administrators will need to spend time tailoring the system to
 their department after the import has taken place.
 
 For the pilot of this module allocation software, the data produced by the
-application will be processed manually by a member of \gls{ssdt}. They will
+application will be processed manually by \gls{mh}. They will
 perform a ``sanity check'' to ensure that the data generated by the
 application looks accurate and will import the data. If this application is
 evaluated successfully and maintained centrally, it will not be feasible to
 import the data manually for each department and some kind of automatic import
 will have to be developed (Section~\ref{sec:autoexport}).
-
-The project implementer met with a member of \gls{ssdt} during the research
-stage of the project to ascertain the format in which the data would need to
-provided to make the import as easy as possible.
-
-It quickly became apparent that a table with each row being a single
-allocation (where an allocation is a [student, module] pair) would allow the
-team to import the data easily. It was agreed that the following information
-would be provided for each allocation:
-
-\begin{itemize}
-  \item Student information: University username, \gls{routecode}, \gls{stage}
-  \item Module information: module code, number of credits, which term the module is running in
-\end{itemize}
-
-Other information was added accompany the data as it is being imported, but it
-consisted of simply static values and was purely for convenience.
 
 \input{sections/development_algorithm.tex}
 
@@ -1333,6 +1219,15 @@ interface could be extended to reflect this.
 % There was not sufficient time during the period allocated to development to
 % write detailed unit tests or carry out performance testing.
 
+\subsection{Other minor features}
+
+There are countless other minor features that could be implemented. For
+example, the system currently records a timestamp for every student when they
+save their choices. It may be interesting (though is not at all required) for
+the departments to be able to see at what point during the allocation period
+the students are making their choices, so graphing this information may be
+useful.
+
 \section{Conclusions}
 \label{sec:conclusions}
 
@@ -1356,6 +1251,7 @@ While the research carried out formed a strong basis for a web application,
 the lack of time to implement meant that some parts of the research could not
 be considered fully for this particular application.
 
+\clearpage
 \appendix
 
 \stdsection{Participant consent form}
@@ -1405,7 +1301,7 @@ Note that the explanatory copy included in the screenshots was drafted
 by the project implementer and was revised by the departments prior to the
 system being in use.
 
-\begin{figure}
+\begin{figure}[ht]
   \begin{center}
     \includegraphics[width=0.85\linewidth]{images/prototypes/student_prototype_1.png}
   \end{center}
@@ -1413,7 +1309,7 @@ system being in use.
   \label{prototype_student_1col}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[ht]
   \begin{center}
     \includegraphics[width=0.85\linewidth]{images/prototypes/student_prototype_2.png}
   \end{center}
@@ -1421,7 +1317,7 @@ system being in use.
   \label{prototype_student_weighting}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[ht]
   \begin{center}
     \includegraphics[width=0.85\linewidth]{images/prototypes/student_prototype_3.png}
   \end{center}
@@ -1445,7 +1341,7 @@ system being in use.
 Table~\ref{table:finalissues} gives final issues in the application discovered
 while it was hosted on the development server.
 
-\begin{table}
+\begin{table}[h]
   \begin{center}
     \begin{tabular}{ | l | l | }
       \hline
@@ -1471,7 +1367,7 @@ in advance of the application being open to students (27 February).
 \includepdf[pages=-, frame=true, nup=2, landscape=true]{inc/documentation.pdf}
 
 
-\section{Gurobi Python prototype}
+\stdsection{Gurobi Python prototype}
 \label{sec:gurobipythonprototype}
 
 \lstset{language=Python}
