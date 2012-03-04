@@ -15,7 +15,7 @@
 \usepackage{fullpage}
 % Inside and top margins should be a minimum of 2cm; other margins should be a
 % minimum of 1cm. You might find it simplest to leave 2cm all round.
-\usepackage[top=2cm, bottom=4cm, left=2cm, right=2cm]{geometry}
+\usepackage[top=2cm, bottom=3cm, left=2cm, right=2cm]{geometry}
 
 \setlength{\parskip}{0.15cm plus 0.1cm minus 0.05cm}
 % \addtolength{\parskip}{\baselineskip}
@@ -38,23 +38,23 @@
 \renewcommand\section{\clearpage\stdsection}
 
 % Listings package for including code
-\usepackage{listings}
+\usepackage{listings,multicol}
 \lstset{
   basicstyle = \ttfamily\footnotesize,
-  % keywordstyle = \color{blue},
-  % commentstyle = \color{red},
+  commentstyle = \color{light-gray},
   numbers = left,
   numberstyle = \tiny,
   stepnumber = 20,
-  numbersep = 12pt,
+  numbersep = 10pt,
   frame = single,
   rulecolor = \color{light-gray},
 }
-\lstloadlanguages{HTML}
+\lstloadlanguages{HTML,Java}
 
 \usepackage{upquote}
 
-\usepackage{algorithmic}
+\usepackage{algorithmic,setspace}
+\algsetup{indent=2em}
 
 % This is now the recommended way for checking for PDFLaTeX:
 \usepackage{ifpdf}
@@ -94,7 +94,7 @@
 
 \def\paperauthor{Alexander Muller}
 \def\papertitle{Allocating optional modules \\ to University of York students}
-\def\paperlength{14,039}
+\def\paperlength{15,000}
 
 \title{\papertitle}
 \author{\paperauthor}
@@ -1340,6 +1340,8 @@ while it was hosted on the development server.
   \label{table:finalissues}
 \end{table}
 
+\clearpage
+
 \stdsection{Application documentation}
 \label{sec:documentation}
 
@@ -1350,13 +1352,21 @@ discussed in Section~\ref{sec:securityreview} (15 February).
 
 \includepdf[pages=-, frame=true, nup=2, landscape=true]{inc/documentation.pdf}
 
+\stdsection{Gurobi optimisation code}
+\label{sec:gurobicode}
 
-\stdsection{Gurobi Python prototype}
-\label{sec:gurobipythonprototype}
+This appendix contains the code used to allocate the modules to students. Some syntax
+has been modified to fit the constraints of the page, but otherwise it is unmodified.
 
-\lstset{language=Python}
-\lstinputlisting{listings/gurobi_allocation_prototype.py}
-
+\begin{landscape}
+  \lstset{
+    language     = Java,
+    multicols    = 2,
+    basicstyle   = \ttfamily\tiny, % \scriptsize
+    keywordstyle = \color{yorkblue}
+  }
+  \lstinputlisting{listings/AdminAllocate.java}
+\end{landscape}
 
 \clearpage
 \printglossaries

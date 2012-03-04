@@ -121,3 +121,59 @@ The anonymised data provided by the Archaeology department did not cause the
 solver to report any problems. As discussed in
 Section~\ref{sec:algo_humanaspects}, Archaeology has far more available
 capacity in their modules than History so this is unsurprising.
+
+\begin{table}
+  \begin{center}
+    \begin{tabular}{ | l | l | l | l | l | l | }
+      \hline
+      \textbf{Sum of ranks} & \textbf{No cap} & \textbf{15/15 cap} & \textbf{12/6 cap} & \textbf{10/10 cap} & \textbf{8/4 cap} \\
+      \hline
+      1 & 81 & 80.5 & 83 & 83 & 78 \\
+      2 & 225 & 223.5 & 220.5 & 231.5 & 214 \\
+      3 & 39.5 & 45.5 & 45 & 31 & 47 \\
+      4 & 20.5 & 17.5 & 20.5 & 21 & 31 \\
+      5 & 4.5 & 3.5 & 2 & 3.5 & 1 \\
+      6 & 132.5 & 155 & 141.5 & 140 & 127 \\
+      7 & 58 & 44 & 54.5 & 49 & 57 \\
+      8 & 11.5 & 7.5 & 15 & 15.5 & 36 \\
+      9 & 6 & 2 & 5.5 & 8.5 & 0 \\
+      10 & 3.5 & 5 & 2 & 7.5 & 0 \\
+      11 & 3 & 1.5 & 0.5 & 0 & 0 \\
+      12 & 2 & 2.5 & 1 & 0 & 0 \\
+      13 & 1 & 1 & 0 & 0 & 0 \\
+      14 & 0 & 0.5 & 0 & 0 & 0 \\
+      15 & 0.5 & 1.5 & 0 & 0 & 0 \\
+      16 & 0 & 0 & 0 & 0 & 0 \\
+      17 & 0 & 0 & 0 & 0 & 0 \\
+      18 & 1 & 0 & 0 & 0 & 0 \\
+      19 & 0 & 0 & 0 & 0 & 0 \\
+      20 & 0 & 0 & 0 & 0 & 0 \\
+      21 & 0 & 0 & 0 & 0 & 0 \\
+      22 & 0 & 0 & 0 & 0 & 0 \\
+      23 & 0 & 0 & 0 & 0 & 0 \\
+      24 & 0.5 & 0 & 0 & 0 & 0 \\
+      25 & 1 & 0 & 0 & 0 & 0 \\
+      \hline
+    \end{tabular}
+  \end{center}
+  \caption{Data obtained from allocations made to test the equity cap}
+  \label{gurobi_equity_table}
+\end{table}
+
+The project implementer also tested the additional hard constraint, called
+``equity across students'', to see whether it provided a better allocation.
+
+Table~\ref{gurobi_equity_table} shows data obtained from some test allocations
+made to demonstrate the effect that this hard constraint has. Each column in
+the table represents a different equity cap. For each equity cap, random
+rankings were generated and an allocation was performed on those rankings.
+This was performed twice for each cap and the figures were averaged to obtain
+the result shown. The cap is given in terms of two figures; the first figure
+is the cap for single-subject students, and the second is the cap for joint
+students. This is due to the fact joint students take less modules, and as
+such would expect a lower cap.
+
+With no cap present, we observe one or two students who receive incredibly bad
+allocations. As the cap is reduced, clearly the number of bad allocations is
+reduced. However, as might be expected we also start to observe the number of
+perfect allocations decreasing.

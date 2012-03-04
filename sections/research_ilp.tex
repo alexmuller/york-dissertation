@@ -1,6 +1,7 @@
 %!TEX root = ../Project.tex
 
 \subsection{Integer linear programming solvers}
+\label{sec:researchilp}
 
 % [@todo talk about their use in industry?]
 
@@ -11,23 +12,31 @@ if the allocation does not take place, or 1 if it does. For example, a system
 containing two users and two modules would be represented as:
 
 \begin{verbatim}
-  user1_moduleA  0/1
-  user1_moduleB  0/1
-  user2_moduleA  0/1
-  user2_moduleB  0/1
+ variable         allocation_made
+----------------------------------
+ user1_moduleA    0
+ user1_moduleB    1
+ user2_moduleA    1
+ user2_moduleB    0
+----------------------------------
 \end{verbatim}
 
-We research \gls{lp} solvers in order to find one that can produce the
-``best'' allocation of students to modules given several constraints, such as
-the number of students in the module.
+Using a solver instead of writing an algorithm from the ground up has numerous
+advantages, the most important of which is that it will dramatically reduce
+the time required for implementation. It will also increase flexibility, as
+constraints can be added and removed easily. Existing solvers are commonly
+used to solve optimisation problems that are orders of magnitude larger than
+the thousands of variables (\emph{student, module} pairs) this application
+will have to deal with.
 
-The basic requirements for a solver for this project are as follows, and are
-explained in more detail below.
+I research \gls{lp} solvers in order to find one that is most suitable for
+this project. The basic requirements for a solver for this project are
+summarised and then explained in more detail below.
 
 \begin{itemize}
-  \item Interface in the language of the rest of the project
-  \item Easy to understand and modify in future (maintainable)
-  \item An appropriate software licensing policy
+  \item Has an interface in the language used in the rest of the project
+  \item Is easy to understand and modify in future (maintainable)
+  \item Has an appropriate software licensing policy
 \end{itemize}
 
 The solver should have an appropriate software interface so that it will
@@ -42,16 +51,22 @@ this kind of constraint optimisation software, clear syntax will ensure the
 software is as maintainable as possible.
 
 Finally, the solver should have a license that is compatible with its expected
-use (in an academic insitution).
+use (in centrally maintained software at an academic institution).
 
-% \subsubsection{SCIP}
-% 
-% SCIP
-% 
-% \subsubsection{Gurobi}
-% 
-% Gurobi
-% 
-% \subsubsection{MiniZinc}
-% 
-% MiniZinc?
+\textbf{SCIP (Solving Constraint Integer Programs)} is a non-commercial solver
+that is available free for academic use. It is written in C and includes a C++
+wrapper. The earliest release detailed on the SCIP site is version 0.80 in
+late 2005, and the most recent is a bug fix release in December 2011.
+
+\textbf{Gurobi Optimizer} is a solver written in C. It has simple,
+well-documented library interfaces available in C, C++, Java, .NET and Python,
+as well as an extremely detailed reference manual. Unlike SCIP, Gurobi is a
+commercial product, but the company provides unlimited free academic licenses
+which are unrestricted in terms of model size. The most recent release was
+version 4.6 in November 2011. The earliest release I am able to find is Gurobi
+2.0 in August 2009.
+
+Judging by release dates, neither solver is significantly more established
+than the other. Tests conducted at Arizona State University indicate that
+Gurobi is consistently the highest performing solver of the seven tested
+\cite{SolversPerformance_2012}.
