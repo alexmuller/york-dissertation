@@ -94,7 +94,7 @@
 
 \def\paperauthor{Alexander Muller}
 \def\papertitle{Allocating optional modules \\ to University of York students}
-\def\paperlength{15,000}
+\def\paperlength{15,200}
 
 \title{\papertitle}
 \author{\paperauthor}
@@ -1272,6 +1272,21 @@ project implementer and the Head of Web Services at the University of York.
   \label{confidentialitynda}
 \end{figure}
 
+\stdsection{Paper forms used for module selection}
+\label{sec:paperforms}
+
+Figures~\ref{paperformarchaeology1} and [@todo History] show paper forms used
+by each of the pilot departments to allow students to rank their modules in
+order of preference.
+
+\begin{figure}
+  \begin{center}
+    \fbox{\includegraphics[width=0.9\linewidth]{inc/paperformarchaeology1.pdf}}
+  \end{center}
+  \caption{A paper form given to Archaeology students to select their modules}
+  \label{paperformarchaeology1}
+\end{figure}
+
 \stdsection{Prototypes of the student interface}
 \label{sec:prototypes}
 
@@ -1355,8 +1370,9 @@ discussed in Section~\ref{sec:securityreview} (15 February).
 \stdsection{Gurobi optimisation code}
 \label{sec:gurobicode}
 
-This appendix contains the code used to allocate the modules to students. Some syntax
-has been modified to fit the constraints of the page, but otherwise it is unmodified.
+This appendix contains the code used to allocate the modules to students. Some
+syntax has been modified to fit the constraints of the page and some
+superfluous code has been removed, but otherwise it is unmodified.
 
 \begin{landscape}
   \lstset{
