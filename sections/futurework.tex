@@ -1,0 +1,127 @@
+%!TEX root = ../Project.tex
+
+\section{Further work}
+\label{sec:furtherwork}
+
+% A chapter describing possible ways in which your work could be continued or
+% developed. Be imaginative but realistic.
+
+There were many feature requests from the project steering group that I had
+insufficient time to implement during the course of the project. These
+requests (including their difficulty and potential implementation strategy)
+are discussed in this section.
+
+\subsection{Maintaining a history}
+
+While considering the data protection implications mentioned in
+Section~\ref{sec:dataprotection}, a popular request from the pilot departments
+was that the application should retain its knowledge about a student for the
+duration of their time at university.
+
+One obvious benefit of this improvement is that the fairness of the allocation
+for a given student could be improved over the course of their academic
+career. For example, if a student was given one of their lower ranked modules
+in the first year, the allocation could compensate them by giving them
+preference over other students for a higher ranked module in the second
+year.
+
+The University's Data Protection Officer would have to be consulted in order
+to draft a suitable retention policy for this additional data. It seems that
+this is data that a department might be expected to collect and reference, and
+as such could be held in line with the department's retention policies.
+
+Technically speaking, this is not a particularly difficult feature to
+implement. Each student can be given an average score, equivalent to the sum
+of the ranks they were allocated divided by the number of modules. Then,
+students with a higher average score have a greater weight given to their top
+choices in the objective function.
+
+\subsection{Different methods of obtaining information from students}
+
+One mockup created during the user testing allowed students to weight modules
+rather than ranking them -- it was thought by the project steering group that
+this interface (Figure~\ref{prototype_student_weighting}) would allow students
+to express more clearly their preferences for certain modules (i.e. the
+student could use the bars to demonstrate that they have a very strong desire
+for module X, and absolutely do not want to be allocated module Y). However,
+user testing revealed that students were confused about how the values shown
+on the bars would be used to allocate modules. Furthermore, a concern raised
+at both the project steering group meetings and by students during testing was
+that this nuanced a selection process might evolve into a ``bidding war''
+between students, with a student adding one or two points to the values their
+peers had input in order to secure a module. In summary, there was strong
+feedback from the test groups that the application should in fact be kept as
+simple as possible -- the phrase \gls{kiss} is often used.
+
+It is possible that an interface similar to the one prototyped could be
+further refined such that students are comfortable using it -- the project
+group and implementer still believe it could provide a ``better'' allocation
+for students. A simple solution could perhaps be to not display the exact
+percentage figures to students so that they are choosing modules based on the
+approximate lengths of the bars rather than the exact values.
+
+\subsection{Automatic import and export}
+\label{sec:autoexport}
+
+The application could be extended so that it automatically accesses data
+stored in the University's Data Warehouse. This would be far easier for an
+experienced University developer to implement than it would be for the project
+author, who has no prior experience writing software to integrate with
+University of York infrastructure.
+
+This would remove the need for departments to set up the application by
+uploading files and, crucially, would remove the requirement that \gls{ssdt}
+must import the data into \gls{sits} when the allocation is complete. The
+result of this integration would be a further reduction in administrative time
+required.
+
+\subsection{Expanding the use of the application}
+
+\gls{sa} posed the question of whether this application could be used to allow
+visiting students to select their modules. The application has been designed
+in such a way that any course, no matter what the structure, can be added. The
+only blocking factor for this use case is that the application requires a
+University of York login to authenticate with Shibboleth. A standalone version
+of the application could be created with its own authentication mechanism,
+which would avoid this requirement.
+
+\subsection{Contacting students}
+
+During user testing, one benefit students noted compared to the paper system
+is that it is significantly easier to keep a record of the choices they made.
+Currently, the system simply advises students to print or save the page that
+is displayed after they have made their choices. An obvious improvement to
+this process is that students could be emailed a copy of their choices. This
+would confirm to the student that their input has definitely been saved, while
+also giving them a copy of their choices.
+
+\subsection{Support for more complex course structures}
+
+Several departments have complex course structures, for example where a module
+in one term influences the module that must be taken in the next term. The
+interface could be extended to reflect this.
+
+\subsection{Improved application code and maintainability}
+
+There are many places in which the application code could be improved. It is
+currently quite fragile, and better error handling would dramatically improve
+the user experience. Additionally, as different departments have their own
+requirements for the algorithm, it would be an improvement if they could
+manipulate small parameters in the algorithm themselves, such as the
+coefficients used in the objective function.
+
+\subsection{Other minor features}
+
+There are countless other minor features that could be implemented. For
+example, the system currently records a timestamp for every student when they
+save their choices. It may be interesting (though is not at all required) for
+the departments to be able to see at what point during the allocation period
+the students are making their choices, so graphing this information may be
+useful.
+
+As noted in Section~\ref{sec:developmentpilot}, the student ranking interface
+should also be improved so that on subsequent uses of the software by students
+the ranking interface is already filled with the choices the student has made.
+As the software is currently coded, a student might find it confusing when, on
+performing a second ranking, they are greeted with an interface that appears
+as though they have never used the software before.
