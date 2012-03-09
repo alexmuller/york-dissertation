@@ -17,7 +17,7 @@
 % minimum of 1cm. You might find it simplest to leave 2cm all round.
 \usepackage[top=2cm, bottom=3cm, left=2cm, right=2cm]{geometry}
 
-\setlength{\parskip}{0.15cm plus 0.1cm minus 0.05cm}
+\setlength{\parskip}{0.14cm plus 0.1cm minus 0.1cm}
 % \addtolength{\parskip}{\baselineskip}
 % \usepackage{parskip}
 
@@ -140,12 +140,11 @@ for her management of the project on behalf of the University.
 \clearpage
 
 \begin{abstract}
-  % Couple of paras. Not more than 200 words - this is 208.
+  % Couple of paras. Not more than 200 words - this is 211.
 
   From the second year onwards, most students at the University of York can
   choose between two or more optional modules to tailor their academic career,
   in the hope that it will be more relevant, interesting and useful to them.
-  
   There is currently no standard system for optional module allocation at the
   University of York. In some departments it is handled using a paper form
   which must be returned to departmental administrators and processed
@@ -153,15 +152,13 @@ for her management of the project on behalf of the University.
   
   This project aims to design and implement web-based software that can be
   used by departments and students to allocate modules more fairly and with
-  less administrative overhead.
+  less administrative overhead. Allocating modules ``fairly'' involves
+  understanding how staff and students view fair allocation, and translating
+  that into a constrained optimisation problem solvable by a computer.
   
-  Allocating modules ``fairly'' involves understanding how staff and students
-  view fair allocation, and translating that into a constrained optimisation
-  problem solvable by a computer.
-  
-  The web application is trialled by the Archaeology and History departments
-  in Spring 2012 and, if successful, will be offered to all departments and
-  maintained centrally by the University of York.
+  The web application is trialled by the University of York's Archaeology and
+  History departments in Spring 2012 and, if successful, will be offered to
+  all departments and maintained centrally by the University's IT Services.
   
   This report discusses the choices made around the technology used, the
   development methodology and details relating to the allocation algorithm. It
@@ -186,16 +183,16 @@ research stage) will at no point be put in a position of physical danger.
 Consent will be obtained from all volunteers prior to their interview, and
 volunteers' personal information will not be published or shared. A copy of
 the consent form signed by all volunteers is given in
-Appendix~\ref{sec:consent}.
-
-Whenever a member of the University has been quoted by name in this project,
-their explicit consent was obtained beforehand.
+Appendix~\ref{sec:consent}. Whenever a member of the University has been
+quoted by name in this project, their explicit consent was obtained
+beforehand.
 
 % Do no harm
 
 As far as the project author is aware, there are no immediate ethical issues
 relating to the creation of the module allocation software. However, there is
-always the potential for any software to be repurposed.
+always the potential that any software will be repurposed for an unforeseen
+use.
 
 % Confidentiality of data
 
@@ -209,8 +206,8 @@ his input is discussed in Section~\ref{sec:dataprotection}.
 
 The project author signed a \gls{nda} provided by \gls{itservices} in order to
 clarify the situation regarding access to student data. A copy of this
-\gls{nda} is provided in Appendix~\ref{sec:nda}. It states that the author
-must not disclose confidential information he has obtained at any time.
+\gls{nda} is provided in Appendix~\ref{sec:nda}. It states that confidential
+information must not be disclosed at any time.
 
 \section{Introduction}
 
@@ -1140,6 +1137,14 @@ Figures~\ref{paperformarchaeology1} and \ref{paperformhistory1} show
 paper forms used by each of the pilot departments to allow students to rank
 their modules in order of preference.
 
+\begin{figure}
+  \begin{center}
+    \fbox{\includegraphics[width=0.9\linewidth]{inc/itservices_nda.pdf}}
+  \end{center}
+  \caption{University of York confidentiality and non-disclosure agreement}
+  \label{confidentialitynda}
+\end{figure}
+
 \begin{landscape}
   \begin{figure}[]
     \begin{minipage}[b]{0.5\linewidth}
@@ -1151,27 +1156,19 @@ their modules in order of preference.
     \hspace{0.5cm}
     \begin{minipage}[b]{0.5\linewidth}
       \centering
-      \fbox{\includegraphics[width=0.9\linewidth]{inc/itservices_nda.pdf}}
-      \caption{University of York confidentiality and non-disclosure agreement}
-      \label{confidentialitynda}
+      \fbox{\includegraphics[width=0.9\linewidth]{inc/paperformarchaeology1.pdf}}
+      \caption{A paper form given to Archaeology students to select modules}
+      \label{paperformarchaeology1}
     \end{minipage}
   \end{figure}
 \end{landscape}
-
-\begin{figure}
-  \begin{center}
-    \fbox{\includegraphics[width=0.9\linewidth]{inc/paperformarchaeology1.pdf}}
-  \end{center}
-  \caption{A paper form given to Archaeology students to select their modules}
-  \label{paperformarchaeology1}
-\end{figure}
 
 \begin{landscape}
   \begin{figure}
     \begin{center}
       \fbox{\includegraphics[width=0.9\linewidth]{inc/paperformhistory1.pdf}}
     \end{center}
-    \caption{A paper form given to History students to select their modules}
+    \caption{A paper form given to History students to select modules}
     \label{paperformhistory1}
   \end{figure}
 \end{landscape}
