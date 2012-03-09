@@ -1239,11 +1239,11 @@ useful.
 \stdsection{Participant consent form}
 \label{sec:consent}
 
-All research participants (students and staff of the University of York)
-signed the consent form shown in Figure~\ref{participantconsent} immediately
-before their interview took place. This consent form is adapted from one made
-available by Alistair Edwards for Computer Science students to use during
-their projects. As of 5 November 2011, the original is available at
+Research participants (students and staff of the University of York) signed
+the consent form shown in Figure~\ref{participantconsent} before their
+interview took place. This form is adapted from one made available by Alistair
+Edwards for Computer Science students to use during their projects. As of 5
+November 2011, the original is at
 \url{http://www-users.cs.york.ac.uk/~alistair/projects/consent.html}.
 
 In each case, the top half of the form was retained by the project author and
@@ -1275,9 +1275,9 @@ project implementer and the Head of Web Services at the University of York.
 \stdsection{Paper forms used for module selection}
 \label{sec:paperforms}
 
-Figures~\ref{paperformarchaeology1} and [@todo History] show paper forms used
-by each of the pilot departments to allow students to rank their modules in
-order of preference.
+Figures~\ref{paperformarchaeology1} and \ref{paperformhistory1} show
+paper forms used by each of the pilot departments to allow students to rank
+their modules in order of preference.
 
 \begin{figure}
   \begin{center}
@@ -1286,6 +1286,16 @@ order of preference.
   \caption{A paper form given to Archaeology students to select their modules}
   \label{paperformarchaeology1}
 \end{figure}
+
+\begin{landscape}
+  \begin{figure}
+    \begin{center}
+      \fbox{\includegraphics[width=0.9\linewidth]{inc/paperformhistory1.pdf}}
+    \end{center}
+    \caption{A paper form given to History students to select their modules}
+    \label{paperformhistory1}
+  \end{figure}
+\end{landscape}
 
 \stdsection{Prototypes of the student interface}
 \label{sec:prototypes}
@@ -1335,25 +1345,12 @@ system being in use.
 
 \subsection{Final application on development server}
 
-Table~\ref{table:finalissues} gives final issues in the application discovered
-while it was hosted on the development server.
-
-\begin{table}[h]
-  \begin{center}
-    \begin{tabular}{ | l | l | }
-      \hline
-      \textbf{Issue summary}                & \textbf{Times raised}  \\
-      \hline
-      Form validation improvements                         &    3    \\
-      Random ordering of confirmation screen               &    2    \\
-      Parts of explanatory text unclear                    &    2    \\
-      Students should not be required to rank every module &    1    \\
-      \hline
-    \end{tabular}
-  \end{center}
-  \caption{Issues raised with the final release of the application}
-  \label{table:finalissues}
-\end{table}
+\begin{itemize}
+  \item Form validation improvements (mentioned three times)
+  \item Random ordering of modules on confirmation screen (two times)
+  \item Parts of explanatory text unclear (two times)
+  \item Students should not be required to rank every module (once)
+\end{itemize}
 
 \clearpage
 
