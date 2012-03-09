@@ -875,22 +875,6 @@ banner, or as a part of the student portal.
 
 % http://en.wikipedia.org/wiki/Principle_of_least_astonishment
 
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=160mm]{images/2011_11_06_yorkacuk.png}
-  \end{center}
-  \caption{A general page on the University site, using University colours}
-  \label{yorkacuk_general_page}
-\end{figure}
-
-\begin{figure}
-  \begin{center}
-    \includegraphics[width=160mm]{images/2011_11_06_yorkacuk_directory.png}
-  \end{center}
-  \caption{The University of York People Directory search tool}
-  \label{yorkacuk_directory_search}
-\end{figure}
-
 % Include screenshots of University software:
 %   https://www.york.ac.uk/it-services/facilities/account/accounts
 %   https://www.cs.york.ac.uk/submit/assessment/
@@ -907,6 +891,24 @@ the user to feel in control, the most sensible decision is to automatically
 save user input periodically and notify users that their choices are being
 saved. The submit button would save data in case of failure of the automatic
 save mechanism.
+
+\begin{landscape}
+  \begin{figure}[]
+    \begin{minipage}[b]{0.5\linewidth}
+      \centering
+      \includegraphics[width=\linewidth]{images/2011_11_06_yorkacuk.png}
+      \caption{A general page on the University site, using University colours}
+      \label{yorkacuk_general_page}
+    \end{minipage}
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.5\linewidth}
+      \centering
+      \includegraphics[width=\linewidth]{images/2011_11_06_yorkacuk_directory.png}
+      \caption{The University of York People Directory search tool}
+      \label{yorkacuk_directory_search}
+    \end{minipage}
+  \end{figure}
+\end{landscape}
 
 \subsection{Accessibility}
 
@@ -1125,27 +1127,11 @@ In each case, the top half of the form was retained by the project author and
 the second half was given to the participant in case they had any further
 questions about the interview.
 
-\begin{figure}
-  \begin{center}
-    \fbox{\includegraphics[width=0.9\linewidth]{images/consent.pdf}}
-  \end{center}
-  \caption{Participant consent form}
-  \label{participantconsent}
-\end{figure}
-
 \stdsection{Confidentiality and non-disclosure agreement}
 \label{sec:nda}
 
 The \gls{nda} shown in Figure~\ref{confidentialitynda} was signed by the
 project implementer and the Head of Web Services at the University of York.
-
-\begin{figure}
-  \begin{center}
-    \fbox{\includegraphics[width=0.9\linewidth]{inc/itservices_nda.pdf}}
-  \end{center}
-  \caption{University of York confidentiality and non-disclosure agreement}
-  \label{confidentialitynda}
-\end{figure}
 
 \stdsection{Paper forms used for module selection}
 \label{sec:paperforms}
@@ -1153,6 +1139,24 @@ project implementer and the Head of Web Services at the University of York.
 Figures~\ref{paperformarchaeology1} and \ref{paperformhistory1} show
 paper forms used by each of the pilot departments to allow students to rank
 their modules in order of preference.
+
+\begin{landscape}
+  \begin{figure}[]
+    \begin{minipage}[b]{0.5\linewidth}
+      \centering
+      \fbox{\includegraphics[width=0.9\linewidth]{images/consent.pdf}}
+      \caption{Participant consent form}
+      \label{participantconsent}
+    \end{minipage}
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.5\linewidth}
+      \centering
+      \fbox{\includegraphics[width=0.9\linewidth]{inc/itservices_nda.pdf}}
+      \caption{University of York confidentiality and non-disclosure agreement}
+      \label{confidentialitynda}
+    \end{minipage}
+  \end{figure}
+\end{landscape}
 
 \begin{figure}
   \begin{center}
@@ -1250,7 +1254,7 @@ superfluous code has been removed, but otherwise it is unmodified.
   \lstset{
     language     = Java,
     multicols    = 2,
-    basicstyle   = \ttfamily\tiny, % \scriptsize
+    basicstyle   = \ttfamily\tiny,
     keywordstyle = \color{yorkblue}
   }
   \lstinputlisting{listings/AdminAllocate.java}
