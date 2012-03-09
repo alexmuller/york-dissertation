@@ -1,6 +1,7 @@
 %!TEX root = ../Project.tex
 
 \subsection{Pilot by the Archaeology and History departments}
+\label{sec:developmentpilot}
 
 During the spring term (January to March 2012), the Archaeology and History
 departments at the University of York used this application to allocate
@@ -48,10 +49,6 @@ until 1700 on Monday 5 March. % without interruption?
 % The selection process was praised by students in the Archaeology department.
 % A departmental administrator in Archaeology received the following comments:
 
-% @todo: comments from the week
-
-% @todo: provide details of issues raised during the week
-
 Only one issue was raised by a user to their department during the week. The
 user reported they were unable to use the drag-and-drop functionality to make
 their choices. It was revealed that the user was using Internet Explorer 7, a
@@ -98,13 +95,48 @@ University had experienced problems with its authentication systems over the
 weekend. Departments were then informed this was not an issue with the module
 allocation application and should at that point be resolved.
 
-In all, only one student raised an issue related to the application during the
-week, which is equivalent to approximately 0.13\% of all users. I would
-declare this a fairly successful trial of the student interface.
+A History administrator noted that by 10am on Monday 5 March (96\% of the way
+through the application's opening time) just 71\% of students had used the
+system to make their choices. However the department was unconcerned,
+commenting that with time-limited processes such as this students tended to
+wait until just before the deadline.
 
-On 6 March an allocation was performed by each of the departmental % @todo check date
-administrators.
+% During the pilot week, several students requested an enhancement to the
+% interface. They requested that when making a choice for the second time, the
+% ranking interface (Figure?) should not look as though it has never been used
+% before -- it should load the choices made the previous time. This was not
+% discovered during user testing as students were not given the opportunity to
+% use the system twice.
 
-% @todo: include info on how the allocation goes
+In all, only one student raised an issue that prevented them using the
+application during the week, which is equivalent to approximately 0.13\% of
+all users. I would declare this a fairly successful trial of the student
+interface.
+
+The History department performed an allocation on the evening of 5 March,
+which completed with Gurobi reporting an ``optimal'' status. Unfortunately, at
+midday on 6 March the system stopped working, giving an ``Application Error''
+to end users (this means an exception is being thrown in the Java code). On
+investigation with \gls{itservices}, the database contained one less module
+availability than module (as mentioned in
+Section~\ref{developmentdatabasestructure}, these are separate entities). This
+removal was either caused by a bug in the application code that was impossible
+to reproduce during testing and has not since reappeared, or by user error
+(accidental deletion) -- unfortunately, it is impossible to say which. The
+removal of that entity resulted in the removal of all the student ranks
+associated with that module, and so the database had to be restored to the
+nightly backup made by \gls{itservices} on 6 March at 3am. This restoration
+occurred on 9 March and the History department were able to perform another
+allocation. @todo what happened next?
+
+The Archaeology department performed an allocation on 6 March. The allocation
+resulted in one module not being run (the solver found an optimal allocation
+without that module), and the decision to discontinue the module had to be
+referred to the department's Board of Studies (chaired by \gls{sa}). The
+allocation of students to modules created by Gurobi was described as ``a
+triumph'' by the department, and they were able to pass a file containing the
+allocations to \gls{sits} one week before the deadline.
 
 % @todo: what was the students perception of equity?
+
+% @todo: how did the import go?
