@@ -1,0 +1,95 @@
+%!TEX root = ../Project.tex
+
+\subsection{Issues arising during implementation}
+\label{sec:issuesarising}
+
+% Discuss some of the _real_ issues of a _real_ project
+
+\noindent{\textbf{Availability of stakeholders}}
+
+One of the most positive aspects of undertaking this project was in fact one
+of the most difficult -- that is, the project was designed to work very
+closely with the University of York and as such relied on ``real''
+stakeholders.
+
+An issue arose fairly early in the project when it became clear that some
+administrative staff (both IT support staff and those in the pilot
+departments) would be away from work for prolonged periods of time or would
+leaving their jobs during the creation of this application. This caused delays
+while the replacement staff had to be brought up to speed on the background
+and current state of the project.
+
+The issue was mitigated with the help of the \gls{aso}, which was responsible
+for assisting with issues not directly related to implementation. The new or
+replacement staff were then invited to group meetings so that they could keep
+up to speed with recent developments and provide any necessary input. As
+implementation began to finish, departmental administrators were provided
+training on the software by the project implementer. A deputy was present at
+the training sessions so that the software could still be used in case of
+unforeseen circumstances rendering the departmental administrator unable to
+set up the software.
+
+\noindent{\textbf{Lack of technical contacts available during the project}}
+
+I first met the Head of Web Services and an \gls{itservices} developer on 16
+January, several months after the project had begun, and this meant that the
+amount of time allocated to implementation was reduced. If a project of this
+nature was to be carried out in future, the technical contacts
+(\gls{itservices} in the case of the University of York) should be involved as
+early as possible. I am of the opinion that earlier involvement from a
+developer would have resulted in the developer actually spending less time
+assisting with the project overall.
+
+\noindent{\textbf{Inability to interact with the system while it contained sensitive data}}
+
+The project implementer was unable to respond to bugs in a timely manner as it
+was not possible for \gls{itservices} to provide access to the database and
+logs for an application containing live student data. This made bug fixing in
+the live environment nearly impossible.
+
+Specific bugs that occurred during the pilot are described later, in
+Section~\ref{sec:developmentpilot}. Generally, the process surrounding bug fixing
+was as follows:
+
+\begin{enumerate}
+  \item An error is reported by a departmental administrator
+  \item The administrator contacts \gls{itservices} and/or the project implementer
+  \item They liaise (in order to provide redacted log files, if necessary)
+  \item The software is patched by the project implementer
+  \item The patched software is deployed by \gls{itservices}
+\end{enumerate}
+
+Because of the dependency between the various different people involved in the
+project, fixing a bug was a process that took several hours. While releasing a
+patched application in one or two days is relatively uncommon in, for example,
+desktop software development, it is a long time for a web application that is
+only in use for two weeks.
+
+The web application was only available to students for a week, or about 120
+waking hours. Under the assumption that the use of the application by the 800
+students was distributed uniformly over that time, a several hour period during
+which the software was not fully functional might inconvenience approximately
+forty students.
+
+The project implementer signed a non-disclosure agreement in order to protect
+the student data involved in the system, but ultimately it was still felt by
+the University that a student could not be given access to other students'
+personal data.
+
+\noindent{\textbf{Unfamiliarity with the language and framework}}
+
+While the framework was chosen based on its maintainability as
+University-owned software, the project implementer was not particularly
+familiar with the underlying language and framework. This made it hard to
+estimate the amount of time that various stages of implementation would take.
+If this project was to be undertaken again, the implementer should first use a
+language they are familiar with to prototype the application quickly, and then
+use any remaining time to re-implement in a language that can be maintained by
+the future software owners.
+
+This would require almost double the implementation effort (though parts, such
+as the user experience and some front-end code, could be reused across
+frameworks) but should allow the implementer to provide clients with a working
+application far in advance of any deadlines. When developing using unfamiliar
+software, the developer is dependent on how fast they are able to learn and
+use new techniques.

@@ -102,13 +102,13 @@ privileges for each request under those URLs.
 
 \noindent{\textbf{Insufficient Transport Layer Protection (A9)}}
 
-Any web application should be served as securely as possible - this is
-especially important for authentication-related items such as cookies (a
-cookie is a small amount of text data stored in a web browser and transmitted
-to a web server). If a cookie is used with HTTP's stateless nature to
-authenticate the user on every request, this cookie can be intercepted simply
-by sniffing network traffic. Any user can then perform any action with the
-privilege granted by this cookie.
+Any web application should be served as securely as possible -- this is
+especially important for items related to authentication such as passwords and
+\gls{cookie}. Cookies are commonly used to give state to the stateless
+\gls{http} protocol, for example to automatically authenticate the user on
+every request. If transmitted insecurely, this cookie can be intercepted
+simply by sniffing network traffic and any user can then perform any action
+with the privilege granted by this cookie.
 
 The issue of cookie-sniffing over insecure connections has been known for many
 years, but was brought to light in 2010 through the release of a Firefox
