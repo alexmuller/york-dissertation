@@ -9,14 +9,16 @@
 %  Hand-in checklist:
 %    - Margins: inside/top 2cm, outside/bottom 1cm
 %    - Landscape pages flow correctly
+%    - 'fewer modules/students', not less
 %
-\documentclass[draft]{scrartcl}
+\documentclass[twoside,draft]{scrartcl}
 
 \usepackage[utf8]{inputenc} % Use utf-8 encoding for foreign characters
 
 % Pages and margins
 \usepackage{fullpage}
-\usepackage[top=2cm, bottom=3cm, left=2cm, right=2cm]{geometry}
+\usepackage[top=2cm, bottom=3cm, left=1cm, right=1cm]{geometry}
+\geometry{bindingoffset=1cm}
 
 \setlength{\parskip}{0.14cm plus 0.1cm minus 0.1cm}
 
@@ -83,6 +85,11 @@
 \usepackage{libs/tikz-er2} % Entity-relationship diagrams
 \usepackage{libs/gantt} % Gantt chart
 
+\usepackage[T1]{fontenc}
+
+% Macros
+\usepackage{xspace} 
+\newcommand{\studmod}{\emph{student, module}\xspace}
 
 % Glossary
 \usepackage[toc]{glossaries}
@@ -214,10 +221,9 @@ A paper was presented by \gls{yusu} at \gls{utc} in March 2010 which discussed
 student complaints and feedback around optional module allocation. The issues
 raised in this paper were supported by student comments in the \gls{nss}, and
 \gls{utc} established a working group to investigate improving the module
-allocation process.
-
-This project is the result of that investigation. It is sponsored by \gls{utc}
-and is overseen in that regard by \gls{lc} of the \gls{aso}.
+allocation process. This project is the result of that investigation. It is
+sponsored by \gls{utc} and is overseen in that regard by \gls{lc} of the
+\gls{aso}.
 
 As well as being assessed as an undergraduate project, the software will be
 evaluated independently by \gls{lc}. If it is judged to provide sufficient
@@ -598,24 +604,21 @@ to the researcher when they review the studies later.
 % http://www.faqs.org/docs/artu/ch11s01.html
 % http://en.wikipedia.org/wiki/Principle_of_least_astonishment
 
-In the past, web applications would \gls{post} data to the web server when the
-user clicked a submit button. Modern web applications, such as Google's Gmail
-email service, make use of JavaScript and fast Internet connections to
+In the past, web applications would \gls{post} data to the web server only
+when the user explicity clicked a submit button (written on the web as
+\texttt{<input type=submit>}). Modern web applications, such as Google's Gmail
+service, make use of JavaScript and low-latency Internet connections to
 automatically save data to the server while the user is working. Sandlund
 \cite{sandlund2009websoftware} explains that by automatically saving data at
-regular intervals, there is far less chance of data loss. However, it is
-important to include an explicit ``Save'' button on an application that
-auto-saves -- one can imagine the confusion and uncertainty caused if the user
-is unaware that their data is being saved in the background.
-
-\begin{lstlisting}[language=HTML]
-<input type="submit">
-\end{lstlisting}
+regular intervals, there is far less chance of data loss.
 
 During Sandlund's user testing, participants responded positively to the
-application automatically saving data. However, Sandlund decided not to
-include a submit button in his application, and he notes that some users found
-the lack of an explicit save button ``a bit disturbing''.
+application automatically saving data. However, he decided not to include a
+submit button in his application, and he notes that some users found the lack
+of an explicit save button ``a bit disturbing''. It is important to include an
+explicit ``Save'' button on an application that auto-saves -- one can imagine
+the confusion and uncertainty caused if the user is unaware that their data is
+being saved in the background.
 
 \input{sections/research_ilp.tex}
 
@@ -936,7 +939,7 @@ with WCAG AAA.
 
 % http://www.snook.ca/technical/colour_contrast/colour.html
 
-As to the second accessibility issue, generally speaking users who are unable
+As to the second accessibility issue, generally speaking, users who are unable
 to use a keyboard or mouse do not use JavaScript in their web browser. The
 application is designed so that users with JavaScript disabled are instead
 presented a simple form layout that can be read out to them by screen-reading
@@ -959,7 +962,7 @@ telling them how to gain assistance.
 
 The system will be required to interact with \gls{sits}, as this is the
 centrally maintained database that must always contain a true and accurate
-representation of a student's data. Data stored in \gls{sits} is throughout
+representation of a student's data. Data stored in \gls{sits} is used throughout
 the University, including for timetabling and room allocation.
 
 This system will interact with data stored in \gls{sits} at two points:

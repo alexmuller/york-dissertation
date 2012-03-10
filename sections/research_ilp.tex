@@ -3,6 +3,11 @@
 \subsection{Integer linear programming solvers}
 \label{sec:researchilp}
 
+\Gls{lp} is the process of optimising a model through maximising or minimising
+a linear function containing unknown variables (called the objective
+function). Integer linear programming is a subset of this in which values for
+the unknown variables are restricted to the set of integers.
+
 % [@todo talk about their use in industry?]
 
 Allocating modules to students can be represented as an integer linear
@@ -12,13 +17,13 @@ if the allocation does not take place, or 1 if it does. For example, a system
 containing two users and two modules would be represented as:
 
 \begin{verbatim}
- variable         allocation_made
-----------------------------------
+ variable         allocation_made?
+-----------------------------------
  user1_moduleA    0
  user1_moduleB    1
  user2_moduleA    1
  user2_moduleB    0
-----------------------------------
+-----------------------------------
 \end{verbatim}
 
 Using a solver instead of writing an algorithm from the ground up has numerous
@@ -26,8 +31,8 @@ advantages, the most important of which is that it will dramatically reduce
 the time required for implementation. It will also increase flexibility, as
 constraints can be added and removed easily. Existing solvers are commonly
 used to solve optimisation problems that are orders of magnitude larger than
-the thousands of variables (\emph{student, module} pairs) this application
-will have to deal with.
+the thousands of variables (one for each \studmod pair) this application will
+have to deal with.
 
 I research \gls{lp} solvers in order to find one that is most suitable for
 this project. The basic requirements for a solver for this project are

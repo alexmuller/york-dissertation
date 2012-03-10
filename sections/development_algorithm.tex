@@ -20,7 +20,7 @@ allocate as many high choices as possible.
 For example, the History department allocates between one and four modules to
 each of their students. The administrators and academic staff recounted how,
 during the allocation period, every surface in departmental offices would be
-covered with sheets of paper (one per student, numbering approximately one
+covered with sheets of paper (one per student, numbering almost one
 thousand in total) on which students had ranked their modules. The departments
 would attempt to perform the best allocation possible, though clearly they had
 no way of verifying mathematically that the allocation was optimal.
@@ -63,9 +63,9 @@ February, just two weeks before the allocation was due to be performed.
 
 The Archaeology department commented that they could not recall ever having to
 give a student their fourth choice or below, as they are a fairly small
-department (with less than 3\% of all York % @todo CHECK THIS FIGURE
-undergraduates). This means that they normally have sufficient capacity to
-offer every student their first, second or third choice.
+department (with less than 3\% of all York undergraduates). This means that
+they normally have sufficient capacity to offer every student their first,
+second or third choice.
 
 The History department is far larger than Archaeology, and additionally
 reserves a number of spaces on their modules for visiting students. This will
@@ -83,7 +83,7 @@ help of the departments and are shown in Figure~\ref{gurobi_coeff}.
 The hard constraints on the optimisation problem are as follows:
 
 \begin{itemize}
-  \item The lower cap on a module (a module will not run with less than the
+  \item The lower cap on a module (a module will not run with fewer than the
         required number of students)
   \item The upper cap on a module (a staff member is not able to provide the
         required quality of teaching to more than the maximum number of students)
@@ -93,7 +93,7 @@ The hard constraints on the optimisation problem are as follows:
 \end{itemize}
 
 As mentioned previously, the binary variables in this system are one for every
-\emph{student, module} pair indicating that a student can be allocated to that
+\studmod pair indicating that a student can be allocated to that
 module. These variables are written as $x_{S,M}$ in this section. Several hard
 constraints were placed on the allocation by the departments, and they are
 detailed here.
@@ -111,7 +111,7 @@ reached the binary variable is set to 1. These variables are written as
 $y_{M}$.
 
 The first block of pseudocode indicates that the binary variable for a
-\emph{student, module} pair must be less than or equal to the binary variable
+\studmod pair must be less than or equal to the binary variable
 for that module. That is to say, a student cannot be allocated to a module if
 the module is not running. The second block declares that if a module is
 running, the sum of students must be greater than the class minimum and always
@@ -207,13 +207,14 @@ will produce.
   \begin{center}
     \fbox{\includegraphics[width=0.6\linewidth]{images/gurobi_coefficients.pdf}}
   \end{center}
-  \caption{Coefficients used with Gurobi}
+  \caption{Coefficients used in the solver's objective function}
   \label{gurobi_coeff}
 \end{figure}
 
-Figure~\ref{gurobi_coeff} shows a graph of the coefficients that were used
-with Gurobi. It demonstrates that the information provided to the solver
-approximates the imaginary score function a staff member might use.
+Figure~\ref{gurobi_coeff} shows a graph of the coefficients that were used in
+the Gurobi-solved objective function. It demonstrates that the information
+provided to the solver approximates the imaginary score function a staff
+member might use.
 
 To begin with, Gurobi's Python interface was used to prototype the model. As
 the project implementer is more familiar with Python than with Java, it was
