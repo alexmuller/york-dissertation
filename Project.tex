@@ -6,20 +6,19 @@
 %  Created by Alex Muller on 2011-10-10.
 %  Copyright (c) 2011 Alex Muller. All rights reserved.
 %
+%  Hand-in checklist:
+%    - Margins: inside/top 2cm, outside/bottom 1cm
+%    - Landscape pages flow correctly
+%
 \documentclass[draft]{scrartcl}
-% article, report, scrartcl, uoy_cs/UoYCSproject ?
 
 \usepackage[utf8]{inputenc} % Use utf-8 encoding for foreign characters
 
 % Pages and margins
 \usepackage{fullpage}
-% Inside and top margins should be a minimum of 2cm; other margins should be a
-% minimum of 1cm. You might find it simplest to leave 2cm all round.
 \usepackage[top=2cm, bottom=3cm, left=2cm, right=2cm]{geometry}
 
 \setlength{\parskip}{0.14cm plus 0.1cm minus 0.1cm}
-% \addtolength{\parskip}{\baselineskip}
-% \usepackage{parskip}
 
 % \usepackage{fancyhdr} % Running Headers and footers
 % \usepackage{subfigure} % Multipart figures
@@ -91,7 +90,6 @@
 \input{references/glossary.tex}
 
 % Title page stuff
-
 \def\paperauthor{Alexander Muller}
 \def\papertitle{Allocating optional modules \\ to University of York students}
 \def\paperlength{15,800}
@@ -101,7 +99,6 @@
 \date{\today}
 
 % PDF Properties
-
 \hypersetup{
   pdftitle = {\papertitle},
   pdfauthor = {\paperauthor},
@@ -1240,14 +1237,15 @@ discussed in Section~\ref{sec:securityreview} (15 February).
 
 \includepdf[pages=-, frame=true, nup=2, landscape=true]{inc/documentation.pdf}
 
-\stdsection{Gurobi optimisation code}
-\label{sec:gurobicode}
-
-This appendix contains the code used to allocate the modules to students. Some
-syntax has been modified to fit the constraints of the page and some
-superfluous code has been removed, but otherwise it is unmodified.
 
 \begin{landscape}
+  \stdsection{Gurobi optimisation code}
+  \label{sec:gurobicode}
+  
+  This appendix contains the code used to allocate the modules to students. Some
+  syntax has been modified to fit the constraints of the page and some
+  superfluous code has been removed, but otherwise it is unmodified.
+  
   \lstset{
     language     = Java,
     multicols    = 2,
