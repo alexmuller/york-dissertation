@@ -48,11 +48,12 @@ screen to view all the choices made by students and to perform the allocation
 and tweak the results as necessary.
 Figure~\ref{walkthrough_admin_view_all_choices} is included to show the scale
 of the table containing all choices -- this particular table contains the same
-number of choices as were made during the History department's pilot run (591
-students and 57 modules), and is actually about twice as wide as it appears
-below. Figure~\ref{walkthrough_admin_view_all_choices_visible} is a close-up
-view of the same choices table, in which every student and the ranks that they
-gave their modules are shown.
+number of choices as were made during the History department's pilot
+run\footnote{591 students and 57 modules, totalling approximately 18000
+choices as every student did not have to rank every module}.
+Figure~\ref{walkthrough_admin_view_all_choices_visible} is a close-up view of
+the same choices table, in which every student and the ranks that they gave
+their modules are shown.
 
 There is also a table of allocations which is identically structured. The
 table is blank to begin with, before allocations have been made.
@@ -68,13 +69,13 @@ Section~\ref{sec:algo_constraints}.
   \begin{figure}
     \begin{minipage}{0.5\linewidth}
       \centering
-      % \includegraphics[width=0.6\linewidth]{images/walkthrough/student_rank_modules.png}
+      \includegraphics[width=0.6\linewidth]{images/walkthrough/student_rank_modules.png}
       \caption{The student ranking interface}
       \label{walkthrough_student_rank}
     \end{minipage}
     \begin{minipage}{0.5\linewidth}
       \centering
-      % \includegraphics[width=0.8\linewidth]{images/walkthrough/student_confirm_modules.png}
+      \includegraphics[width=0.8\linewidth]{images/walkthrough/student_confirm_modules.png}
       \caption{The student confirmation interface}
       \label{walkthrough_student_confirm}
     \end{minipage}
@@ -85,34 +86,35 @@ Section~\ref{sec:algo_constraints}.
   \begin{figure}
     \begin{minipage}{0.5\linewidth}
       \centering
-      % \includegraphics[width=\linewidth]{images/walkthrough/admin_main.png}
+      \includegraphics[width=\linewidth]{images/walkthrough/admin_main.png}
       \caption{Main administrative page of the application}
       \label{walkthrough_admin_main}
     \end{minipage}
     \hspace{0.5cm}
     \begin{minipage}{0.5\linewidth}
       \centering
-      % \includegraphics[width=0.9\linewidth]{images/walkthrough/admin_view_student.png}
+      \includegraphics[width=0.9\linewidth]{images/walkthrough/admin_view_student.png}
       \caption{The tweaking view for an individual student}
       \label{walkthrough_admin_view_student}
     \end{minipage}
   \end{figure}
 \end{landscape}
 
-\begin{figure}[]
-  \begin{minipage}[]{0.35\linewidth}
+\begin{figure}
+  \begin{minipage}[]{0.33\linewidth}
     \centering
-    % \includegraphics[width=0.3\linewidth]{images/walkthrough/admin_view_all_choices.png}
-    \caption{Table showing the number of choices in History (note: extends further right)}
+    \includegraphics[width=0.6\linewidth]{images/walkthrough/admin_view_all_choices.png}
+    \caption{Admin interface showing the number of choices made in the History pilot}
     \label{walkthrough_admin_view_all_choices}
   \end{minipage}
-  \begin{minipage}[]{0.65\linewidth}
+  \hspace{0.1cm}
+  \begin{minipage}[]{0.63\linewidth}
     \centering
-    % \includegraphics[width=\linewidth]{images/walkthrough/admin_view_all_choices_visible.png}
+    \includegraphics[width=0.9\linewidth]{images/walkthrough/admin_view_all_choices_visible.png}
     \caption{The top of the choices table}
     \label{walkthrough_admin_view_all_choices_visible}
     \bigskip
-    % \includegraphics[width=\linewidth]{images/walkthrough/admin_view_all_allocations_bottom.png}
+    \includegraphics[width=0.9\linewidth]{images/walkthrough/admin_view_all_allocations_bottom.png}
     \caption{The bottom of the allocations table}
     \label{walkthrough_admin_view_all_allocations_bottom}
   \end{minipage}
@@ -121,9 +123,9 @@ Section~\ref{sec:algo_constraints}.
 Finally, Figure~\ref{walkthrough_admin_view_student} is the tweaking
 interface. Once an allocation has been performed, departments can access this
 interface by clicking on a student's username. It allows them to delete and
-add allocations if they decide to improve a student's rankings. Not pictured
-is the ability to modify module minimum and maximum sizes and re-run the
-allocation using these new constraints.
+add allocations if they decide they want to make an exception for a particular
+module size. Not pictured is the ability to modify module minimum and maximum
+sizes and re-run the allocation using these new constraints.
 
 \Gls{csv} files are made available to download using the links on
 Figure~\ref{walkthrough_admin_main}. The downloads available are:
