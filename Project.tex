@@ -354,39 +354,7 @@ refining the user experience through more interviews, and repeating the
 ``prototype $\rightarrow$ interview $\rightarrow$ refine user experience
 $\rightarrow$ interview'' cycle.
 
-\subsection{Database design}
-
-A \gls{dbms} is software that manages the database, including providing the
-ability to add or edit records stored in the database. The \gls{dbms} will be
-one of the more mature products used in the creation of this system, with many
-having been available since the 1990s.
-
-Relational databases are a common feature of web applications. In meetings
-with \gls{itservices} during the research stage, it was noted that the University
-of York already deploys MySQL and Oracle (both relational model) database
-systems for its web applications and \gls{mis}.
-
-When designing a database, Johnson \cite{DatabaseModelsLanguagesDesign} gives
-several questions that he believes must be answered before a database can be
-created:
-
-\begin{itemize}
-  \item What are the entities that need to be stored by the database?
-  \item What are the relationships between these entities?
-  \item What constraints are there on the database?
-  \item What kind of queries will be written against this database?
-\end{itemize}
-
-All the questions above are relevant during the design of the database. While
-the first three questions relate to the structure of the database, the final
-question is especially important regarding database performance.
-
-His method involves drawing an entity-relationship diagram (as the name
-implies, this answers the first two questions in the form of a graph) and then
-translating the E-R diagram into the database schema, which includes deciding
-which fields will become primary and foreign keys. Any constraints (such as
-minimum or maximum lengths of strings) can then be added depending on the DBMS
-product being used.
+\input{sections/research_database.tex}
 
 \subsection{Maintainability and the future of the software}
 \label{sec:maintainability}
@@ -447,15 +415,10 @@ from the view is something developers strive for, but often fail to achieve.
 He provides some good examples of software development patterns that should
 never be seen, such as including \gls{sql} statements anywhere except the
 model -- and even then, the framework should provide a mapping between
-application objects and database structure.
-
-He cites maintainability as a reason to strictly separate the view from both
-the controller and the model, and as maintainability is a key focus of this
-project (see Section~\ref{sec:maintainability}) this is clearly important.
-
-
-The way in which the web application framework for this project was chosen is
-discussed in Section~\ref{sec:webframeworks}.
+application objects and database structure. He cites maintainability as a
+reason to strictly separate the view from both the controller and the model,
+and as maintainability is a key focus of this project (see
+Section~\ref{sec:maintainability}) this is clearly important.
 
 \subsection{Sensitive information and the Data Protection Act}
 \label{sec:dataprotection}

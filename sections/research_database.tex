@@ -1,0 +1,73 @@
+%!TEX root = ../Project.tex
+
+\subsection{Database design}
+\label{sec:researchdatabase}
+
+A \gls{dbms} is software that looks after a data store and generally might
+provide the ability to add or edit records in the database. The \gls{dbms}
+will be one of the more mature products used in the creation of this system,
+with many having been available since the 1990s. Relational databases are a
+common feature of web applications. In meetings with \gls{itservices} during
+the research stage, it was discovered that the University of York already
+deploys MySQL and Oracle database systems for its web applications and
+\gls{mis}. Database administrators at the University are familiar with these
+two relational systems.
+
+When designing a system, Johnson \cite{DatabaseModelsLanguagesDesign} gives
+several questions that he believes must be answered before a database can be
+created:
+
+\begin{itemize}
+  \item What are the entities that need to be stored by the database?
+  \item What are the relationships between these entities?
+  \item What constraints are there on the database?
+  \item What kind of queries will be written against this database?
+\end{itemize}
+
+All the questions above are relevant during the design of the database. While
+the first three questions relate to the structure of the database, the final
+question is especially important when considering database performance. His
+method involves drawing an \gls{er} diagram (as the name implies, this answers
+the first two questions in the form of a graph) and then translating the
+\gls{er} diagram into the database schema, which includes deciding which
+fields will become primary and foreign keys. Any constraints (such as minimum
+or maximum lengths of strings) can then be added depending on the \gls{dbms}
+product being used. Additionally, Johnson says that as far as possible,
+constraints on the entities should be enforced by the \gls{dbms} and not by
+the application logic. Most importantly, this avoids duplication of effort in
+the application's code and therefore reduces the likelihood of a bug.
+
+Johnson gives an overview of functional depedency analysis, which he calls a
+``complementary process'' to the creation of an \gls{er} diagram. He goes on
+to describe the \gls{bcnf}, beginning with the statement that no data should
+be duplicated in the database. Duplication of data in this project might
+involve, for example, storing a department's name against every module that
+department has. It makes far more sense for each module to simply store a link
+to a single department entity, which holds details about that department.
+Reducing duplication is important as it removes any possibility of
+inconsistency in the data, as well as reducing the amount of data that must be
+stored.
+
+Normal forms are labels given to databases that can be used to describe the
+likelihood or possibility of that database containing inconsistent or
+incorrect data. A database in \gls{3nf} could be said to be in `better' shape
+than one in \gls{1nf}, as it is less likely to harbour inconsistencies.
+Johnson says that decomposing databases beyond \gls{bcnf} or \gls{3nf} may
+have negative consequences such as requiring more complex queries where they
+would not otherwise be needed.
+
+Elmasri and Navathe give a clear overview of normal forms in
+\emph{Fundamentals of Database Systems} \cite{ElmasriFundamentals_2004}.
+\Gls{1nf} involves ensuring that each attribute only includes single values
+and there should be no ``nested relations''. The example that they give is
+that a department's `location' field should not contain a list of locations,
+and that instead a composite primary key should be created. \Gls{2nf} ensures
+that there is a full dependency on any multi-attribute key. \Gls{2nf} is
+tested for by checking every primary key that contains more than one attribute
+-- if it is possible to remove one attribute, the database is not in
+\gls{2nf}. Finally, for a database to be in \gls{3nf} no attribute must be
+dependent on another attribute apart from the primary key. This is referred to
+as transitive dependency. The first definitions of normal forms (originally by
+E. F. Codd in the 1970s) are paraphrased by Elmasri and Navanthe; one
+important thing to note is that these forms are contained within each other
+(that is, any database in \gls{3nf} is automatically \gls{2nf} and \gls{1nf}).

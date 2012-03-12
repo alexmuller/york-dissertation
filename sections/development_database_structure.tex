@@ -11,9 +11,12 @@ be written without regard for the final database product that \gls{itservices}
 will use to deploy the application.
 
 Preliminary conversations with departmental administrators informed the
-database structure. Firstly, there are several entities stored by the
-University that will be useful to this system, which have the properties given
-in Table~\ref{development_database_uni_entities}.
+database structure, and in fact provided answers to the questions outlined in
+Section~\ref{sec:researchdatabase}. Firstly, there are several entities stored
+by the University that will be useful to this system, which have the
+properties given in Table~\ref{development_database_uni_entities}. Each module
+is given a number of credits representing the estimated workload for that
+module, and each student must take 120 credits every academic year.
 
 \begin{table}
   \begin{center}
@@ -30,9 +33,6 @@ in Table~\ref{development_database_uni_entities}.
   \label{development_database_uni_entities}
 \end{table}
 
-Each module is given a number of credits representing the estimated workload
-for that module, and each student must take 120 credits every academic year.
-
 The two pilot departments currently use paper forms, some of which are given
 in Appendix~\ref{sec:paperforms}. In order to create a scalable system that
 could be used across any number of departments, I first generalised the paper
@@ -46,9 +46,7 @@ following observations:
 \end{itemize}
 
 These observations led to the creation of a database structure given in
-Table~\ref{development_database_schema}. Primary keys are
-\underline{underlined}, foreign keys are \emph{in italics}. If no primary key
-is given for an entity, an automatically incrementing integer is used.
+Table~\ref{development_database_schema}.
 
 \begin{table}
   \begin{center}
@@ -69,27 +67,40 @@ is given for an entity, an automatically incrementing integer is used.
       \hline
     \end{tabular}
   \end{center}
-  \caption{Entities stored in the module allocation application}
+  \caption{Entities stored in the application (\underline{primary key}
+    underlined (automatically incrementing integer if none given), \emph{foreign
+    key} in italics)}
   \label{development_database_schema}
 \end{table}
 
-As one would expect, a sheet entity is a replacement for the current paper
-sheets used by departments. It is unique by type of student (\gls{routecode})
-and by their year of study. A sheet can contain one or more group entities.
-There is a many-to-many relationship between groups and module availabilities.
-A module availability is an instance of a module in a specific term or year.
+As one would expect from its name, a sheet entity is a replacement for the
+current paper sheets used by departments. It is unique by type of student
+(\gls{routecode}) and by their year of study. A sheet can contain one or more
+group entities. There is a many-to-many relationship between groups and module
+availabilities. A module availability is an instance of a module in a specific
+term or year. We use a module availability entity as this is sometimes used by
+the University when a module must be run twice in one year to account for it
+being a popular choice among students. In that case, the module would have the
+same module code but might have a different class size.
 
 Every student is assigned to a specific sheet, which informs the groups and
-modules that are available to them. Every choice the student makes is stored
-in the database along with the rank they gave that module, and an allocation
-is simply a student, module pair.
-
-% [@todo what normal form is this in?]
+modules that are available to them (in terms of functional dependencies, this
+can be written $Student \rightarrow Sheet$, indicating that a student's degree
+type and year of study determines which sheet they view). Every choice the
+student makes is stored in the database along with the rank they gave that
+module, and an allocation is simply a student, module pair.
 
 \subsubsection{Entity-relationship diagram}
 
-Figure~\ref{er_diagram} is an entity-relationship diagram of the module
-allocation system.
+From Table~\ref{development_database_schema} and Figure~\ref{er_diagram} (an
+\gls{er} diagram for the module allocation system), one can use the tests
+given in Table 10.1 of \emph{Fundamentals of Database Systems}
+\cite{ElmasriFundamentals_2004} to see that this database is in \gls{3nf}. It
+is in \gls{1nf} as there are no non-single attributes or nested relations. It
+is in \gls{2nf}; the only table with a composite primary key is Sheet, and the
+`student help' attribute is dependent on the combination of \gls{routecode}
+and \gls{stage}, not on just one of them. Finally, it is in \gls{3nf} as there
+is no transitive dependency of non-primary key attributes.
 
 \begin{landscape}
   \begin{figure}
