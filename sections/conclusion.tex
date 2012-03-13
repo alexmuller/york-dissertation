@@ -3,8 +3,10 @@
 \section{Conclusions}
 \label{sec:conclusions}
 
-\emph{[@todo: Obviously this will need to be updated and expanded when the
-project has concluded!]}
+This section contains conclusions drawn at the end of the project, including
+reviewing the research undertaken and whether it was sufficient, the
+application itself, and how the pilot departments' use of the application
+went.
 
 % This is similar to the abstract. The difference is that you should assume
 % here that the reader of the conclusions has read the rest of the report.
@@ -26,8 +28,12 @@ the project clients and end users in order to perfect the interface.
 
 Furthermore, it became clear during implementation that there were areas I
 should have researched more thoroughly, particularly database theory. This was
-not helped by my unfamiliarity with the framework and associated tools, which
-were creating the database structure from the entities defined.
+not helped by my unfamiliarity with the framework and associated tools -- in
+the case of the Spring framework, database tables were automatically created
+from the entities defined in the application logic. Spending more time testing
+and playing with this before implementation started would have increased my
+understanding and might have produced a higher quality application in less
+time.
 
 Early in the research period (before implementation started) I decided to
 demonstrate research progress to clients by creating simple \gls{html}
@@ -37,38 +43,49 @@ implementation was further progressed than it actually was. I would still
 create prototypes in the future as I believe they are the best way to involve
 a client in the development process, but I would more carefully explain that
 it is simply a prototype with no application code working behind it.
+Fundamentally, I believe that providing mockups and prototypes to clients
+throughout the research period was hugely important in allowing them to engage
+with the design of the application, and as a result produced better quality
+software.
 
 \subsection{Application}
 
 Although there was less time available for implementation than I would have
-liked, I feel I have met one the key requirements: maintainability. The
-software would require quite some work if it was to be maintained centrally by
-the University. Code quality in places is not as good as I would expect from a
-bespoke purchased product, but as the software is written using a framework
-that University developers are familiar with I would hope that they would be
-able to understand the structure of the application and improve the code in
-far less time than it would take to create a similar application from scratch.
+liked, I feel I have met one the key requirements that is hard to quantify:
+maintainability. The software would require quite some work if it was to be
+maintained centrally by the University. Code quality in places is not as good
+as one might expect from a bespoke (purchased) product, but as the software is
+written using a framework that University developers are familiar with, I
+would hope that they would be able to understand the structure of the
+application and improve the code in far less time than it would take to create
+a similar application from scratch -- \gls{itservices} developers have far
+more experience with creating Java web applications than I do, but the
+constrained optimisation part of this project is, I believe, a hugely
+important piece that might they might be unfamiliar with. The code created for
+this application will give any future Java developers an understanding of
+Gurobi.
 
 As mentioned in Section~\ref{sec:issuesarising}, if undertaking a project
 similar to this in the future I would first create a high-fidelity prototype
-in a language I was very familiar with in order to meet the requirements. I
-would then look at re-implementing the application in a language that would
-allow it to be maintained by other developers as required. It would be
-possible to re-use certain aspects of the prototype code (for example, some of
-the front-end code), and I am of the opinion that this second implementation
-would be of higher quality. Whether or not this approach is suitable would
-depend on the nature of the project. As the module allocation software was
-fairly isolated from other systems and was a relatively small application, I
-think this would be a good approach to take.
+in a language I was very familiar with in order to meet the basic project
+requirements. I would then look at re-implementing the application in a
+language that would allow it to be maintained by other developers as required.
+It would be possible to re-use certain aspects of the prototype (for example,
+some of the front-end code), and I am of the opinion that this second
+implementation would be of higher quality, as mistakes made in the prototype
+would not be repeated. Whether or not this approach is suitable would depend
+on the nature of the project; as the module allocation software was fairly
+isolated from other systems and was a relatively small application in all, I
+think this would have been a good approach to take.
 
 There was a trade-off made between my inexperience with the chosen software
 framework (and therefore the amount of time implementation took) and the
 usefulness of the application to \gls{itservices}. In this case, I believe the
-trade-off was beneficial to the project - I managed to create a working
-(though far from perfect) application, and the code will still be of some use
-to the University. However, it is easy to imagine a result where by I was
-unable to create anything useful with the framework. This is the reason for my
-recommendation to implement twice and re-use where possible.
+trade-off was beneficial to the project - I managed to create a
+working---though not perfect---application, and the code will still be of some
+use to the University. However, one can imagine a project like this resulting
+in no useful software being created. This is the reason for my recommendation
+to implement twice, once using a familiar language, when possible.
 
 \subsection{Pilot}
 
@@ -81,10 +98,7 @@ process.
 
 \emph{[@todo: Conclusions on how the allocation went]}
 
-% The History department reported that the entire application saved them
-% approximately \emph{##} days of work. The figure given by the Archaeology
-% department was slightly less at \emph{##} days, as it is a smaller department,
-% but this is still a significant time saving.
+% Time savings offput by helping with application
 
 An area I would like to have spent more time improving is the allocation and
 associated constraints. If running this project again, I would be more firm
