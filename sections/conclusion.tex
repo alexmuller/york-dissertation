@@ -5,8 +5,8 @@
 
 This section contains conclusions drawn at the end of the project, including
 reviewing the research undertaken and whether it was sufficient, the
-application itself, and how the pilot departments' use of the application
-went.
+application itself, and summarises the pilot departments' use of the
+application, including their feedback.
 
 % This is similar to the abstract. The difference is that you should assume
 % here that the reader of the conclusions has read the rest of the report.
@@ -23,8 +23,9 @@ went.
 While the research carried out formed a strong basis for creating a web
 application, the lack of time dedicated to implementation meant that some
 parts of the research could not be put into practice as much as I would have
-liked. For example, it would have been beneficial to spend far more time with
-the project clients and end users in order to perfect the interface.
+liked. Additionally it would have been beneficial to spend far more time with
+the project clients and end users in order to gather more detailed
+requirements and perfect the application interface.
 
 Furthermore, it became clear during implementation that there were areas I
 should have researched more thoroughly, particularly database theory. This was
@@ -32,23 +33,30 @@ not helped by my unfamiliarity with the framework and associated tools -- in
 the case of the Spring framework, database tables were automatically created
 from the entities defined in the application logic. Spending more time testing
 and playing with this before implementation started would have increased my
-understanding and might have produced a higher quality application in less
+understanding and could have produced a higher quality application in less
 time.
 
 Early in the research period (before implementation started) I decided to
-demonstrate research progress to clients by creating simple \gls{html}
-prototypes that had no logic behind them. Showing these prototypes to the
-group may have resulted in the non-technical stakeholders believing that
-implementation was further progressed than it actually was. I would still
-create prototypes in the future as I believe they are the best way to involve
-a client in the development process, but I would more carefully explain that
-it is simply a prototype with no application code working behind it.
-Fundamentally, I believe that providing mockups and prototypes to clients
-throughout the research period was hugely important in allowing them to engage
-with the design of the application, and as a result produced better quality
-software.
+demonstrate progress to clients by creating simple \gls{html} prototypes that
+had no logic behind them. Showing these prototypes to the group may have
+resulted in the non-technical stakeholders believing that implementation was
+further progressed than it actually was. I would still create prototypes in
+the future as I believe they are the best way to involve a client in the
+development process, but I would more carefully explain that it is simply a
+prototype with no application code working behind it. Fundamentally, I believe
+that providing mockups and prototypes to clients throughout the research
+period was hugely important in allowing them to engage with the design of the
+application, and as a result produced better quality software.
 
 \subsection{Application}
+
+The implementation of the application should have begun earlier than it did.
+The increased amount of time would have provided a higher quality product and
+would have reduced how time-constrained the implementation period was.
+Requirements gathering could have been completed earlier with the help of
+members of the staff in the departments and earlier involvement from
+\gls{itservices} may even have reduced the total amount of time that they
+spent providing input for the project.
 
 Although there was less time available for implementation than I would have
 liked, I feel I have met one the key requirements that is hard to quantify:
@@ -87,27 +95,46 @@ use to the University. However, one can imagine a project like this resulting
 in no useful software being created. This is the reason for my recommendation
 to implement twice, once using a familiar language, when possible.
 
-\subsection{Pilot}
+\subsection{Pilot and feedback from departments}
 
-These underlying issues notwithstanding, the trial of the software was
-definitely a success. During the week when students selected their modules
-very few issues arose, and those that did were mitigated with the help of the
-departmental administrators. The application was received positively by
-students, who gave feedback to the departments on the module selection
-process.
+These underlying issues notwithstanding, the trial of the software was a
+definite success. During the week when students selected their modules very
+few issues arose, and those that did were mitigated with the help of
+\gls{itservices} and the departmental administrators. The application was
+received positively by those students who gave feedback to the departments on
+the module selection process.
 
-\emph{[@todo: Conclusions on how the allocation went]}
-
-% Time savings offput by helping with application
+There were problems caused by the security requirement that the application
+not be available outside the University campus. Many students who attempted to
+use the \gls{vpn} to access the application were unable to, and this resulted
+in departmental administrators having to input those students' choices after
+receiving them by email (7 out of 204 in the case of Archaeology). This issue
+would perhaps require further investigation by those with access to relevant
+log files to resolve.
 
 An area I would like to have spent more time improving is the allocation and
 associated constraints. If running this project again, I would be more firm
 with eliciting allocation-related requirements from departments earlier in the
 process, helping them to be decisive in quantifying soft constraints (such as
 the coefficients used in the objective function). This should be easier in
-future years as this pilot has provided some results which can be improved
+future years as this pilot has provided some results which can be iterated on
 with feedback from the departments.
 
-Due to the deadline for this report I am unable to comment on whether students
-were satisfied with the modules they were allocated, but the departments
-appeared happy with the allocation that was produced.
+Unfortunately, some of the time savings that this application would have
+provided were offset by time that departments had to spend during requirements
+gathering and training sessions, learning to use the new software. These time
+savings will be seen in future years if the software is used again. The
+biggest time saving was in the software creating a \gls{csv} file of
+allocations for \gls{ssdt} to process. In previous years the departmental
+administrators would have to input each student's modules one by one. The
+Archaeology department estimated they had saved one day's work with this file
+being generated by the software, and the History department several days
+because of their larger student population.
+
+The Archaeology department commented that out of the 204 students who used
+this system, just three contacted \gls{cm} to indicate they were unhappy with
+the modules they had been allocated. \gls{cm} commented that she had a feeling
+this was ``fewer than usual, but [that she] couldn’t back that up with
+anything''. Due to the deadline for this report I am unable to provide any
+student feedback on the allocation from the History department, though the staff felt
+that the allocation, with some modifications, was good.
