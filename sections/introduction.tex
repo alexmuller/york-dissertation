@@ -1,0 +1,112 @@
+%!TEX root = ../Project.tex
+
+\section{Introduction}
+
+% The scope of the project, setting the scene for the remainder of the report.
+
+A paper was presented by \gls{yusu} at \gls{utc} in March 2010 which discussed
+student complaints and feedback around the allocaiton of optional modules
+across the University. The issues raised in that paper were supported by
+student comments made by final-year undergraduates completing the 2010
+\gls{nss}, a survey offered to graduating undergraduates each year. \gls{utc}
+established a working group to investigate improving the module allocation
+process and this Department of Computer Science project resulted from that
+investigation. As such, the project is sponsored by \gls{utc} and is overseen
+in that regard by \gls{lc} of the \gls{aso}.
+
+As well as being assessed as an undergraduate project by the Department of
+Computer Science, the results of the project will be evaluated independently
+by \gls{lc}. If the software created is ultimately judged to provide
+sufficient advantages over the current methods of module allocation, it may be
+recommended that responsibility for the software is handed to \gls{itservices}
+and it is offered to all departments -- though clearly this has other
+implications for the University that are outside the scope of this report,
+such as resourcing of development and maintenance staff for the application.
+
+\subsection{Report structure}
+
+This section gives background information about the University of York
+relevant to the project, including summarising research done by \gls{lc} in
+preparation for this project. Section~\ref{sec:requirements} discusses how the
+project was run (with the help of administrative staff at the University) and
+the requirements that were obtained from the project clients.
+Section~\ref{sec:research} covers the research and background reading that was
+undertaken at the start of the project. Section~\ref{sec:implementation}
+discusses the choices that were made during the implementation of the
+software, how it was tested before delivery and the result of the first use by
+departments. Section~\ref{sec:furtherwork} describes ways in which the
+software could be extended in the future. Section~\ref{sec:conclusions} gives
+the conclusions drawn at the end of the project.
+
+\subsection{The current state of module allocation}
+
+% Refer to documents provided by LC
+
+Universities worldwide want to give their students the most interesting and
+useful education possible, and one way this can be achieved is by offering as
+much flexibility and variation as they can in the modules that students can
+take. Very generally speaking, a department that offers a broad range of
+modules for students to choose from will see increased student satisfaction
+with the course.
+
+At the University of York, course structure and module allocation is dealt
+with at the departmental level rather than centrally by the University, though
+three departments make use of centrally offered software to allocate modules
+on a first-come, first-served basis. Several departments feel the software is
+not flexible or usable enough and continue to use paper-based forms that must
+be filled out by students and returned to the departmental office. In
+departments that use paper forms, the data entry required when allocating
+modules is incredibly resource intensive and time consuming. The two pilot
+departments involved in this project, Archaeology and History, both use paper
+forms -- examples of these are given in Appendix~\ref{sec:paperforms}. A
+smaller number of departments have written their own module selection and
+allocation software. The Department of Computer Science, for example, has the
+technical resources on-hand to maintain this sort of software internally.
+
+At many universities in the United Kingdom (for example Warwick, Leeds, Essex
+and Bath), enrolment is completed online, on a first-come, first-served basis.
+Other institutions, such as the University of Sheffield and Durham University,
+use paper-based systems, but again on a first-come, first-served basis. This
+method of allocating modules has its own drawbacks, including students needing
+to arrive at their department early and queue in order to submit their module
+choices in good time and therefore stand a chance of receiving the modules
+they requested. The working group set up by \gls{utc} decided against both
+paper-based and first-come, first-served systems as they were perceived to be
+time-consuming and potentially unfair.
+
+\subsection{Web applications at the University of York}
+\label{sec:webapps_york}
+
+% Student portal, timetabling gateway, Google Apps for Education
+
+As would be expected of any world-class institution, the University of York is
+continually improving the quality of web software available to students and
+staff through providing updates to commercially obtained software and
+employing developers to improve and maintain code written in-house.
+
+For the last few years, a \gls{sso} solution has been provided centrally,
+using an open source product called Shibboleth. This improves both user
+experience and security, as users are encouraged to only ever enter their
+University username and password into a familiar-looking page with a web
+address that always begins with \texttt{https://shib.york.ac.uk/}. In
+September 2011 a new ``student portal'' was released, allowing students to
+view personalised information relevant to them (such as their timetable,
+library loans and news) in one location. The application was created by
+\gls{itservices} and was written in Java. Further information on the student
+portal is available at \texttt{https://www.york.ac.uk/students/about/}. At the
+beginning of the 2011--12 academic year, new timetabling software was made
+available to give members of the University access to their complete timetable
+in one location -- something which has not been possible before. In June 2012,
+the University will move all students to Google's Apps for Education product
+for email and calendaring. One of the aims of this move is to improve the user
+experience dramatically over the current webmail software.
+
+The increasing scope and number of web applications at the University
+hopefully gives some indication that students and staff are becoming more and
+more familiar with accessing information online. User experience and usability
+are a key focus of modern web applications, where perhaps they might have
+taken a back seat in the past. As they are exposed to polished applications
+from household names like Google, users' tolerance for poorly coded
+applications that do not provide the required functionality will only
+decrease.
+
