@@ -101,7 +101,7 @@
 % Title page stuff
 \def\paperauthor{Alexander Muller}
 \def\papertitle{Allocating optional modules \\ to University of York students}
-\def\paperlength{19,100}
+\def\paperlength{19,200}
 
 \title{\papertitle}
 \author{\paperauthor}
@@ -229,39 +229,7 @@ information must not be disclosed at any time.
 
 \input{sections/research_maintainability.tex}
 
-\subsection{Web application frameworks}
-
-% Intro to (web) frameworks in general
-
-A framework is a certain amount of reusable code that helps application
-developers by reducing the complexity of common web operations. For example,
-any moderately complex application will need to write user input to a data
-store, and protecting against malicious input is an obvious concern when
-executing code in a database.
-
-Many frameworks include functions that write to the database on behalf of the
-developer, and will automatically sanitise all input to prevent against
-attacks. As every application written should sanitise user input, it is this
-kind of repetitive action that frameworks help ease. A useful framework should
-increase the amount of time that a developer can spend building the unique
-parts of their application.
-
-A key focus of \gls{mvc} frameworks is to separate the application logic from
-the interface that is presented to the user. The term MVC splits the
-application into three pieces; the model for structuring and imposing
-constraints on the data, the controller for manipulating the data into a
-usable format and the view for presenting the manipulated data to the end user
-in an understandable way.
-
-Parr \cite{Parr2004templateengines} makes the point that separating the model
-from the view is something developers strive for, but often fail to achieve.
-He provides some good examples of software development patterns that should
-never be seen, such as including \gls{sql} statements anywhere except the
-model -- and even then, the framework should provide a mapping between
-application objects and database structure. He cites maintainability as a
-reason to strictly separate the view from both the controller and the model,
-and as maintainability is a key focus of this project (see
-Section~\ref{sec:maintainability}) this is clearly important.
+\input{sections/research_frameworks.tex}
 
 \subsection{Sensitive information and the Data Protection Act}
 \label{sec:dataprotection}
