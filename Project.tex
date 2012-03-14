@@ -105,7 +105,7 @@
 % Title page stuff
 \def\paperauthor{Alexander Muller}
 \def\papertitle{Allocating optional modules \\ to University of York students}
-\def\paperlength{19,700}
+\def\paperlength{19,900}
 
 \title{\papertitle}
 \author{\paperauthor}
@@ -241,26 +241,7 @@ information must not be disclosed at any time.
 
 \input{sections/research_usertesting.tex}
 
-\subsection{Usability}
-
-% http://www.faqs.org/docs/artu/ch11s01.html
-% http://en.wikipedia.org/wiki/Principle_of_least_astonishment
-
-In the past, web applications would \gls{post} data to the web server only
-when the user explicitly clicked a submit button (written on the web as
-\texttt{<input type=submit>}). Modern web applications, such as Google's Gmail
-service, make use of JavaScript and low-latency Internet connections to
-automatically save data to the server while the user is working. Sandlund
-\cite{sandlund2009websoftware} explains that by automatically saving data at
-regular intervals, there is far less chance of data loss.
-
-During Sandlund's user testing, participants responded positively to the
-application automatically saving data. However, he decided not to include a
-submit button in his application, and he notes that some users found the lack
-of an explicit save button ``a bit disturbing''. It is important to include an
-explicit ``Save'' button on an application that auto-saves -- one can imagine
-the confusion and uncertainty caused if the user is unaware that their data is
-being saved in the background.
+\input{sections/research_usability.tex}
 
 \input{sections/research_ilp.tex}
 

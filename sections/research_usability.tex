@@ -1,0 +1,44 @@
+%!TEX root = ../Project.tex
+
+\subsection{Usability}
+
+The rather broad term usability refers to how easy a system (or indeed
+anything) is to use, though this report obviously only discusses the usability
+of software in general and web applications in particular.
+
+% http://www.faqs.org/docs/artu/ch11s01.html
+
+One guideline that is useful to bear in mind when developing a piece of
+software is the ``Rule of Least Surprise'' \cite{RaymondAUP_2003} (also
+referred to as the ``Principle of Least Astonishment''). Raymond writes that
+every piece of software should at every time simply ``do the least surprising
+thing'', as the lack of surprises allows the user to spend less time worrying
+about the application and instead allows them to focus on what they are trying
+to use the software for. His advice is that no application should force the
+user to create an entirely new mental model to use the software, and it should
+instead attempt to mimic existing interfaces or applications that the user
+might be familiar with.
+
+Raymond's advice is clear and useful for anybody who has observed a
+non-technical user attempt to use a piece of software with poor usability. I
+can recall friends and relatives struggling with dialog boxes and error
+messages that they were not expecting, which often appear at precisely the
+wrong time.
+
+Another factor of usability is the process around saving state in the
+application. In the past, web applications would \gls{post} data to the web
+server only when the user explicitly clicked a submit button (written on the
+web as \texttt{<input type=submit>}). Modern web applications, such as
+Google's Gmail service, make use of JavaScript and low-latency Internet
+connections to automatically save data to the server while the user is
+working. Sandlund \cite{sandlund2009websoftware} explains that by
+automatically saving data at regular intervals, there is far less chance of
+data loss.
+
+During Sandlund's user testing, participants responded positively to the
+application automatically saving data. However, he decided not to include a
+submit button in his application, and he notes that some users found the lack
+of an explicit save button ``a bit disturbing''. It is important to include an
+explicit ``Save'' button on an application that auto-saves -- one can imagine
+the confusion and uncertainty caused if the user is unaware that their data is
+being saved in the background.
