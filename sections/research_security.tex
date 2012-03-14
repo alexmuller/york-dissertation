@@ -7,42 +7,43 @@ Recently there has been increased public awareness of online security because
 of exploits orchestrated by groups such as ``LulzSec''. These groups have
 exploited vulnerabilities in software and systems as well as through social
 engineering, and have released sensitive information from large corporations
-and governments \cite{ASATrendsinDataBreaches_2012}.
-
-While some of their attacks have involved social engineering, those are
-outside the scope of this report. The research conducted here focuses solely
-on the technical methods that should be used to prevent unwanted disclosure or
-destruction of information.
+and governments \cite{ASATrendsinDataBreaches_2012}. While some of their
+attacks have involved social engineering, those are outside the scope of this
+report. The research conducted here focuses solely on the technical methods
+that should be used to prevent unwanted disclosure or destruction of
+information.
 
 The \gls{owasp} Top 10 is a list of the ten most important security
 vulnerabilities, as identified by The \gls{owasp} Foundation
 \cite{OWASPTop10_2010}. These vulnerabilities range in impact, prevalence and
-how sophisticated an attacker must be to exploit them.
-
-The ten vulnerabilities provide a very solid grounding in security risks for
-web applications. The list is updated frequently by \gls{owasp} (every three
-years) in order to stay relevant. It is worth noting that as with all aspects
-of information security, no system can ever be deemed to be perfectly safe.
-The Top 10 simply aims to educate developers about the most prevalent risks
-for web applications.
+how sophisticated an attacker must be to exploit them. The ten vulnerabilities
+provide a very solid grounding in security risks for web applications. The
+list is updated frequently by \gls{owasp} (every three years) in order to stay
+relevant. It is worth noting that as with all aspects of information security,
+no system can ever be deemed to be perfectly safe. The Top 10 simply aims to
+educate developers about the most prevalent risks for web applications.
 
 Not all of the ten security vulnerabilities are relevant to this project --
 for example, some of them refer to the way in which the data is stored on
-disk. The most relevant vulnerabilities are discussed in detail here.
+disk, which for this system is managed by \gls{itservices} in an identical way
+to all their other applications. The most relevant vulnerabilities are
+discussed in detail here.
 
-\noindent{\textbf{Injection (A1)}}
+\noindent{\textbf{Injection (A1)}}\mynobreakpar
 
-Injection involves a malicious user entering specially-crafted input in order
-to compromise an application. A specific example that would affect this
-application is \gls{sql} injection, where by the input is crafted so that it
-compromises or destroys the database. A request could be made like so:
+An injection attack involves a malicious user entering specially-crafted input
+into the application in order to compromise it. A specific example that would
+affect this application is \gls{sql} injection, where by the input is crafted
+so that it compromises or destroys the database. An \gls{http} request could
+be made to a URL in the application like so:
 
 \begin{lstlisting}
 http://example.com/modules/?id=' OR '1'='1
 \end{lstlisting}
 
-In an insecure application, the string after \texttt{id=} would be entered
-directly into a \gls{sql} statement:
+In an insecure application, this request might result in the string
+immediately after \texttt{id=} being entered directly into a \gls{sql} query
+to gather some database from the database and display it to the user:
 
 \begin{lstlisting}
 SELECT * FROM table WHERE id='' OR '1'='1';
@@ -51,15 +52,17 @@ SELECT * FROM table WHERE id='' OR '1'='1';
 This statement would then select everything from the database (as 1 always
 equals 1), potentially returning data to the user that they should not be able
 see. Similarly, it would be trivial to execute a \texttt{DROP TABLE} command
-to destroy the database. The issue is mitigated by sanitising all user input
-so that it is not executed directly in the database.
+to destroy the database. This issue is mitigated by sanitising all user input
+so that it is not executed directly in the database. For example, one could
+whitelist characters like basic letters and numbers which would be the only
+part of the string sent to the database.
 
-\noindent{\textbf{Cross-Site Scripting (A2)}}
+\noindent{\textbf{Cross-Site Scripting (A2)}}\mynobreakpar
 
 Cross-site scripting (abbreviated XSS) is an attack involving a malicious user
 sending data to the application which is then displayed without first being
 sanitised. For example, in this application, an authenticated administrator
-could upload a module with the name:
+could upload a module with the malicious name:
 
 \begin{lstlisting}
 <script>document.location='http://www.evil.example/exploit.html'</script>
@@ -67,19 +70,19 @@ could upload a module with the name:
 
 If this module name was to be displayed to a student before being sanitised,
 they would be automatically redirected to the malicious website, which could
-be designed to steal their personal information.
+be designed to steal their personal information (a phishing site).
 
-\noindent{\textbf{Broken Authentication and Session Management (A3)}}
+\noindent{\textbf{Broken Authentication and Session Management (A3)}}\mynobreakpar
 
-This entry in the Top 10 is more broad than the others, and I believe it is
-designed to convey to developers the sheer number of ways in which
-authentication systems can be broken. The recommendation given is to only use
-authentication controls that are widely available - if a developer was to
-write their own authentication mechanism, it would not be subjected to as much
-testing as widely-known security packages and flaws would not be found as
-easily.
+This entry in the Top 10 is more broad than the others covered so far, and I
+believe it is designed to convey to developers the sheer number of ways in
+which authentication systems can be broken. The recommendation given is to
+only use authentication controls that are widely available - if a developer
+was to write their own authentication mechanism, it would not be subjected to
+as much testing as widely-known security packages and flaws would not be found
+as easily.
 
-\noindent{\textbf{Cross-Site Request Forgery (A5)}}
+\noindent{\textbf{Cross-Site Request Forgery (A5)}}\mynobreakpar
 
 A cross-site request forgery (CSRF) attack occurs when a malicious user crafts
 an \gls{http} request on their site (for example through adding a
@@ -90,7 +93,7 @@ page on the vulnerable site. This token can be checked on submission to ensure
 that the user submitting the form came from the correct page, and therefore
 that the request is legitimate.
 
-\noindent{\textbf{Failure to Restrict URL Access (A8)}}
+\noindent{\textbf{Failure to Restrict URL Access (A8)}}\mynobreakpar
 
 As \gls{http} is a stateless protocol, the user must be authenticated with
 every request. A simple way to ensure this is carried out correctly is to keep
@@ -100,7 +103,7 @@ departmental administrative actions could be under \texttt{/admin}. A global
 security configuration would then ensure that a user had the appropriate
 privileges for each request under those URLs.
 
-\noindent{\textbf{Insufficient Transport Layer Protection (A9)}}
+\noindent{\textbf{Insufficient Transport Layer Protection (A9)}}\mynobreakpar
 
 Any web application should be served as securely as possible -- this is
 especially important for items related to authentication such as passwords and

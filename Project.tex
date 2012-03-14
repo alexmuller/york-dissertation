@@ -93,6 +93,10 @@
 \usepackage{xspace} 
 \newcommand{\studmod}{\emph{student, module}\xspace}
 
+\makeatletter 
+\newcommand\mynobreakpar{\par\nobreak\@afterheading} 
+\makeatother
+
 % Glossary
 \usepackage[toc]{glossaries}
 \makeglossaries
@@ -101,7 +105,7 @@
 % Title page stuff
 \def\paperauthor{Alexander Muller}
 \def\papertitle{Allocating optional modules \\ to University of York students}
-\def\paperlength{19,200}
+\def\paperlength{19,500}
 
 \title{\papertitle}
 \author{\paperauthor}
@@ -231,70 +235,7 @@ information must not be disclosed at any time.
 
 \input{sections/research_frameworks.tex}
 
-\subsection{Sensitive information and the Data Protection Act}
-\label{sec:dataprotection}
-
-% As noted in the Statement of ethics, we should discuss Charles' input here.
-
-The software created for the purpose of this project will manipulate students'
-personal data, and as such the University's Data Protection Officer was
-consulted during the requirements gathering, design and implementation. He
-provided input on how the software should comply with all relevant legislation
--- this section outlines his input and resulting actions taken.
-
-\noindent{\textbf{Automated decision making}}
-
-Under Section 12 (Part II) of the Data Protection Act 1998 c.29, an individual
-can request that no automated decisions are made that affect that individual.
-
-For the purposes of this project, departments must notify students that their
-modules will be allocated automatically -- words to this effect were placed in
-the departmental student handbooks for this academic year, and will be
-reinforced by email when students are asked to choose their modules.
-
-The project steering group decided that any student who requests that their
-modules are allocated manually will be treated as an exception. However, the
-departments noted that it would be very hard to ensure every student was
-treated fairly when some were allocated using the software and others were
-not.
-
-It is expected that only a tiny proportion of students would make this
-request, if any. As in previous years, students will of course have the right
-to appeal their module allocation if they feel it is unfair.
-
-The relevant legislation is available online in full at
-\url{http://www.legislation.gov.uk/ukpga/1998/29/section/12}.
-
-\noindent{\textbf{Retaining a memory}}
-
-If data about students is retained, it will need to be held in line with
-University policies and a data retention policy will have to be created for
-this system.
-
-\noindent{\textbf{Transferring data between systems}}
-
-The Data Protection Act requires any transfer of data between University
-systems to be secure and accurate.
-
-The only data transferred to \gls{sits} will be module allocation information
-for each student. As this is entirely the purpose of collecting the data from
-students in the first place, it was felt that no further work would be needed
-to ensure compliance with the Act.
-
-\noindent{\textbf{Compromise of student data}}
-
-The Data Protection Officer notes that \emph{any} data input by students into the
-system is ``their personal data'', and any compromise of this data would be a
-breach of the Data Protection Act.
-
-The project implementer will work with \gls{itservices} during the creation of
-the software. They will ensure as far as they can that there are no security
-issues in the software that would cause personal information to be compromised.
-
-Furthermore, the software will be restricted by the University firewall so
-that it can only be accessed by a person with a University of York username
-and password. While this does not completely remove any issue, it will reduce
-the impact of any security problems with the software.
+\input{sections/research_dpa.tex}
 
 \input{sections/research_security.tex}
 

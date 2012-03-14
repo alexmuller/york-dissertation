@@ -1,0 +1,80 @@
+%!TEX root = ../Project.tex
+
+\subsection{Sensitive information and the Data Protection Act}
+\label{sec:dataprotection}
+
+% As noted in the Statement of ethics, we should discuss CF's input here.
+
+The software created for the purpose of this project will manipulate students'
+personal data, and as such the University's Data Protection Officer was
+consulted throughout the duration of the project; the requirements gathering,
+design and implementation. He provided input on how the software should comply
+with all relevant legislation -- this section outlines his input and resulting
+actions taken.
+
+\noindent{\textbf{Automated decision making}}\mynobreakpar
+
+Under Section 12 (Part II) of the Data Protection Act 1998 c.29, an individual
+(in this case, a student) can request that no automated decisions are made
+that affect that individual. The relevant legislation is available online in
+full at \url{http://www.legislation.gov.uk/ukpga/1998/29/section/12}. For the
+purposes of this project, departments must notify students that their modules
+will be allocated automatically -- words to this effect were placed in the
+departmental student handbooks for this academic year, and will be reinforced
+by email when students are asked to choose their modules.
+
+The project steering group decided that any student who requests that their
+modules are allocated manually will be treated as an exception. However, the
+departments noted that it would be very hard to ensure every student was
+treated fairly when some were allocated using the software and others were
+not. It is expected that only a tiny proportion of students would make this
+request, if any. As in previous years, students will of course have the right
+to appeal their module allocation with the department if they feel it is
+unfair. Explanatory text will be placed on the application that explains the
+nature of this project and how the software came to be, and students will be
+encouraged to contact their departments if they have any concerns.
+
+\noindent{\textbf{Retaining a memory}}\mynobreakpar
+
+On the question of retaining student data so that the application can
+implement some kind of memory feature, the Data Protection Officer commented
+that this information would need to be held in line with University policies
+and a data retention policy would have to be created for this system. However,
+this is not especially relevant for the pilot run of this application as no
+data will be retained yet. \gls{lc} will note in her evaluation that if the
+software is to be used next year, this retention policy will have to be
+developed.
+
+\noindent{\textbf{Transferring data between systems}}\mynobreakpar
+
+The Data Protection Act requires any transfer of data between University
+systems to be ``secure and accurate''. Some student data (usernames and course
+information) will be transferred out of \gls{sits} by departmental
+administrators, who will upload it into the application. This fulfills the
+criteria that the transfer is secure, as no other party will have access to
+either system or any of the data on departmental PCs, and that the transfer is
+accurate, as departments will ensure that the correct number of students and
+courses are uploaded to the system.
+
+The data transferred into \gls{sits} will be a list of allocations in some
+format. This information will be encrypted before being transferred between
+the department and \gls{ssdt} to ensure security, and will be sanity-checked
+by both the departments and by \gls{ssdt} after it is inserted into
+\gls{sits}. Departments can check, for example, that each student has been
+given the requisite number of modules to ensure that the transfer was
+accurate. They will have to rely on complaints from students to discover that
+each student's allocation is accurate -- there is no other way for a
+department to verify every student's choices and allocations.
+
+\noindent{\textbf{Compromise of student data}}\mynobreakpar
+
+The Data Protection Officer notes that \emph{any} data input by students into
+the system is ``their personal data'', and any compromise of this data would
+be a breach of the Data Protection Act. The project implementer will work with
+\gls{itservices} during the creation of the software and they will ensure as
+far as they can that there are no security issues in the software that would
+cause personal information to be compromised. Furthermore, the software will
+be restricted by the University firewall so that it can only be accessed by a
+user with a valid University of York username and password. While this does
+not completely remove the risk of a data breach, it will reduce the impact of
+any security problems with the software.
