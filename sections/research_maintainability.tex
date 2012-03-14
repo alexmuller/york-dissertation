@@ -1,0 +1,46 @@
+%!TEX root = ../Project.tex
+
+\subsection{Maintainability and the future of the software}
+\label{sec:maintainability}
+
+As the software created during this project will have to be maintained by the
+University's \gls{itservices} if it is evaluated as successful, great care
+must be taken to ensure that the application is implemented in the most
+extensible and maintainable way possible.
+
+Principles of good software engineering apply equally to web applications as
+to any other software project. There are several basic methods recommended by
+Green and Ledgard \cite{CodingGuidelines_2011} for writing readable and
+maintainable code. Their recommendations are written with the aim that the
+eventual maintainer of the software will have to do as little work as possible
+to understand the purpose and implementation of a given piece of code. Some of
+the more applicable recommendations are:
+
+\begin{itemize}
+  \item Align parts of the code (e.g. equal signs)
+        vertically when it makes sense to
+  \item Write lines no longer than approximately 70 characters,
+        and use line breaks if necessary
+  \item Use simple English and short names for things that will
+        be referenced frequently
+  \item Add blank space around operators (e.g. \texttt{3 + 2 = 5}
+        rather than \texttt{3+2=5})
+  \item Indent \texttt{if} statements to allow the reader to scan
+        the code more easily
+  \item Comment code when necessary, but comments are not a
+        solution for bad code
+\end{itemize}
+
+They note that for any system that may have a long lifespan, every effort
+should be taken to improve ``readability and maintainability''. A project that
+will only be used for a short amount of time by the original author does not
+require as much attention to maintainability as one which will last several
+years and be maintained by several different programmers.
+
+One of the big concerns when considering maintainability is the environment
+that the software will be maintained in and who will be responsible for it.
+This application will be maintained by a group in \gls{itservices} called the
+Web Services Group, which consists mostly of Java developers. Implementing the
+software in a language they are unfamiliar with or unable to host easily would
+require them to spend far more time working on the application and would
+dramatically reduce the value it would provide.

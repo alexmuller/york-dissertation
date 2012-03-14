@@ -101,7 +101,7 @@
 % Title page stuff
 \def\paperauthor{Alexander Muller}
 \def\papertitle{Allocating optional modules \\ to University of York students}
-\def\paperlength{19,000}
+\def\paperlength{19,100}
 
 \title{\papertitle}
 \author{\paperauthor}
@@ -227,35 +227,7 @@ information must not be disclosed at any time.
 
 \input{sections/research_database.tex}
 
-\subsection{Maintainability and the future of the software}
-\label{sec:maintainability}
-
-As the software created during this project will have to be maintained by the
-University's \gls{itservices} if it is evaluated as successful, care must be
-taken to ensure that the application is implemented in the most extensible and
-maintainable way possible.
-
-Principles of good software engineering apply equally to web applications as
-to any other software project. There are several basic methods recommended by
-Green and Ledgard \cite{Green:2011:CGF:2063166.2063168} for writing readable
-and maintainable code. Their recommendations are designed around the
-maintainer of the software having to do less work to understand the purpose of
-a given piece of code. The recommendations could be summarised as:
-
-\begin{itemize}
-  \item Align parts of the code (e.g. equal signs) vertically when it makes sense to
-  \item Write lines no longer than approximately 70 characters, and use line breaks if necessary
-  \item Use simple English and short names for things that will be referenced frequently
-  \item Add blank space around operators (e.g. \texttt{3 + 2 = 5} rather than \texttt{3+2=5})
-  \item Indent \texttt{if} statements to allow the reader to scan the code more easily
-  \item Comment code when necessary, but comments are not a solution for bad code
-\end{itemize}
-
-They note that for any system that may have a long lifespan, every effort
-should be taken to improve ``readability and maintainability''. A project that
-will only be used for a short amount of time by the original author does not
-require as much attention to maintainability as one which will last several
-years and be maintained by several different programmers.
+\input{sections/research_maintainability.tex}
 
 \subsection{Web application frameworks}
 
