@@ -1,0 +1,94 @@
+%!TEX root = ../Project.tex
+
+\subsection{Web application frameworks}
+\label{sec:webframeworks}
+
+While it is possible to build a web application without using a framework,
+there is no advantage to rewriting basic operations for this project. If the
+system needed to operate at a scale or speed far beyond what these frameworks
+were capable of, it is likely that the software would have to be built from
+scratch in order to meet those requirements. With the limited amount of time
+allowed for development and implementation (see the project Gantt chart in
+Figure~\ref{ganttchart}), it is sensible to spend a small amount of time
+choosing a framework and as a result allow more time to implement the unique
+parts of this system.
+
+The most important consideration when choosing a framework is the language it
+is written in, as this defines, among other things, what kind of functionality
+might be offered and how easy the software will be to maintain in the future.
+
+There are three languages used for most of the in-house web development at the
+University of York. \Gls{cfml} is a language for creating web pages, the most
+popular commercial implementation of which is a commercial one produced by
+Adobe. ColdFusion is used widely across the University, including in
+applications such as the ``People Directory'' search tool (shown in
+Figure~\ref{yorkacuk_directory_search}) and online account management
+facilities provided by \gls{itservices}. Java was used in the creation of the
+new student portal discussed in Section~\ref{sec:webapps_york}. Finally, a PHP
+service is offered by the University for users to deploy their own PHP
+applications, though the University states that they do not maintain PHP
+applications.
+
+\noindent{\textbf{ColdFusion}}\mynobreakpar
+
+The following is a snippet of ColdFusion that simply outputs the user's
+username:
+
+\begin{lstlisting}[language=HTML]
+<cfparam name="attributes.userid" type="string" default="unknown">
+<h1>Hello, world</h1>
+<cfoutput>
+  <p>Welcome, #HTMLEditFormat(attributes.userid)#.</p>
+</cfoutput>
+\end{lstlisting}
+
+However, \gls{cfml} is unsuitable for this project as it seems to be primarily
+a markup language -- the relatively complex allocation logic behind this
+system would have to be implemented in another language such as Java or
+Python. Using two languages to create this application would needlessly
+increase the complexity of any future maintenance.
+
+\noindent{\textbf{Java}}\mynobreakpar
+
+While there are a wide variety of Java web application frameworks available,
+the University of York has chosen to use Spring, an Apache Software-licensed
+framework developed by a division of VMware (a virtualisation software
+provider). The Spring framework has a \gls{mvc} component, making it entirely
+suitable for this project.
+
+In a presentation at \gls{oscon} in 2007, Matt Raible compared several web
+frameworks written in Java; JavaServer Faces (JSF), Spring MVC, Stripes,
+Struts 2, Tapestry and Wicket \cite{raible2007javawebframeworks}. Watching the
+video of his talk, the striking aspect is how little there is differentiating
+all these frameworks. As Spring is a framework that \gls{itservices} have
+deployed in the past and are able to support, it makes little sense to choose
+anything else. Using Spring also may also allow a significant amount of code
+reuse, particularly with regards to integrating with the University's
+authentication systems.
+
+\noindent{\textbf{PHP, Ruby, Python or other languages}}\mynobreakpar
+
+Outside the University of York, popular web programming languages include Ruby
+and Python. Examples of popular and widely used frameworks for these languages
+include CakePHP, Ruby on Rails and Django. There are many other frameworks
+available to support building an application in these languages, but
+\gls{itservices} do not have the resources on-hand to maintain such an
+application and may not even be able to provide a server on which to host it.
+
+\subsubsection{Summary}
+
+The framework chosen for this project is Spring 3, written in Java. As the
+application will be maintained by Java developers, it would not be sensible to
+implement the software in another language only to possibly have to
+re-implement using a different technology stack in the future. This choice of
+framework gives the application the best chance of being used by the
+University in the future.
+
+PHP, Ruby and Python are all perfectly good languages for web application
+development,\footnote{On the popular code-hosting website \gls{github}, Ruby
+and Python are ranked 2nd and 3rd respectively in terms of their popularity in
+software development (see \url{https://github.com/languages})} but none are
+suitable for this project as they cannot easily be hosted or maintained by
+\gls{itservices}. Similarly, ColdFusion is unsuitable as it does not have the
+necessary features that would be required by the allocation part of the
+application.
