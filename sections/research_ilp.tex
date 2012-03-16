@@ -1,22 +1,39 @@
 %!TEX root = ../Project.tex
 
-\subsection{Integer linear programming solvers}
+\subsection{Integer linear programming}
 \label{sec:researchilp}
 
-\Gls{lp} is the process of optimising a model through maximising or minimising
-a linear function containing unknown variables (called the objective
-function). Integer linear programming is a subset of this in which values for
-the unknown variables are restricted to the set of integers.
+\Gls{lp} is a process for optimising a numerical model through maximising or
+minimising a linear function containing unknown variables (called the
+objective function), which is subject to some defined constraints. Integer
+linear programming is a subset of this field in which the possible values for
+the unknown variables are restricted to the set of integers. A minimal example
+of a linear programming problem is the following:
 
-% [@todo talk about their use in industry?]
+$$ \mathrm{maximise} \quad x + y - z $$
+$$ \mathrm{subject~to} \quad x + y \leq 3 \quad \mathrm{and} \quad z \geq 1 $$
+
+One solution to this problem is $x=1$, $y=2$, $z=1$, as these values for the
+three variables produce the maximum possible solution of $x+y-z=2$ in the
+linear function. If $z$ were to take a larger value, the objective function
+would return a smaller result.
+
+\Gls{lp} is a mature field of computer science and is widely used across many
+disciplines. One particular use is in modelling economic situations. For
+example, a company might want to maximise the number of units of their
+products they sell, but at the same time are subject to constraints on the
+number of components available (an example similar to this is given in more
+detail in \emph{Introduction to Linear Optimization} \cite{IntroLP_1997}).
+This kind of modelling is well suited to linear optimisation.
 
 Allocating modules to students can be represented as an integer linear
 programming problem. Every module that a student can possibly be allocated is
 assigned a binary variable. Each of these variables is set by the solver to 0
-if the allocation does not take place, or 1 if it does. For example, a system
-containing two users and two modules would be represented as:
+if the allocation does not take place, or 1 if it does. For example, a small
+system containing just two users and two modules would be represented
+as:\mynobreakpar
 
-\begin{verbatim}
+\begin{Verbatim}[samepage=true]
  variable         allocation_made?
 -----------------------------------
  user1_moduleA    0
@@ -24,7 +41,7 @@ containing two users and two modules would be represented as:
  user2_moduleA    1
  user2_moduleB    0
 -----------------------------------
-\end{verbatim}
+\end{Verbatim}
 
 Using a solver instead of writing an algorithm from the ground up has numerous
 advantages, the most important of which is that it will dramatically reduce
@@ -71,7 +88,7 @@ which are unrestricted in terms of model size. The most recent release was
 version 4.6 in November 2011. The earliest release I am able to find is Gurobi
 2.0 in August 2009.
 
-Judging by release dates, neither solver is significantly more established
-than the other. Tests conducted at Arizona State University indicate that
-Gurobi is consistently the highest performing solver of the seven tested
-\cite{SolversPerformance_2012}.
+Judging by release dates, neither solver is significantly more established in
+the market than the other. Tests conducted at Arizona State University by Hans
+Mittelmann indicate that Gurobi is consistently the highest performing solver
+of the seven tested \cite{SolversPerformance_2012}.
