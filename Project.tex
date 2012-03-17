@@ -107,7 +107,7 @@
 % Title page stuff
 \def\paperauthor{Alexander Muller}
 \def\papertitle{Allocating optional modules \\ to University of York students}
-\def\paperlength{20,600}
+\def\paperlength{20,800}
 
 \title{\papertitle}
 \author{\paperauthor}
@@ -138,8 +138,8 @@ by Dr James Cussens, Senior Lecturer in the Artificial Intelligence Group,
 Department of Computer Science.
 
 This report is \paperlength{} words, as counted by running \texttt{detex} and
-\texttt{wc -w}. It is \pageref{LastPage} pages long. The word count does not
-include any of the files or code listings in the appendices.
+\texttt{wc -w}. The word count does not include any of the files or code
+listings in the appendices. It is \pageref{LastPage} pages long in total.
 
 % The limits are 35,000 words and 70 pages - neither limit may be exceeded.
 % Other projects I've seen have been 12,000/60, 11,000/60, 21,000/71 etc
@@ -151,9 +151,8 @@ for her management of the project on behalf of the University.
 
 \clearpage
 
+% Couple of paragraphs. Not more than 200 words - this is 211.
 \begin{abstract}
-  % Couple of paras. Not more than 200 words - this is 211.
-
   From the second year onwards, most students at the University of York can
   choose between two or more optional modules to tailor their academic career,
   in the hope that it will be more relevant, interesting and useful to them.
@@ -184,7 +183,7 @@ for her management of the project on behalf of the University.
 
 \clearpage
 \listoffigures
-% \listoftables
+
 
 \section{Statement of ethics}
 
@@ -196,8 +195,7 @@ Consent will be obtained from all volunteers prior to their interview, and
 volunteers' personal information will not be published or shared. A copy of
 the consent form signed by all volunteers is given in
 Appendix~\ref{sec:consent}. Whenever a member of the University has been
-quoted by name in this project, their explicit consent was obtained
-beforehand.
+quoted by name in this report, their explicit consent has been obtained.
 
 % Do no harm
 
@@ -221,13 +219,37 @@ clarify the situation regarding access to student data. A copy of this
 \gls{nda} is provided in Appendix~\ref{sec:nda}. It states that confidential
 information must not be disclosed at any time.
 
+
 \input{sections/introduction.tex}
+
 
 \input{sections/projmanagement_main.tex}
 
 \input{sections/projmanagement_schedule.tex}
 
-\input{sections/research_main.tex}
+
+\section{Research}
+\label{sec:research}
+
+% One or more review chapters, describing the research you did at the
+% beginning of the project period.
+
+Web application development is an area of computer science that requires
+solving many problems that may only be loosely related. Generally, research
+for a typical web application might include the following:
+
+\begin{itemize}
+  \item Database structure and underlying software
+  \item Programming language
+  \item Choice of web framework (if any)
+  \item Online security
+  \item Front-end, user experience and interaction design
+\end{itemize}
+
+However there are two major additional areas that should be researched for
+this project, namely issues surrounding the sensitive information that will be
+stored by the system and the creation of the allocation once students have
+selected their modules, which is a constrained optimisation problem.
 
 \input{sections/research_devmethodology.tex}
 
@@ -247,9 +269,6 @@ information must not be disclosed at any time.
 
 \input{sections/research_ilp.tex}
 
-% \subsection{Unit testing and performance testing}
-% 
-% If there's time...
 
 \section{Development, implementation and testing}
 \label{sec:implementation}
@@ -272,35 +291,14 @@ given, and the process surrounding the allocation is discussed.
 
 \input{sections/development_supporting_software.tex}
 
-\subsection{Design decisions and visual appearance}
+\input{sections/development_design_visuals.tex}
 
-The application should be visually consistent with other University web
-software to instill trust in the user.
-
-The University's Web Office (part of the Communications Office) was contacted
-to enquire whether the application should be branded using the standard green
-banner, or as a part of the student portal.
-
-% Following the principle of least astonishment...
-
-% http://en.wikipedia.org/wiki/Principle_of_least_astonishment
-
-% Include screenshots of University software:
-%   https://www.york.ac.uk/it-services/facilities/account/accounts
-%   https://www.cs.york.ac.uk/submit/assessment/
-%   https://www.york.ac.uk/students/
-
-One area that usability gains can be made are in relation to how the
-application saves data. During one of the user research sessions, the
-participant explained that while choosing optional modules during her first
-year, she neglected to press that application's ``OK'' button and, unaware
-that she had not submitted choices, was unable to take her preferred modules.
-
-As an explicit ``Save'' button should be retained to reduce surprise and allow
-the user to feel in control, the most sensible decision is to automatically
-save user input periodically and notify users that their choices are being
-saved. The submit button would save data in case of failure of the automatic
-save mechanism.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{images/2012_03_10_yorkacuk_students.png}
+  \caption{The University of York student portal}
+  \label{yorkacuk_student_portal}
+\end{figure}
 
 \begin{landscape}
   \begin{figure}
@@ -410,7 +408,9 @@ to be developed (discussed later in Section~\ref{sec:autoexport}).
 
 \input{sections/development_pilot.tex}
 
+
 \input{sections/futurework.tex}
+
 
 \input{sections/conclusion.tex}
 
