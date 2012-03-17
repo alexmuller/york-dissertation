@@ -1,0 +1,48 @@
+%!TEX root = ../Project.tex
+
+\subsection{Accessibility}
+
+Educational institutions such as the University of York are required by the
+\gls{senda} 2001 to ensure that web content is accessible to disabled users.
+The Web Office provides advice to those publishing web sites or applications
+on behalf of the University at
+\url{http://www.york.ac.uk/communications/websites/content/accessibility/}.
+While this advice is more applicable to content-heavy pages such as department
+websites for recruitment of undergraduate students, it still contains some
+important things to consider while building a web application.
+
+The two major accessibility issues surrounding a web application are users who
+are visually impaired and users who are unable to use a traditional
+interface-manipulation devices (a keyboard and mouse) to browse the web. To
+mitigate the first accessibility issue, the application was tested to ensure
+that users can increase the page or font size to fit their needs. Users who
+use custom style sheets in their web browser (for example to enhance contrast)
+are able to do so. All text and background colour combinations were tested to
+ensure compliance with WCAG AAA, using a tool freely available online at
+\url{http://www.snook.ca/technical/colour_contrast/colour.html}.
+
+As to the second accessibility issue, generally speaking, I believe that users
+who are unable to use a keyboard or mouse do not use JavaScript in their web
+browser. The application is designed so that users with JavaScript disabled
+are instead presented a simple form layout that can be read out to them by
+screen-reading software and filled in solely with a keyboard (which can be
+voice controlled).
+
+It is thought with these considerations, every student will be able to use the
+system to select their modules. However, even if the above fallbacks fail the
+student will still be able to obtain help from their department (which could
+complete the module selection on their behalf). The aim is that no student
+will be stranded with an application they cannot use and no instructions
+telling them how to gain assistance.
+
+The student interface was tested by David Swallow, a Research Associate in the
+\gls{hci} group at the University of York. Swallow commented that ``on the
+whole, the accessibility of the application is excellent and passes many of
+the checkpoints where other applications slip up''. He did, however, note
+several minor issues with the application. The biggest such issue was with my
+assumption that all users who do not have access to a mouse have JavaScript
+disabled -- Swallow said that this fairly common assumption ``might have
+stemmed from \gls{wcag} 1.0'', published in 1999. Regrettably there was not
+sufficient time to research and mitigate this issue, but owing to the small
+proportion of users who do not use a pointing device, I decided it was best to
+simply note this as future work that should be undertaken.

@@ -107,7 +107,7 @@
 % Title page stuff
 \def\paperauthor{Alexander Muller}
 \def\papertitle{Allocating optional modules \\ to University of York students}
-\def\paperlength{20,800}
+\def\paperlength{21,000}
 
 \title{\papertitle}
 \author{\paperauthor}
@@ -318,57 +318,6 @@ given, and the process surrounding the allocation is discussed.
   \end{figure}
 \end{landscape}
 
-\subsection{Accessibility}
-
-% http://www.york.ac.uk/communications/websites/policies/accessibility/
-
-Educational institutions such as the University of York are required by the
-\gls{senda} 2001 to ensure that web content is accessible to disabled users.
-The Web Office provides advice to those publishing web sites or applications
-on behalf of the University at
-\url{http://www.york.ac.uk/communications/websites/content/accessibility/}.
-While this advice is more applicable to content-heavy areas such as department
-websites for student recruitment, it still contains some things to consider
-while building a web application.
-
-% Perceivable
-% Operable
-% Understandable
-% Robust
-
-The two major accessibility issues surrounding a web application are users who
-are visually impaired and users who are unable to use a keyboard and/or mouse
-to browse the web.
-
-To mitigate the first accessibility issue, the application was tested to
-ensure that users can increase the page or font size to fit their needs. Users
-who use custom style sheets in their web browser (for example to enhance
-contrast) are able to do so.
-
-All text and background colour combinations were tested to ensure compliance
-with WCAG AAA.
-
-% http://www.snook.ca/technical/colour_contrast/colour.html
-
-As to the second accessibility issue, generally speaking, users who are unable
-to use a keyboard or mouse do not use JavaScript in their web browser. The
-application is designed so that users with JavaScript disabled are instead
-presented a simple form layout that can be read out to them by screen-reading
-software and filled in solely with a keyboard (which can be voice controlled).
-
-It is thought with these considerations, every student will be able to use the
-system to select their modules. However, even if the above fallbacks fail the
-student will still be able to obtain help from their department (which could
-complete the module selection on their behalf). The aim is that no student
-will be stranded with an application they cannot use and no instructions
-telling them how to gain assistance.
-
-% Finally, the student interface was tested by Mr David Swallow, a Research
-% Associate in the \gls{hci} research group at the University of York. Mr
-% Swallow commented that ``on the whole, the accessibility of the application
-% is excellent and passes many of the checkpoints where other applications
-% slip up''. He did, however, note several minor issues with the application.
-
 \subsection{Interaction with other University software}
 
 The system will be required to interact with \gls{sits}, as this is the
@@ -395,6 +344,7 @@ and will import it into \gls{sits}. If this application is evaluated
 successfully and maintained centrally, it will not be feasible to import the
 data manually for each department and some kind of automatic import will have
 to be developed (discussed later in Section~\ref{sec:autoexport}).
+\input{sections/development_accessibility.tex}
 
 \input{sections/development_algorithm.tex}
 
