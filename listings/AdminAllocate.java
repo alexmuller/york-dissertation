@@ -200,12 +200,12 @@ public class AdminAllocate {
           ModulesGroup mg = (ModulesGroup) mgs_iterator.next();
           // Electives get subtracted, here, something a bit like this:
           StudGroup sg = new StudGroup(student, mg);
-          Short elective_credits = electivesmap.get(sg);
-          if (elective_credits == null) {
-            elective_credits = 0;
+          Short electives = electivesmap.get(sg);
+          if (electives == null) {
+            electives = 0;
           }
           // Continue:
-          GRBLinExpr credits_allocated = new GRBLinExpr();
+          GRBLinExpr creds_allocated = new GRBLinExpr();
           // Get modules in this group
           Set<MIMG> minmgs = mg.getModulesinthisgroup();
           Iterator minmgs_iterator = minmgs.iterator();
@@ -215,11 +215,11 @@ public class AdminAllocate {
             DMA module = minmg.getDept_module();
             short module_credits = module.getCredit();
             StudMod sm = new StudMod(student, module);
-            credits_allocated.addTerm(module_credits, gurobimavs.get(sm));
+            creds_allocated.addTerm(module_credits, gurobimavs.get(sm));
           }
-          short credits_to_allocate = mg.getCredits_to_allocate();
+          short creds_to_alloc = mg.getcreds_to_alloc();
           String name = "cr_" + student.getUsername() + "_" + mg.getId();
-          model.addConstr(credits_allocated, GRB.EQUAL, credits_to_allocate - elective_credits, name);
+          model.addConstr(creds_allocated, GRB.EQUAL, creds_to_alloc - electives, name);
         }
         
       }

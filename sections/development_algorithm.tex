@@ -2,8 +2,6 @@
 
 \subsection{Allocation algorithm}
 
-% Writeup from the meeting with JC
-
 % [@todo nice and modular]
 
 \subsubsection{Human aspects}
@@ -19,10 +17,11 @@ simply try their best to allocate as many high choices as possible.
 For example, the History department allocates between one and four modules to
 each of their students. The administrators and academic staff recounted how,
 during the allocation period, every surface in the departmental office would
-be covered with sheets of paper (one or two per student, numbering over one
-thousand in total) on which students had ranked their modules. The department
-would attempt to perform the best allocation, though clearly they had no way
-of verifying mathematically that the allocation was optimal.
+be covered with sheets of paper (one or two per student depending on their
+course, numbering well over one thousand in total) on which students had
+ranked their modules. The department would attempt to perform the best
+allocation, though clearly they had no way of verifying mathematically that
+the allocation was optimal.
 
 With this information in hand, I began to investigate how the departments and
 students saw each of the choices, as this influences what the aim of the
@@ -41,9 +40,10 @@ were bad:
 \end{itemize}
 
 While there are an astounding number of different allocations possible when no
-constraints are in place\footnote{In the History department's pilot run there
+constraints are in place,\footnote{In the History department's pilot run there
 were approximately 18000 binary variables, or $2^{18000}$ different
-allocations}, it is simple to sum a score for each allocation as follows:
+allocations} it is simple to sum a score for each allocation as
+follows:\mynobreakpar
 
 $$
 c_1(x_1) + c_2(x_2) + c_3(x_3) ...
@@ -99,7 +99,7 @@ $$
 
 During testing, I made use of the solver's ability to write out a \texttt{.lp}
 file. This section makes use of extracts from the file to demonstrate the
-objective function and constraints. The file begins:
+objective function and constraints. The file begins:\mynobreakpar
 
 \begin{lstlisting}
 Maximize
@@ -140,14 +140,14 @@ both module A and module B. The second is a constraint which attempts to
 ensure that each student is given an approximately equally good allocation.
 These constraints are explained here.
 
-\noindent{\textbf{Correct number of students in a module}}
+\noindent{\textbf{Correct number of students in a module}}\mynobreakpar
 
 Each module has a minimum and a maximum number of students that must be placed
 in it to ensure that modules are approximately the same size. The first part
 of this constraint is simple; a student cannot take a module if it does
 contain the minimum number of students. For every \studmod binary variable a
 hard constraint is applied indicating that a student can take a module
-($x_{S,M}=1$) if and only if the module is running ($y_M=1$):
+($x_{S,M}=1$) if and only if the module is running ($y_M=1$):\mynobreakpar
 
 $$
 \forall x_{S,M} \quad x_{S,M} \leq y_M
@@ -157,7 +157,7 @@ The second part of this constraint is slightly more complex; if a module is
 running, it must have the minimum number of students. Alternatively this can
 be thought of as ``if the module does not run (so $y_M=0$), we do not care
 what the class size is'' and therefore the constraint vanishes. This is
-expressed as:
+expressed as:\mynobreakpar
 
 $$
 y_M \times module\_min(M) \leq \displaystyle\sum x_{S,M}
@@ -165,7 +165,7 @@ $$
 
 The final part is again quite simple. The number of students allocated to a
 module must always be less than the maximum size of the module, no matter
-what:
+what:\mynobreakpar
 
 $$
 \displaystyle\sum x_{S,M} \leq module\_max(M)
@@ -176,7 +176,7 @@ expressed as three different types of constraint in the \texttt{.lp} file.
 Recall that \texttt{ax563fake\_34} is a binary variable indicating whether the
 student is allocated the module, and note that \texttt{moduledma34} is a
 binary variable indicating whether the module is run that year. The following
-extract from that file demonstrates that:
+extract from that file demonstrates that:\mynobreakpar
 
 \begin{enumerate}
   \item student \texttt{ax563fake} can only take module \texttt{34} if it is running
@@ -197,7 +197,7 @@ Subject To
    <= 18
 \end{lstlisting}
 
-\noindent{\textbf{Correct number of credits per group, per student}}
+\noindent{\textbf{Correct number of credits per group, per student}}\mynobreakpar
 
 Each student must be allocated the correct number of credits from every group
 that they rank modules from. As mentioned when describing the database schema
@@ -206,14 +206,14 @@ number of credits. Each group contains one or more modules, and has a number
 of credits that must be allocated. Additionally, students have the ability to
 declare that they are taking an elective module in a different department, and
 so should not be allocated the full quota of credits. For every student we
-apply the following constraint to every group:
+apply the following constraint to every group:\mynobreakpar
 
 $$
 group\_credits(G) - elective\_credits(G,S) = \displaystyle\sum_{M \in G} x_{S,M} \times module\_credits(M)
 $$
 
 In the \texttt{.lp} file, this constraint is expressed for student
-\texttt{ax563fake} and the group with ID \texttt{20} as:
+\texttt{ax563fake} and the group with ID \texttt{20} as:\mynobreakpar
 
 \begin{lstlisting}
 credits_ax563fake_20: 40 ax563fake_40 + 40 ax563fake_34 + 40 ax563fake_39
@@ -226,11 +226,11 @@ This extract represents a student with no elective modules being required to
 take 40 credits from a group consisting of several modules. The solver will
 allocate exactly one module from this group, as they are all worth 40 credits.
 
-\noindent{\textbf{Specific departmental constraints}}
+\noindent{\textbf{Specific departmental constraints}}\mynobreakpar
 
 The History department stated that two of their modules were exclusive (i.e.
 no student could take both). In the solver, this constraint (applied to all
-students) is specified as:
+students) is specified as:\mynobreakpar
 
 $$
 x_{S,M_1} + x_{S,M_2} \leq 1
@@ -240,7 +240,7 @@ This is because if both modules are allocated, the left hand side will be 2.
 Though in the case when a student is allocated either module (or neither of
 them), the constraint is satisfied.
 
-\noindent{\textbf{Equity across students}}
+\noindent{\textbf{Equity across students}}\mynobreakpar
 
 This additional hard constraint was added later in the implementation process,
 as departments enquired whether it would be possible to ensure that every

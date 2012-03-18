@@ -10,8 +10,9 @@
 %    - Margins: inside/top 2cm, outside/bottom 1cm
 %    - Landscape pages flow correctly
 %    - 'fewer modules/students', not less
+%    - Glossary update
 %
-\documentclass[twoside,draft]{scrartcl}
+\documentclass[twoside]{scrartcl}
 
 \usepackage[utf8]{inputenc} % Use utf-8 encoding for foreign characters
 
@@ -56,9 +57,6 @@
 \lstloadlanguages{HTML,Java}
 
 \usepackage{upquote}
-
-\usepackage{algorithmic,setspace}
-\algsetup{indent=2em}
 
 % This is now the recommended way for checking for PDFLaTeX:
 \usepackage{ifpdf}
@@ -106,12 +104,12 @@
 
 % Title page stuff
 \def\paperauthor{Alexander Muller}
-\def\papertitle{Allocating optional modules \\ to University of York students}
-\def\paperlength{21,400}
+\def\papertitle{Allocating Optional Modules \\ to University of York Students}
+\def\paperlength{21,624}
 
 \title{\papertitle}
 \author{\paperauthor}
-\date{\today}
+\date{18 March 2012}
 
 % PDF Properties
 \hypersetup{
@@ -484,10 +482,11 @@ discussed in Section~\ref{sec:securityreview} (15 February).
   superfluous code has been removed, but otherwise it is unmodified.
   
   \lstset{
+    basicstyle   = \ttfamily\tiny,
+    keywordstyle = \color{yorkblue},
     language     = Java,
     multicols    = 2,
-    basicstyle   = \ttfamily\tiny,
-    keywordstyle = \color{yorkblue}
+    stepnumber   = 24
   }
   \lstinputlisting{listings/AdminAllocate.java}
 \end{landscape}
