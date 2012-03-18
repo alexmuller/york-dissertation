@@ -52,48 +52,50 @@ application, and as a result produced better quality software.
 
 The implementation of the application should have begun earlier than it did.
 The increased amount of time would have provided a higher quality product and
-would have reduced how time-constrained the implementation period was.
-Requirements gathering could have been completed earlier with the help of
-members of the staff in the departments and earlier involvement from
+would have reduced the stress caused by such a time-constrained implementation
+period. Requirements gathering could have been completed earlier with the help
+of members of the staff in the departments and earlier involvement from
 \gls{itservices} may even have reduced the total amount of time that they
 spent providing input for the project.
 
 Although there was less time available for implementation than I would have
-liked, I feel I have met one the key requirements that is hard to quantify:
-maintainability. The software would require quite some work if it was to be
-maintained centrally by the University. Code quality in places is not as good
-as one might expect from a bespoke (purchased) product, but as the software is
-written using a framework that University developers are familiar with, I
-would hope that they would be able to understand the structure of the
-application and improve the code in far less time than it would take to create
-a similar application from scratch -- \gls{itservices} developers have far
-more experience with creating Java web applications than I do, but the
-constrained optimisation part of this project is, I believe, a hugely
-important piece that might they might be unfamiliar with. The code created for
-this application will give any future Java developers an understanding of
-Gurobi.
+liked, I feel I have met one the key requirements that is somewhat hard to
+measure: maintainability. Code quality in places is not as good as one might
+expect from a bespoke (purchased) product, but as the software is written
+using a framework that University developers are familiar with, I would hope
+that they would be able to understand the structure of the application and
+improve the code in far less time than it would take to create a similar
+application from scratch -- \gls{itservices} developers have far more
+experience with creating Java web applications than I do, but the constrained
+optimisation part of this project is, I believe, a hugely important piece that
+might they might be unfamiliar with. The code created for this application
+will give any future Java developers an understanding of Gurobi, and I look
+forward to walking through this part of the code with them if they would like
+to. The \gls{itservices} developer assisting with the application commented
+that he could think of several other areas of University software where
+knowledge of constrained optimisation and linear programming might be helpful.
 
 As mentioned in Section~\ref{sec:issuesarising}, if undertaking a project
-similar to this in the future I would first create a high-fidelity prototype
+similar to this in the future I might first create a high-fidelity prototype
 in a language I was very familiar with in order to meet the basic project
 requirements. I would then look at re-implementing the application in a
 language that would allow it to be maintained by other developers as required.
-It would be possible to re-use certain aspects of the prototype (for example,
-some of the front-end code), and I am of the opinion that this second
-implementation would be of higher quality, as mistakes made in the prototype
-would not be repeated. Whether or not this approach is suitable would depend
-on the nature of the project; as the module allocation software was fairly
-isolated from other systems and was a relatively small application in all, I
-think this would have been a good approach to take.
-
-There was a trade-off made between my inexperience with the chosen software
-framework (and therefore the amount of time implementation took) and the
-usefulness of the application to \gls{itservices}. In this case, I believe the
-trade-off was beneficial to the project - I managed to create a
+It would be possible to reuse certain aspects of the prototype (for example,
+all of the requirements gathering and some of the front-end code), and I am of
+the opinion that this second implementation would be of higher quality, as
+mistakes made in the prototype would not be repeated. Whether or not this
+approach is suitable would depend on the nature of the project; as the module
+allocation software was fairly isolated from other systems and was a
+relatively small application in all, I think this would have been a good
+approach to take. There was a trade-off made between my inexperience with the
+chosen software framework (and therefore the amount of time implementation
+took) and the usefulness of the application to \gls{itservices}. In this case,
+I believe the trade-off was beneficial to the project - I managed to create a
 working---though not perfect---application, and the code will still be of some
-use to the University. However, one can imagine a project like this resulting
-in no useful software being created. This is the reason for my recommendation
-to implement twice, once using a familiar language, when possible.
+use to the University in the future. However, one can imagine a project like
+this resulting in no useful software being created. This is the reason for my
+recommendation to implement twice, once using an already familiar language,
+when possible.
 
 \subsection{Pilot and feedback from departments}
 
@@ -102,23 +104,29 @@ definite success. During the week when students selected their modules very
 few issues arose, and those that did were mitigated with the help of
 \gls{itservices} and the departmental administrators. The application was
 received positively by those students who gave feedback to the departments on
-the module selection process.
+the module selection process. There were problems caused by the security
+requirement that the application not be available outside the University
+campus. Students who attempted to use the \gls{vpn} to access the application
+were unable to, and this resulted in departmental administrators having to
+input those students' choices after receiving them by email (7 out of 204 in
+the case of Archaeology). This issue would require further investigation by
+those with access to relevant log files to resolve.
 
-There were problems caused by the security requirement that the application
-not be available outside the University campus. Many students who attempted to
-use the \gls{vpn} to access the application were unable to, and this resulted
-in departmental administrators having to input those students' choices after
-receiving them by email (7 out of 204 in the case of Archaeology). This issue
-would perhaps require further investigation by those with access to relevant
-log files to resolve.
+An area I would like to have spent more time improving is the allocation
+process and the associated constraints. If running this project again, I would
+be more firm with eliciting allocation-related requirements from departments
+earlier in the process, helping them to be decisive in quantifying soft
+constraints (such as the coefficients used in the objective function). This
+should be easier in future years as this pilot has provided some results which
+can be iterated on with feedback from the departments.
 
-An area I would like to have spent more time improving is the allocation and
-associated constraints. If running this project again, I would be more firm
-with eliciting allocation-related requirements from departments earlier in the
-process, helping them to be decisive in quantifying soft constraints (such as
-the coefficients used in the objective function). This should be easier in
-future years as this pilot has provided some results which can be iterated on
-with feedback from the departments.
+This trial has also provided departments with data that they had never had
+access to in the past -- the History department, with almost one thousand
+undergraduates in total, had never before been able to analyse the choices
+that students made in order to make decisions about the courses they offer.
+The department felt that the data provided by this application would be
+incredibly useful in allowing them to quanity the popularity of their modules
+and would inform decisions about staffing and resourcing made in the future.
 
 Unfortunately, some of the time savings that this application would have
 provided were offset by time that departments had to spend during requirements
@@ -136,5 +144,6 @@ this system, just three contacted \gls{cm} to indicate they were unhappy with
 the modules they had been allocated. \gls{cm} commented that she had a feeling
 this was ``fewer than usual, but [that she] couldn’t back that up with
 anything''. Due to the deadline for this report I am unable to provide any
-student feedback on the allocation from the History department, though the staff felt
-that the allocation, with some modifications, was good.
+student feedback on the allocation from the History department, though the
+staff felt that the allocation, with some manual modifications, was as good as
+they could have managed by hand.
