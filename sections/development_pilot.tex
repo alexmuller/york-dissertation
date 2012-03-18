@@ -4,19 +4,19 @@
 \label{sec:developmentpilot}
 
 During the spring term (January to March 2012), the Archaeology and History
-departments at the University of York used this application to allocate
-modules to their second and third-year students. The application documentation
-(Appendix~\ref{sec:documentation}) includes information for departmental
-administrators about the setup of the application and limitations they should
-be aware of.
+departments at the University of York used the software developed for this
+project to allocate modules to their second and third-year students. The
+application documentation (Appendix~\ref{sec:documentation}) includes
+information for departmental administrators about the setup of the application
+and limitations they should be aware of.
 
 A production instance of the application \gls{vm} was provided by
-\gls{itservices} from 22 February, and the application was promoted from
+\gls{itservices} on 22 February, and the application was promoted from
 \texttt{wwwtest.york.ac.uk} to \texttt{www.york.ac.uk} later that day after
 final sign-off from the University's Information Security Officer. The
-application was set up by departmental administrators on 23 February and the
-setup was confirmed after a project group meeting that day.
-
+application was successfully set up by departmental administrators on 23
+February and the setup was confirmed by departments to the \gls{aso} after a
+project group meeting that day.
 Table~\ref{development_pilot_department_numbers} gives the amount of
 information added to the system by the pilot departments.
 
@@ -35,22 +35,24 @@ information added to the system by the pilot departments.
   \label{development_pilot_department_numbers}
 \end{table}
 
-As the application was hosted by \gls{itservices} on the \texttt{york.ac.uk}
-domain, notification was given to the team that provides end-user support.
-Issues are logged by this team from a variety of sources, including emails to
+As the application was hosted by \gls{itservices} using the
+\texttt{york.ac.uk} domain name, notification was given to the team that
+provides end-user support to students and staff. Issues are logged by this
+team from a variety of sources, including emails to
 \texttt{itsupport@york.ac.uk}, telephone calls and visits to the IT Support
-office. During the trial period issues relating to this application were
-forwarded to departmental administrators and the \gls{itservices} developer
-assisting with the application.
+office on campus. During the trial period any issues relating to this
+application were passed to departmental administrators and the
+\gls{itservices} developer assisting with the application.
 
 The application was available to students from 0900 on Monday 27 February
-until 1700 on Monday 5 March. Only one issue was raised by a user to their
-department during the week. The user reported they were unable to use the
-drag-and-drop functionality to make their choices. It was revealed that the
-user was using Internet Explorer 7, a web browser that was superseded by
-Internet Explorer 8 in March 2009. As of the writing of this report, computers
-provided on campus at the University of York run IE8, as well as alternate web
-browsers such as Firefox and Opera (all of which were tested for this
+until 1700 on Monday 5 March. Only one issue directly relating to the
+application code was raised by a user to their department during the week. The
+user reported they were unable to use the drag-and-drop functionality to make
+their choices. Support details provided by the user revealed that they were
+using Internet Explorer 7, a web browser that was superseded by Internet
+Explorer 8 in March 2009. As of the writing of this report, computers provided
+on campus at the University of York run IE8, as well as alternate web browsers
+such as Firefox and Opera (all of which were used to test while creating this
 application).
 
 The project implementer had intended to include some text for users of old
@@ -59,59 +61,61 @@ they should use an alternate browser if possible. Sites such as
 \url{http://www.ie6nomore.com/} include snippets of code that demonstrate how
 to achieve this. Unfortunately, for some reason this code was not committed to
 the repository and did not make it into the release version of the software.
-
 The student was advised by the departmental administrator to use a more
-up-to-date web browser and successfully used a campus PC to select their
-modules within 24 hours of the problem initially being raised.
+up-to-date web browser if possible and they successfully used a
+University-provided computer to select their modules within 24 hours of the
+problem initially being raised.
 
 Several students who were on study aboard programs reported issues connecting
 to the University's \gls{vpn}, though these issues are out of scope for this
 project. The issues could not be remedied quickly by \gls{itservices} due to
-the lack of information available, and users experiencing problems sent their
-choices by email. The choices were input into the system by administrators
-acting on behalf of students. It is worth noting that if this were an
-application built and supported by the University (as it will be if it is
-available in future years), it would be available away from campus and these
-\gls{vpn} issues would not have arisen.
+the lack of detailed diagnostic information available from the students
+encountering issues, so they simply sent their choices by email. The choices
+were input into the system by administrators acting on behalf of students. It
+is worth noting here that if this were an application built and supported by
+the University (as it will be if it is available in future years), it would be
+available away from campus and these \gls{vpn} issues would not have arisen.
 
 On the afternoon of Friday 2 March the software was upgraded to include
-improvements made during the week. Clearly performing a software upgrade in
-the afternoon before a weekend is not ideal -- if there had been any issues,
-they would not have been fixed quickly. However, the \gls{itservices}
-developer responsible for helping with the application was away from the
-office until 7 March. I decided that the upgrade had to be performed before
-then in order for departments to attempt to make an allocation sooner rather
-than later. If any issues had arisen during the upgrade, the developer would
-have reverted to the previous working release version.
+improvements made during the week. Clearly performing a software upgrade the
+afternoon before a weekend is not ideal -- if there had been any issues, they
+could not have been fixed quickly. However, the \gls{itservices} developer
+responsible for helping with the application was away from the office for
+three days after the weekend. I decided that the upgrade had to be performed
+before then in order for departments to attempt to make an allocation sooner
+rather than later. If any issues had arisen during the upgrade, the developer
+would have reverted to the previous working release version.
 
 On the morning of Monday 5 March the History department reported they had
 received emails from approximately ten students who had encountered login
 errors when trying to use the application. \gls{itservices} noted that the
-University had experienced problems with its authentication systems over the
-weekend. Departments were then informed this was not an issue with the module
-allocation application and should at that point be resolved.
+University had experienced problems with its authentication systems
+(Shibboleth) over the weekend. Departments were then informed this was not an
+issue with the module allocation application and should at that point be
+resolved. Some History students had their choices input by the department as a
+result of this issue.
 
-A History administrator noted that by 10am on Monday 5 March (96\% of the way
-through the application's opening time) just 71\% of students had used the
-system to make their choices. However the department was unconcerned,
-commenting that with time-limited processes such as this students tended to
-wait until just before the deadline.
-
+A History administrator stated in an email that by 10am on Monday 5 March
+(96\% of the way through the application's opening time) just 71\% of students
+had used the system to make their choices. However the department was
+unconcerned, commenting that with time-limited processes such as this they
+found that students tended to wait until just before the deadline.
 Departmental administrators commented that they thought students had ``engaged
 well'' with the software during the pilot week. Several students emailed their
 departments to recommend an enhancement to the interface. They requested that
-when making a choice for the second time, the ranking interface (Figure?)
-should not look as though it has never been used before -- it should load the
-choices made the previous time. This was not discovered during user testing as
-students were not given the opportunity to use the system twice.
+when making a choice for the second time, the ranking interface
+(Figure~\ref{walkthrough_student_rank}) should not look as though it has never
+been used before -- it should load the choices made the previous time. This
+was not discovered during user testing as students were never given the
+opportunity to use the system more than once.
 
 In all, only one student raised an issue that prevented them using the
 application during the week, which is equivalent to approximately 0.13\% of
-all users. I would therefore declare this a fairly successful trial of the
-student interface.
+all users. I would therefore declare this pilot to be a fairly successful
+trial of the student interface.
 
 The History department performed an allocation on the evening of 5 March,
-which completed with Gurobi reporting an ``optimal'' status. Unfortunately, at
+which completed with Gurobi reporting an ``optimal'' status. At approximately
 midday on 6 March the system stopped working, giving an ``Application Error''
 to end users (this means an exception is being thrown in the Java code). On
 investigation with \gls{itservices}, the database contained one less module
@@ -119,21 +123,29 @@ availability than module (as mentioned in
 Section~\ref{developmentdatabasestructure}, these are separate entities). This
 removal was either caused by a bug in the application code that was impossible
 to reproduce during testing and has not since reappeared, or by user error
-(accidental deletion) -- unfortunately, it is impossible to say which. The
-removal of that entity resulted in the removal of all the student ranks
-associated with that module, and so the database had to be restored to the
-nightly backup made by \gls{itservices} on 6 March at 3am. This restoration
-occurred on 9 March and the History department were able to perform another
-allocation. @todo what happened next?
+that has not been discovered (accidental deletion) -- unfortunately, it is
+impossible to definitively state the cause. The removal of that entity
+resulted in the removal of all the student ranks associated with that module,
+and so the database had to be restored to the nightly backup made by
+\gls{itservices} on 6 March at 3am. This restoration occurred on 9 March and
+the History department were able to perform another allocation. From Monday 12
+March the department spent several days modifying class sizes and manually
+reallocating several students to improve their allocation. This was a
+time-consuming process as it involved decisions being made by the Chair of the
+Board of Studies about staffing of teaching posts for the next academic year.
 
 The Archaeology department performed an allocation on 6 March. The allocation
 resulted in one module not being run (the solver found an optimal allocation
-without that module), and the decision to discontinue the module had to be
-referred to the department's Board of Studies (chaired by \gls{sa}). The
+without using that module), and the decision to discontinue the module had to
+be referred to the department's Board of Studies (chaired by \gls{sa}). The
 allocation of students to modules created by Gurobi was described as ``a
 triumph'' by the department, and they were able to pass a file containing the
-allocations to \gls{sits} one week before the deadline.
+allocations to \gls{sits} almost one week before the University deadline.
 
-% @todo: what was the students perception of equity?
-
-% @todo: how did the import go?
+\Gls{mh} imported (into \gls{sits}) the Archaeology data on 12 March and the
+History data on 16 March. He commented that the Archaeology data had some
+discrepancies caused by some students changing degree type while the
+application was live, but that History had provided ``a cleaner data set''. He
+mentioned the Archaeology data had taken him approximately one hour to import,
+which is far less than the several hours it would have taken the Archaeology
+department to input the data student-by-student.
