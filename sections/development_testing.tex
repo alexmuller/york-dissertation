@@ -2,37 +2,39 @@
 
 \subsection{Testing}
 
-% Unit tests?
-% Performance testing?
+\subsubsection{User acceptance testing}
 
-% User testing
-
-Prior to the application being made available to students, members of staff
-and students were requested to test the application. A summary of the feedback
-is given in Appendix~\ref{sec:testingfeedback}.
-
-As a result of this feedback, several changes were made in advance of the
-application being made accessible to students:
+Several days prior to the application being made available to students,
+members of staff and students were requested to test the application (similar
+to the small-scale ``friends and family'' that Kuniavsky
+\cite{kuniavsky2003userexperience} puts forward). A summary of the points
+mentioned is given in Appendix~\ref{sec:testingfeedback}. As a result of this
+feedback, several changes were made in advance of the application being made
+accessible to students:
 
 \begin{itemize}
-  \item The form validation was improved so that elective credit values were properly checked
-  \item Modules displayed on the confirmation screen were put in ascending order of rank
-  \item The explanatory text was clarified with the help of departments and the \gls{aso}
+  \item The form validation was improved so that constraints on elective
+        credit values were properly enforced (for example, so that no student can
+        take a negative number of elective credits)
+  \item Modules displayed on the confirmation screen
+        (Figure~\ref{walkthrough_student_confirm}) were put in ascending order of
+        rank to make it easier for students to spot any inconsistencies
+  \item The explanatory text for students was clarified and expanded in places
+        with the help of the pilot departments and \gls{lc} in the \gls{aso}
 \end{itemize}
 
-% Algorithm testing
+\subsubsection{Allocation testing}
 
 The departments provided their finalised courses, modules and students (making
-use of randomly generated ``fake'' usernames) to the project implementer. He
-was then able to perform an allocation based on this data with random rankings
-created by the system, to ensure that the allocation algorithm performed as
-expected.
+use of randomly generated ``fake'' usernames to comply with data protection
+legislation) to the project implementer. I was then able to perform an
+allocation based on this data with random rankings created by the system, to
+ensure that the allocation problem given to the solver returned expected
+results. The random rankings were generated during testing using the following
+pseudocode:\mynobreakpar
 
-The random rankings were generated during testing using the following
-pseudocode:
-
-\begin{verbatim}
-  For each student in the sytem:
+\begin{Verbatim}[samepage=true]
+  For each student in the system:
     Get the student's choices and clear them
     Get the student's groups
     For each of the student's groups:
@@ -44,26 +46,27 @@ pseudocode:
         rank += 1
         Create a choice entity for this (student, module, rank)
     Save the student's choices
-\end{verbatim}
+\end{Verbatim}
 
-Clearly students do not rank modules with absolute uniform randomness in
-practice. Some modules are more popular than others, and as such will receive
-more first choices. This will influence the objective function, but these
-random rankings were used to provide useful information on whether the hard
-constraints of the model could be met.
+Clearly students do not rank modules with absolute uniform randomness in the
+real world -- some modules are more popular than others based on content and
+lecturer, and as such will receive more first choices. This will influence the
+objective function, but these random rankings were used to test whether the
+hard constraints of the model could be met.
 
-Initially, the data provided by the History department caused the solver to
-report that finding any allocation, no matter what the value of the objective
-function, was an insolvable problem. In this case, Gurobi reported that the
-model was infeasible.
+Initially, the course and module data provided by the History department
+caused the solver to report that finding any allocation, no matter what the
+value of the objective function, was an insolvable problem. In this case,
+Gurobi simply reported that the model was infeasible and it was impossible to
+allocate all students the requisite number of modules. The project implementer
+noted that the \gls{iis} computed by Gurobi (a subset of the variables and
+constraints that helps find a solvable model) revealed that modules with
+database ID from 1 to 8 were the problem modules -- the solver was unable to
+find a solution such that the maximum class size constraint could be met for
+these modules. These eight modules had similar properties in the
+database:\mynobreakpar
 
-The project implementer noted that the \gls{iis} computed by Gurobi revealed
-that modules with database ID from 1 to 8 were the problem modules -- the
-solver was unable to find a solution such that the maximum class size
-constraint could be met for these modules. These eight modules had these
-properties in the database:
-
-\begin{verbatim}
+\begin{Verbatim}[samepage=true]
  id   code         min   max   credits
 ---------------------------------------
  1    HIS00002I    56    64    20
@@ -75,21 +78,19 @@ properties in the database:
  7    HIS00064I    56    64    20
  8    HIS00065I    56    64    20
 ---------------------------------------
-\end{verbatim}
+\end{Verbatim}
 
 On further inspection, it was revealed these eight modules form the
-department's ``Histories and Contexts'' group. They are self-contained
-modules; they only appear with all eight together and never with any other
-modules. This means that it is possible to count exactly the number of
-allocations that will be required to be made by the system.
+department's ``Histories and Contexts'' group. They are entirely
+self-contained modules; they only appear with all eight of them together and
+never with any other modules. This means that it is possible to count exactly
+the number of allocations that will be required to be made by the system. The
+following data shows the seven groups that these modules appear in. For each
+of these seven groups, the departments have specified a number of credits that
+the system is required to allocate. As the modules are all worth 20 credits
+either one or two allocations always needs to be made, depending on the group.
 
-The following table shows the seven groups that these modules appear in. For
-each of these seven groups, the departments have specified a number of credits
-that the system is required to allocate. As the modules are all worth 20
-credits either one or two allocations needs to be made, depending on the
-group.
-
-\begin{verbatim}
+\begin{Verbatim}[samepage=true]
  group_id  sheet_id  credits_to_alloc  mods_to_alloc  num_students  num_allocations
 ------------------------------------------------------------------------------------
  1         1         40                40 / 20 = 2             220    220 x 2 = 440
@@ -101,26 +102,25 @@ group.
  13        7         40                40 / 20 = 2              16     16 x 2 =  32
 ------------------------------------------------------------------------------------
  Total:                                                        287              523
-\end{verbatim}
+\end{Verbatim}
 
-As each group has a fixed number of students associated with it, it is trivial
-to see that 523 allocations \textbf{must} be made by the system in order to
-meet the hard constraint that every student takes the correct number of
-credits. However, each of the eight modules was given a cap of just 64
-students, meaning the solver could only ever generate 512 allocations.
-
-The History department was consulted and it was revealed they had been overly
-cautious when setting the cap to allow sufficient places for visiting
-students. In fact, the cap had been set so low that there was not enough space
-for each student in the department to take their full quota of modules.
-Increasing the cap on these eight modules from 64 to 66 meant that 528
-allocations could be made. The allocation was tested with these new caps and,
-as expected, it completed without problems.
+As each group has a constant number of students associated with it, it is
+trivial to see that 523 allocations \textbf{must} be made by the system in
+order to meet the hard constraint that every student takes the correct number
+of credits. However, each of the eight modules was given a cap of just 64
+students, meaning the solver could only ever generate 512 allocations for
+these modules. The History department was consulted and it was revealed they
+had been overly cautious when setting the cap, to allow sufficient places for
+visiting students. In fact, the cap had been set so low that there was not
+enough space for each student in the department to take their full quota of
+modules. Increasing the cap on these eight modules from 64 to 66 meant that
+528 allocations could be made. The allocation was tested with these new caps
+and, as expected, it completed without problems.
 
 The anonymised data provided by the Archaeology department did not cause the
-solver to report any problems. As discussed in
-Section~\ref{sec:algo_humanaspects}, Archaeology has far more available
-capacity in their modules than History so this is unsurprising.
+solver to report any problems with regards to hard constraints. As discussed
+in Section~\ref{sec:algo_humanaspects}, Archaeology has far more available
+capacity in their modules than History so this result is unsurprising.
 
 \begin{table}
   \begin{center}
@@ -160,9 +160,8 @@ capacity in their modules than History so this is unsurprising.
   \label{gurobi_equity_table}
 \end{table}
 
-The project implementer also tested the additional hard constraint, called
-``equity across students'', to see whether it provided a better allocation.
-
+The additional hard constraint, called ``equity across students'', was also
+tested to see whether it provided a better allocation.
 Table~\ref{gurobi_equity_table} shows data obtained from some test allocations
 made to demonstrate the effect that this hard constraint has. Each column in
 the table represents a different equity cap. For each equity cap, random
@@ -170,10 +169,10 @@ rankings were generated and an allocation was performed on those rankings.
 This was performed twice for each cap and the figures were averaged to obtain
 the result shown. The cap is given in terms of two figures; the first figure
 is the cap for single-subject students, and the second is the cap for joint
-students. This is due to the fact joint students take less modules, and as
-such would expect a lower cap.
-
-With no cap present, we observe one or two students who receive incredibly bad
-allocations. As the cap is reduced, clearly the number of bad allocations is
-reduced. However, as might be expected we also start to observe the number of
-perfect allocations decreasing.
+students. This is due to the fact joint students take fewer modules, and as
+such would expect a lower cap. With no cap present, we observe one or two
+students who receive incredibly bad allocations (a sum of 25 across four
+modules indicates a student receiving their 5th and 7th choice in one group
+and their 6th and 7th in a second group). As the cap is reduced, clearly the
+number of bad allocations is reduced. However, as might be expected we also
+start to observe the number of perfect allocations decreasing.
